@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{91847C14-C409-48DC-AD41-E499DAAC53BB}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SuiviPoids.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\SuiviPoidsTests.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SuiviPoids">
+        <MSBuild Projects="SuiviPoids.dproj"/>
+    </Target>
+    <Target Name="SuiviPoids:Clean">
+        <MSBuild Projects="SuiviPoids.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SuiviPoids:Make">
+        <MSBuild Projects="SuiviPoids.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SuiviPoidsTests">
+        <MSBuild Projects="Test\SuiviPoidsTests.dproj"/>
+    </Target>
+    <Target Name="SuiviPoidsTests:Clean">
+        <MSBuild Projects="Test\SuiviPoidsTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SuiviPoidsTests:Make">
+        <MSBuild Projects="Test\SuiviPoidsTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SuiviPoids;SuiviPoidsTests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SuiviPoids:Clean;SuiviPoidsTests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SuiviPoids:Make;SuiviPoidsTests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
