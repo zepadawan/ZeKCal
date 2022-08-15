@@ -42,6 +42,9 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
             HeaderGlyphAlignmentHorz = taCenter
             Options.Editing = False
           end
+          object cxGridDBTableView1IMC_ID: TcxGridDBColumn
+            DataBinding.FieldName = 'IMC_ID'
+          end
         end
       end
     end

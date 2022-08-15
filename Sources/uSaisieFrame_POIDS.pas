@@ -15,6 +15,7 @@ type
     cxGridDBTableView1Date: TcxGridDBColumn;
     cxGridDBTableView1Poids: TcxGridDBColumn;
     cxGridDBTableView1IMC_Calc: TcxGridDBColumn;
+    cxGridDBTableView1IMC_ID: TcxGridDBColumn;
     procedure cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure FrameResize(Sender: TObject);

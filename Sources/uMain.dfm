@@ -48,9 +48,6 @@ object Form1: TForm1
     Color = clSilver
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -8
-    ExplicitTop = 136
-    ExplicitHeight = 394
   end
   object Panel1: TPanel
     Left = 0

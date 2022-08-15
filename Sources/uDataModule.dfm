@@ -1,5 +1,6 @@
 object DataModule1: TDataModule1
-  OldCreateOrder = False
+  OldCreateOrder = True
+  OnCreate = DataModuleCreate
   Height = 289
   Width = 744
   object MyConnection1: TMyConnection
@@ -15,12 +16,10 @@ object DataModule1: TDataModule1
   object T_IMC: TMyTable
     TableName = 't_imc'
     Connection = MyConnection1
-    Active = True
     Options.FieldOrigins = foNone
     Left = 144
     Top = 16
     object T_IMCID: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
     end
     object T_IMCLabel: TStringField
@@ -62,6 +61,9 @@ object DataModule1: TDataModule1
     end
     object T_POIDSIMC_Calc: TFloatField
       FieldName = 'IMC_Calc'
+    end
+    object T_POIDSIMC_ID: TLongWordField
+      FieldName = 'IMC_ID'
     end
   end
   object DS_POIDS: TMyDataSource

@@ -9,7 +9,8 @@ uses
   dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
   dxBar, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls, cxButtons,
   uUtils,
-  uFrame_Manager, uSaisieFrame_IMC, uSaisieFrame_POIDS;
+  uFrame_Manager, uSaisieFrame_IMC, uSaisieFrame_POIDS,
+  uComponent_IMC;
 
 type
   TForm1 = class(TForm)
@@ -36,11 +37,13 @@ type
     { Déclarations privées }
     FCurrent_Frame : TFrame;
     FFrame_Manager : TFrame_Manager;
+    FComponentManager_IMC : TComponentManager_IMC;
     procedure getCurrentFrame(aFrame : TFrame);
     procedure ShowFrame(aFrame:TFrame);
   public
     { Déclarations publiques }
     procedure initialiizeFrames;
+    procedure initializeComponents;
   end;
 
 var
@@ -49,6 +52,8 @@ var
 
 implementation
 {$R *.dfm}
+
+uses uDataModule;
 
 procedure TForm1.Btn_FermerClick(Sender: TObject);
 begin
@@ -69,20 +74,25 @@ end;
 procedure TForm1.TestClick(Sender: TObject);
 var
   aIMC : Double;
+  aID : Integer;
 begin
 //   calcul de l'IMC   : Poids / Talle au carré
-  aIMC := TUtils.IMC(100.8);
+//  aIMC := TUtils.IMC(100.8);
+  aID := FComponentManager_IMC.getIDByValue(34.98);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   FFrame_Manager := TFrame_Manager.Create;
   initialiizeFrames;
+  FComponentManager_IMC := TComponentManager_IMC.Create(Self);
+  DataModule1.FComponentManager_IMC := FComponentManager_IMC;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
   Btn_FermerClick(Self);
+  FComponentManager_IMC.Free;
 end;
 
 procedure TForm1.getCurrentFrame(aFrame: TFrame);
@@ -96,6 +106,11 @@ begin
   FFrame_Manager.AddFrame(FSaisieFrame_IMC);
   FFrame_Manager.AddFrame(FSaisieFrame_POIDS);
 end;
+procedure TForm1.initializeComponents;
+begin
+  FComponentManager_IMC.initialize;
+end;
+
 procedure TForm1.ShowFrame(aFrame: TFrame);
 begin
   Btn_FermerClick(Self);
