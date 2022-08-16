@@ -6,6 +6,8 @@ uses
   System.Classes, System.Contnrs, Vcl.Graphics;
 
 type
+  TComponent_IMC = class;
+
   TComponentManager_IMC = class(TComponent)
   private
   public
@@ -13,7 +15,10 @@ type
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
     procedure initialize;
+    function getCompoIMCByID( aID: Integer): TComponent_IMC;
     function getIDByValue(aValue : Double): Integer;
+    function getLabelByID(aID : Integer): String;
+    function getColorByID(aID : Integer): TColor;
 
   end;
 
@@ -101,6 +106,26 @@ begin
   inherited;
 end;
 
+function TComponentManager_IMC.getColorByID(aID: Integer): TColor;
+begin
+  Result := getCompoIMCByID(aID).IMC_Color;
+end;
+
+function TComponentManager_IMC.getCompoIMCByID(aID: Integer): TComponent_IMC;
+var
+  i: Integer;
+  aCompoIMC: TComponent_IMC;
+begin
+  for i := 0 to FCompoList.Count - 1 do
+  begin
+    aCompoIMC := TComponent_IMC(FCompoList[i]);
+    if (aCompoIMC.IMC_ID = aID) then
+    begin
+      Result := aCompoIMC;
+    end;
+  end;
+end;
+
 function TComponentManager_IMC.getIDByValue(aValue: Double): Integer;
 var
   i: Integer;
@@ -114,6 +139,11 @@ begin
       Result := aCompoIMC.IMC_ID;
     end;
   end;
+end;
+
+function TComponentManager_IMC.getLabelByID(aID: Integer): String;
+begin
+  Result := getCompoIMCByID(aID).IMC_Label;
 end;
 
 procedure TComponentManager_IMC.initialize;

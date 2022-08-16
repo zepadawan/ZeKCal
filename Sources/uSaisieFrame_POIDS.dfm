@@ -17,6 +17,7 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
       ExplicitWidth = 959
       ExplicitHeight = 458
       inherited cxGrid2: TcxGrid
+        ExplicitLeft = 0
         inherited cxGridDBTableView1: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_POIDS
           object cxGridDBTableView1ID: TcxGridDBColumn
@@ -44,6 +45,8 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
           end
           object cxGridDBTableView1IMC_ID: TcxGridDBColumn
             DataBinding.FieldName = 'IMC_ID'
+            OnCustomDrawCell = cxGridDBTableView1IMC_IDCustomDrawCell
+            OnGetCellHint = cxGridDBTableView1IMC_IDGetCellHint
           end
         end
       end

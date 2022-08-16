@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uSaisieFrame, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit;
+  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit,
+  uComponent_IMC;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
@@ -16,13 +17,20 @@ type
     cxGridDBTableView1Poids: TcxGridDBColumn;
     cxGridDBTableView1IMC_Calc: TcxGridDBColumn;
     cxGridDBTableView1IMC_ID: TcxGridDBColumn;
+    procedure FrameResize(Sender: TObject);
     procedure cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
-    procedure FrameResize(Sender: TObject);
+    procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption;
+      var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
   private
     { Déclarations privées }
   public
     { Déclarations publiques }
+    FComponentManager_IMC : TComponentManager_IMC;
+
   end;
 
 var
@@ -39,25 +47,21 @@ procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: T
 begin
   inherited;
   ACanvas.Font.Style :=  [fsBold];
+end;
 
-  if (AViewInfo.Value > 18) and (AViewInfo.Value < 25) then
-  begin
-    ACanvas.Brush.Color := 65280;
-  end else
-  if (AViewInfo.Value >= 25) and (AViewInfo.Value < 30) then
-  begin
-    ACanvas.Brush.Color := 65535;
-  end else
-  if (AViewInfo.Value >= 30) and (AViewInfo.Value < 35) then
-  begin
-    ACanvas.Brush.Color := 33023;
-  end else
-  if (AViewInfo.Value >= 35) and (AViewInfo.Value < 40) then
-  begin
-    ACanvas.Brush.Color := 255;
-  end;
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+  ACanvas.Brush.Color := FComponentManager_IMC.getColorByID(AViewInfo.Value);
+end;
 
-
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem;
+  ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;
+  var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
+begin
+  inherited;
+  aHintText := FComponentManager_IMC.getLabelByID(ACellViewInfo.Value);
 end;
 
 procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);

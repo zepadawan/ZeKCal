@@ -87,6 +87,7 @@ begin
   initialiizeFrames;
   FComponentManager_IMC := TComponentManager_IMC.Create(Self);
   DataModule1.FComponentManager_IMC := FComponentManager_IMC;
+  FSaisieFrame_POIDS.FComponentManager_IMC := FComponentManager_IMC;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
