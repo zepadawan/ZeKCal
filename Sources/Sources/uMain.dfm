@@ -118,6 +118,10 @@ object Form1: TForm1
         end
         item
           Visible = True
+          ItemName = 'dxBarSubItem4'
+        end
+        item
+          Visible = True
           ItemName = 'dxBarSubItem3'
         end>
       MultiLine = True
@@ -149,7 +153,7 @@ object Form1: TForm1
         end>
     end
     object dxBarSubItem3: TdxBarSubItem
-      Caption = 'New SubItem'
+      Caption = 'Tests'
       Category = 0
       Visible = ivAlways
       ItemLinks = <
@@ -173,11 +177,27 @@ object Form1: TForm1
       OnClick = Btn_SaisiePoidsClick
     end
     object Test: TdxBarButton
-      Caption = 'New Button'
+      Caption = 'Test'
       Category = 0
-      Hint = 'New Button'
+      Hint = 'Test'
       Visible = ivAlways
       OnClick = TestClick
+    end
+    object dxBarSubItem4: TdxBarSubItem
+      Caption = 'Suivi Diab'#232'te'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'dxBarButton1'
+        end>
+    end
+    object dxBarButton1: TdxBarButton
+      Caption = 'Saisie Valeurs'
+      Category = 0
+      Hint = 'Saisie Valeurs'
+      Visible = ivAlways
     end
     object dxBarGroup1: TdxBarGroup
       Items = ()

@@ -27,6 +27,8 @@ type
     Btn_IMC: TdxBarButton;
     Btn_SaisiePoids: TdxBarLargeButton;
     Test: TdxBarButton;
+    dxBarSubItem4: TdxBarSubItem;
+    dxBarButton1: TdxBarButton;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);

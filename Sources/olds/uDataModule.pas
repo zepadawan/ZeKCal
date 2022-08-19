@@ -54,8 +54,7 @@ uses
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
   T_IMC.Open;
-  T_POIDS.Open;
-  T_DIABETE.Open;
+   T_POIDS.Open;
 end;
 
 procedure TDataModule1.T_POIDSBeforePost(DataSet: TDataSet);

@@ -47,7 +47,7 @@ object DataModule1: TDataModule1
     Debug = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
-    Left = 152
+    Left = 144
     Top = 64
     object T_POIDSID: TIntegerField
       AutoGenerateValue = arAutoInc
@@ -80,7 +80,6 @@ object DataModule1: TDataModule1
     Left = 144
     Top = 112
     object T_DIABETEID: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
     end
     object T_DIABETEDate: TDateField
@@ -88,10 +87,12 @@ object DataModule1: TDataModule1
     end
     object T_DIABETEHeurre: TTimeField
       FieldName = 'Heurre'
+      DisplayFormat = '00 h 00'
+      EditMask = '00:00'
     end
     object T_DIABETEValeur: TLongWordField
       FieldName = 'Valeur'
-      DisplayFormat = '### mg/dL'
+      DisplayFormat = '### mg/'
     end
   end
   object DS_DIABETE: TMyDataSource
