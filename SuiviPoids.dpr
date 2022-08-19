@@ -10,7 +10,8 @@ uses
   uSaisieFrame_IMC in 'Sources\Saisies\uSaisieFrame_IMC.pas' {FSaisieFrame_IMC: TFrame},
   uSaisieFrame_POIDS in 'Sources\Saisies\uSaisieFrame_POIDS.pas' {FSaisieFrame_POIDS: TFrame},
   uUtils in 'Sources\Sources\uUtils.pas',
-  uComponent_IMC in 'Sources\Components\uComponent_IMC.pas';
+  uComponent_IMC in 'Sources\Components\uComponent_IMC.pas',
+  uSaisieFrame_DIABETE in 'Sources\Saisies\uSaisieFrame_DIABETE.pas' {FSaisieFrame_DIABETE: TFrame};
 
 {$R *.res}
 

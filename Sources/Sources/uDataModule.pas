@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess, MemDS,
-  uComponent_IMC;
+  uComponent_IMC, cxStyles, cxClasses;
 
 type
   TDataModule1 = class(TDataModule)
@@ -23,6 +23,14 @@ type
     T_POIDSPoids: TFloatField;
     T_POIDSIMC_Calc: TFloatField;
     T_POIDSIMC_ID: TLongWordField;
+    T_DIABETE: TMyTable;
+    DS_DIABETE: TMyDataSource;
+    T_DIABETEID: TIntegerField;
+    T_DIABETEDate: TDateField;
+    T_DIABETEHeurre: TTimeField;
+    T_DIABETEValeur: TLongWordField;
+    cxStyleRepository: TcxStyleRepository;
+    Gras: TcxStyle;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private
@@ -48,7 +56,8 @@ uses
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
   T_IMC.Open;
-   T_POIDS.Open;
+  T_POIDS.Open;
+  T_DIABETE.Open;
 end;
 
 procedure TDataModule1.T_POIDSBeforePost(DataSet: TDataSet);

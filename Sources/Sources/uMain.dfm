@@ -190,14 +190,15 @@ object Form1: TForm1
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'dxBarButton1'
+          ItemName = 'Btn_Gene_SaisieDiabete'
         end>
     end
-    object dxBarButton1: TdxBarButton
+    object Btn_Gene_SaisieDiabete: TdxBarButton
       Caption = 'Saisie Valeurs'
       Category = 0
       Hint = 'Saisie Valeurs'
       Visible = ivAlways
+      OnClick = Btn_Gene_SaisieDiabeteClick
     end
     object dxBarGroup1: TdxBarGroup
       Items = ()

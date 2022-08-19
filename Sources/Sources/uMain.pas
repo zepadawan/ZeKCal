@@ -9,7 +9,7 @@ uses
   dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
   dxBar, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls, cxButtons,
   uUtils,
-  uFrame_Manager, uSaisieFrame_IMC, uSaisieFrame_POIDS,
+  uFrame_Manager, uSaisieFrame_IMC, uSaisieFrame_POIDS, uSaisieFrame_DIABETE,
   uComponent_IMC;
 
 type
@@ -28,19 +28,19 @@ type
     Btn_SaisiePoids: TdxBarLargeButton;
     Test: TdxBarButton;
     dxBarSubItem4: TdxBarSubItem;
-    dxBarButton1: TdxBarButton;
+    Btn_Gene_SaisieDiabete: TdxBarButton;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Btn_SaisiePoidsClick(Sender: TObject);
     procedure TestClick(Sender: TObject);
+    procedure Btn_Gene_SaisieDiabeteClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
     FFrame_Manager : TFrame_Manager;
     FComponentManager_IMC : TComponentManager_IMC;
-    procedure getCurrentFrame(aFrame : TFrame);
     procedure ShowFrame(aFrame:TFrame);
   public
     { Déclarations publiques }
@@ -73,6 +73,11 @@ begin
    ShowFrame(FSaisieFrame_POIDS);
 end;
 
+procedure TForm1.Btn_Gene_SaisieDiabeteClick(Sender: TObject);
+begin
+   ShowFrame(FSaisieFrame_DIABETE);
+end;
+
 procedure TForm1.TestClick(Sender: TObject);
 var
   aIMC : Double;
@@ -98,16 +103,11 @@ begin
   FComponentManager_IMC.Free;
 end;
 
-procedure TForm1.getCurrentFrame(aFrame: TFrame);
-begin
-   FCurrent_Frame := FFrame_Manager.getFramebyFrame(FSaisieFrame_IMC);
-   FCurrent_Frame.Parent :=  Panel_Frame;
-end;
-
 procedure TForm1.initialiizeFrames;
 begin
   FFrame_Manager.AddFrame(FSaisieFrame_IMC);
   FFrame_Manager.AddFrame(FSaisieFrame_POIDS);
+  FFrame_Manager.AddFrame(FSaisieFrame_DIABETE);
 end;
 procedure TForm1.initializeComponents;
 begin
@@ -128,12 +128,14 @@ initialization
 begin
   FSaisieFrame_IMC := TFSaisieFrame_IMC.Create(Form1);
   FSaisieFrame_POIDS := TFSaisieFrame_POIDS.Create(Form1);
+  FSaisieFrame_DIABETE := TFSaisieFrame_DIABETE.Create(Form1);
 end;
 
 finalization
 begin
   FSaisieFrame_IMC.Free;
   FSaisieFrame_POIDS.Free;
+  FSaisieFrame_DIABETE.Free;
 end;
 
 end.

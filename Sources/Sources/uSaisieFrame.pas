@@ -34,8 +34,6 @@ var
   FSaisieFrame: TFSaisieFrame;
 
 implementation
-uses
- uDataModule;
 
 
 {$R *.dfm}

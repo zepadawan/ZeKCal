@@ -43,12 +43,10 @@ object DataModule1: TDataModule1
   object T_POIDS: TMyTable
     TableName = 't_suivi_poids'
     Connection = MyConnection1
-    Debug = True
-    Active = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
-    Left = 144
-    Top = 64
+    Left = 280
+    Top = 16
     object T_POIDSID: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'ID'
@@ -58,6 +56,7 @@ object DataModule1: TDataModule1
     end
     object T_POIDSPoids: TFloatField
       FieldName = 'Poids'
+      DisplayFormat = '000.00   Kg'
     end
     object T_POIDSIMC_Calc: TFloatField
       FieldName = 'IMC_Calc'
@@ -68,7 +67,45 @@ object DataModule1: TDataModule1
   end
   object DS_POIDS: TMyDataSource
     DataSet = T_POIDS
+    Left = 328
+    Top = 16
+  end
+  object T_DIABETE: TMyTable
+    TableName = 't_suivi_diabete'
+    Connection = MyConnection1
+    Options.FieldOrigins = foNone
+    Left = 144
+    Top = 72
+    object T_DIABETEID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+    end
+    object T_DIABETEDate: TDateField
+      FieldName = 'Date'
+    end
+    object T_DIABETEHeurre: TTimeField
+      FieldName = 'Heurre'
+    end
+    object T_DIABETEValeur: TLongWordField
+      FieldName = 'Valeur'
+    end
+  end
+  object DS_DIABETE: TMyDataSource
+    DataSet = T_DIABETE
     Left = 192
-    Top = 64
+    Top = 72
+  end
+  object cxStyleRepository: TcxStyleRepository
+    Left = 536
+    Top = 16
+    PixelsPerInch = 96
+    object Gras: TcxStyle
+      AssignedValues = [svFont]
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+    end
   end
 end

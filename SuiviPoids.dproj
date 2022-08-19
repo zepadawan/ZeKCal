@@ -130,6 +130,11 @@
         </DCCReference>
         <DCCReference Include="Sources\Sources\uUtils.pas"/>
         <DCCReference Include="Sources\Components\uComponent_IMC.pas"/>
+        <DCCReference Include="Sources\Saisies\uSaisieFrame_DIABETE.pas">
+            <Form>FSaisieFrame_DIABETE</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

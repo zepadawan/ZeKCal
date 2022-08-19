@@ -116,6 +116,7 @@ var
   i: Integer;
   aCompoIMC: TComponent_IMC;
 begin
+  Result := nil;
   for i := 0 to FCompoList.Count - 1 do
   begin
     aCompoIMC := TComponent_IMC(FCompoList[i]);
@@ -131,6 +132,7 @@ var
   i: Integer;
   aCompoIMC: TComponent_IMC;
 begin
+  Result := 0;
   for i := 0 to FCompoList.Count - 1 do
   begin
     aCompoIMC := TComponent_IMC(FCompoList[i]);

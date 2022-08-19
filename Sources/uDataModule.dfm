@@ -75,10 +75,11 @@ object DataModule1: TDataModule1
     TableName = 't_suivi_diabete'
     Connection = MyConnection1
     Debug = True
+    Active = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
-    Left = 144
-    Top = 112
+    Left = 288
+    Top = 40
     object T_DIABETEID: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'ID'
@@ -96,7 +97,7 @@ object DataModule1: TDataModule1
   end
   object DS_DIABETE: TMyDataSource
     DataSet = T_DIABETE
-    Left = 192
-    Top = 112
+    Left = 336
+    Top = 40
   end
 end
