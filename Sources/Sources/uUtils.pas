@@ -22,6 +22,7 @@ var
   aCalc : Double;
   aRes : string;
 begin
+  Result := 0;
   if aPoids <> 0  then
   begin
     aTaille2 := StrToFloat(TAILLE) * StrToFloat(TAILLE);

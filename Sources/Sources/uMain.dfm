@@ -48,6 +48,27 @@ object Form1: TForm1
     Color = clSilver
     ParentBackground = False
     TabOrder = 1
+    inline FFrameMenu1: TFFrameMenu
+      Left = 1
+      Top = 1
+      Width = 974
+      Height = 509
+      Align = alClient
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 974
+      ExplicitHeight = 509
+      inherited cxButton1: TcxButton
+        OnClick = Btn_SaisiePoidsClick
+      end
+      inherited cxButton2: TcxButton
+        OnClick = Btn_Gene_SaisieDiabeteClick
+      end
+    end
   end
   object Panel1: TPanel
     Left = 0
@@ -118,6 +139,10 @@ object Form1: TForm1
         end
         item
           Visible = True
+          ItemName = 'dxBarSubItem4'
+        end
+        item
+          Visible = True
           ItemName = 'dxBarSubItem3'
         end>
       MultiLine = True
@@ -135,7 +160,19 @@ object Form1: TForm1
       ItemLinks = <
         item
           Visible = True
+          ItemName = 'Bt_Gene_Params'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarSeparator1'
+        end
+        item
+          Visible = True
           ItemName = 'Btn_IMC'
+        end
+        item
+          Visible = True
+          ItemName = 'Btn_Gene_IMG'
         end>
     end
     object dxBarSubItem2: TdxBarSubItem
@@ -149,7 +186,7 @@ object Form1: TForm1
         end>
     end
     object dxBarSubItem3: TdxBarSubItem
-      Caption = 'New SubItem'
+      Caption = 'Tests'
       Category = 0
       Visible = ivAlways
       ItemLinks = <
@@ -173,11 +210,49 @@ object Form1: TForm1
       OnClick = Btn_SaisiePoidsClick
     end
     object Test: TdxBarButton
-      Caption = 'New Button'
+      Caption = 'Test'
       Category = 0
-      Hint = 'New Button'
+      Hint = 'Test'
       Visible = ivAlways
       OnClick = TestClick
+    end
+    object dxBarSubItem4: TdxBarSubItem
+      Caption = 'Suivi Diab'#232'te'
+      Category = 0
+      Visible = ivAlways
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'Btn_Gene_SaisieDiabete'
+        end>
+    end
+    object Btn_Gene_SaisieDiabete: TdxBarButton
+      Caption = 'Saisie Valeurs'
+      Category = 0
+      Hint = 'Saisie Valeurs'
+      Visible = ivAlways
+      OnClick = Btn_Gene_SaisieDiabeteClick
+    end
+    object Bt_Gene_Params: TdxBarButton
+      Caption = 'Parametres'
+      Category = 0
+      Hint = 'Parametres'
+      Visible = ivAlways
+      OnClick = Bt_Gene_ParamsClick
+    end
+    object Btn_Gene_IMG: TdxBarButton
+      Caption = 'IMG'
+      Category = 0
+      Hint = 'IMG'
+      Visible = ivAlways
+      OnClick = Btn_Gene_IMGClick
+    end
+    object dxBarSeparator1: TdxBarSeparator
+      Caption = '-'
+      Category = 0
+      Hint = '-'
+      Visible = ivAlways
+      ShowCaption = False
     end
     object dxBarGroup1: TdxBarGroup
       Items = ()

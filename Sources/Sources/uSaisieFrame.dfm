@@ -84,6 +84,7 @@ inherited FSaisieFrame: TFSaisieFrame
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
+          OptionsData.DeletingConfirmation = False
           OptionsView.ColumnAutoWidth = True
           OptionsView.Footer = True
           OptionsView.Indicator = True

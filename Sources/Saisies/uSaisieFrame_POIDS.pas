@@ -8,7 +8,7 @@ uses
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit,
-  uComponent_IMC;
+  uComponent_IMC, cxCalendar;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
@@ -17,9 +17,12 @@ type
     cxGridDBTableView1Poids: TcxGridDBColumn;
     cxGridDBTableView1IMC_Calc: TcxGridDBColumn;
     cxGridDBTableView1IMC_ID: TcxGridDBColumn;
+    cxGridDBTableView1Ecart1: TcxGridDBColumn;
+    cxGridDBTableView1Ecart_Cum: TcxGridDBColumn;
+    cxGridDBTableView1IMG_Graisse_BF: TcxGridDBColumn;
+    cxGridDBTableView1IMG_Hydrat_BW: TcxGridDBColumn;
+    cxGridDBTableView1IMG_Muscle_BM: TcxGridDBColumn;
     procedure FrameResize(Sender: TObject);
-    procedure cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
@@ -42,17 +45,12 @@ implementation
 uses
   uDataModule;
 
-procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: TcxCustomGridTableView;
-  ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
-begin
-  inherited;
-  ACanvas.Font.Style :=  [fsBold];
-end;
-
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
   inherited;
+  if AViewInfo.Value <> null  then
+  
   ACanvas.Brush.Color := FComponentManager_IMC.getColorByID(AViewInfo.Value);
 end;
 

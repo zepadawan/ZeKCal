@@ -16,6 +16,7 @@ object DataModule1: TDataModule1
   object T_IMC: TMyTable
     TableName = 't_imc'
     Connection = MyConnection1
+    Debug = True
     Options.FieldOrigins = foNone
     Left = 144
     Top = 16
@@ -44,10 +45,9 @@ object DataModule1: TDataModule1
     TableName = 't_suivi_poids'
     Connection = MyConnection1
     Debug = True
-    Active = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
-    Left = 144
+    Left = 152
     Top = 64
     object T_POIDSID: TIntegerField
       AutoGenerateValue = arAutoInc
@@ -70,5 +70,34 @@ object DataModule1: TDataModule1
     DataSet = T_POIDS
     Left = 192
     Top = 64
+  end
+  object T_DIABETE: TMyTable
+    TableName = 't_suivi_diabete'
+    Connection = MyConnection1
+    Debug = True
+    Active = True
+    BeforePost = T_POIDSBeforePost
+    Options.FieldOrigins = foNone
+    Left = 288
+    Top = 40
+    object T_DIABETEID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+    end
+    object T_DIABETEDate: TDateField
+      FieldName = 'Date'
+    end
+    object T_DIABETEHeurre: TTimeField
+      FieldName = 'Heurre'
+    end
+    object T_DIABETEValeur: TLongWordField
+      FieldName = 'Valeur'
+      DisplayFormat = '### mg/dL'
+    end
+  end
+  object DS_DIABETE: TMyDataSource
+    DataSet = T_DIABETE
+    Left = 336
+    Top = 40
   end
 end

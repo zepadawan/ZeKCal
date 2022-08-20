@@ -18,8 +18,9 @@ object DataModule1: TDataModule1
     Connection = MyConnection1
     Options.FieldOrigins = foNone
     Left = 144
-    Top = 16
+    Top = 56
     object T_IMCID: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
     end
     object T_IMCLabel: TStringField
@@ -31,24 +32,22 @@ object DataModule1: TDataModule1
     object T_IMCMx: TLongWordField
       FieldName = 'Mx'
     end
-    object T_IMCColor: TIntegerField
+    object T_IMCColor: TLargeintField
       FieldName = 'Color'
     end
   end
   object DS_IMC: TMyDataSource
     DataSet = T_IMC
     Left = 192
-    Top = 16
+    Top = 56
   end
   object T_POIDS: TMyTable
     TableName = 't_suivi_poids'
     Connection = MyConnection1
-    Debug = True
-    Active = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
-    Left = 144
-    Top = 64
+    Left = 280
+    Top = 16
     object T_POIDSID: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'ID'
@@ -58,6 +57,7 @@ object DataModule1: TDataModule1
     end
     object T_POIDSPoids: TFloatField
       FieldName = 'Poids'
+      DisplayFormat = '000.00   Kg'
     end
     object T_POIDSIMC_Calc: TFloatField
       FieldName = 'IMC_Calc'
@@ -65,10 +65,127 @@ object DataModule1: TDataModule1
     object T_POIDSIMC_ID: TLongWordField
       FieldName = 'IMC_ID'
     end
+    object T_POIDSEcart1: TFloatField
+      FieldName = 'Ecart-1'
+    end
+    object T_POIDSEcart_Cum: TFloatField
+      FieldName = 'Ecart_Cum'
+    end
+    object T_POIDSIMG_Graisse_BF: TFloatField
+      FieldName = 'IMG_Graisse_BF'
+    end
+    object T_POIDSIMG_Hydrat_BW: TFloatField
+      FieldName = 'IMG_Hydrat_BW'
+    end
+    object T_POIDSIMG_Muscle_BM: TFloatField
+      FieldName = 'IMG_Muscle_BM'
+    end
   end
   object DS_POIDS: TMyDataSource
     DataSet = T_POIDS
-    Left = 192
+    Left = 328
+    Top = 16
+  end
+  object T_DIABETE: TMyTable
+    TableName = 't_suivi_diabete'
+    Connection = MyConnection1
+    Options.FieldOrigins = foNone
+    Left = 280
     Top = 64
+    object T_DIABETEID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+    end
+    object T_DIABETEDate: TDateField
+      FieldName = 'Date'
+    end
+    object T_DIABETEHeurre: TTimeField
+      FieldName = 'Heurre'
+    end
+    object T_DIABETEValeur: TLongWordField
+      FieldName = 'Valeur'
+    end
+    object T_DIABETEApres_Repas: TBooleanField
+      FieldName = 'Apres_Repas'
+    end
+  end
+  object DS_DIABETE: TMyDataSource
+    DataSet = T_DIABETE
+    Left = 328
+    Top = 64
+  end
+  object cxStyleRepository: TcxStyleRepository
+    Left = 536
+    Top = 16
+    PixelsPerInch = 96
+    object Gras: TcxStyle
+      AssignedValues = [svFont]
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+    end
+  end
+  object T_PARAMS: TMyTable
+    TableName = 't_params'
+    Connection = MyConnection1
+    Options.FieldOrigins = foNone
+    Left = 144
+    Top = 8
+    object T_PARAMSID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+    end
+    object T_PARAMSLabel: TStringField
+      FieldName = 'Label'
+    end
+    object T_PARAMSValue: TStringField
+      FieldName = 'Value'
+    end
+  end
+  object DS_PARAMS: TMyDataSource
+    DataSet = T_PARAMS
+    Left = 192
+    Top = 8
+  end
+  object T_IMG: TMyTable
+    TableName = 't_img'
+    Connection = MyConnection1
+    Options.FieldOrigins = foNone
+    Left = 144
+    Top = 104
+    object T_IMGID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+    end
+    object T_IMGLabel: TStringField
+      FieldName = 'Label'
+    end
+    object T_IMGBF_Graisse_Min: TFloatField
+      FieldName = 'BF_Graisse_Min'
+      DisplayFormat = '0#.0 %'
+      EditFormat = '##.#'
+    end
+    object T_IMGBF_Graisse_Max: TFloatField
+      FieldName = 'BF_Graisse_Max'
+      DisplayFormat = '0#.0 %'
+      EditFormat = 'v'
+    end
+    object T_IMGBF_Hydrat_Min: TFloatField
+      FieldName = 'BF_Hydrat_Min'
+      DisplayFormat = '0#.0 %'
+      EditFormat = '##.#'
+    end
+    object T_IMGBF_Hydrat_Max: TFloatField
+      FieldName = 'BF_Hydrat_Max'
+      DisplayFormat = '0#.0 %'
+      EditFormat = '##.#'
+    end
+  end
+  object DS_IMG: TMyDataSource
+    DataSet = T_IMG
+    Left = 192
+    Top = 104
   end
 end

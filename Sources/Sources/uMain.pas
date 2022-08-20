@@ -9,8 +9,10 @@ uses
   dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
   dxBar, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls, cxButtons,
   uUtils,
-  uFrame_Manager, uSaisieFrame_IMC, uSaisieFrame_POIDS,
-  uComponent_IMC;
+  uFrame_Manager,
+  uSaisieFrame_IMC, uSaisieFrame_IMG,
+  uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
+  uComponent_IMC, uFrameMenu;
 
 type
   TForm1 = class(TForm)
@@ -27,18 +29,26 @@ type
     Btn_IMC: TdxBarButton;
     Btn_SaisiePoids: TdxBarLargeButton;
     Test: TdxBarButton;
+    dxBarSubItem4: TdxBarSubItem;
+    Btn_Gene_SaisieDiabete: TdxBarButton;
+    FFrameMenu1: TFFrameMenu;
+    Bt_Gene_Params: TdxBarButton;
+    Btn_Gene_IMG: TdxBarButton;
+    dxBarSeparator1: TdxBarSeparator;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Btn_SaisiePoidsClick(Sender: TObject);
     procedure TestClick(Sender: TObject);
+    procedure Btn_Gene_SaisieDiabeteClick(Sender: TObject);
+    procedure Bt_Gene_ParamsClick(Sender: TObject);
+    procedure Btn_Gene_IMGClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
     FFrame_Manager : TFrame_Manager;
     FComponentManager_IMC : TComponentManager_IMC;
-    procedure getCurrentFrame(aFrame : TFrame);
     procedure ShowFrame(aFrame:TFrame);
   public
     { Déclarations publiques }
@@ -71,6 +81,21 @@ begin
    ShowFrame(FSaisieFrame_POIDS);
 end;
 
+procedure TForm1.Bt_Gene_ParamsClick(Sender: TObject);
+begin
+  ShowFrame(FSaisieFrame_PARAMS);
+end;
+
+procedure TForm1.Btn_Gene_IMGClick(Sender: TObject);
+begin
+   ShowFrame(FSaisieFrame_IMG);
+end;
+
+procedure TForm1.Btn_Gene_SaisieDiabeteClick(Sender: TObject);
+begin
+   ShowFrame(FSaisieFrame_DIABETE);
+end;
+
 procedure TForm1.TestClick(Sender: TObject);
 var
   aIMC : Double;
@@ -96,16 +121,14 @@ begin
   FComponentManager_IMC.Free;
 end;
 
-procedure TForm1.getCurrentFrame(aFrame: TFrame);
-begin
-   FCurrent_Frame := FFrame_Manager.getFramebyFrame(FSaisieFrame_IMC);
-   FCurrent_Frame.Parent :=  Panel_Frame;
-end;
-
 procedure TForm1.initialiizeFrames;
 begin
   FFrame_Manager.AddFrame(FSaisieFrame_IMC);
+  FFrame_Manager.AddFrame(FSaisieFrame_IMG);
   FFrame_Manager.AddFrame(FSaisieFrame_POIDS);
+  FFrame_Manager.AddFrame(FSaisieFrame_DIABETE);
+  FFrame_Manager.AddFrame(FSaisieFrame_PARAMS);
+
 end;
 procedure TForm1.initializeComponents;
 begin
@@ -125,13 +148,20 @@ end;
 initialization
 begin
   FSaisieFrame_IMC := TFSaisieFrame_IMC.Create(Form1);
+  FSaisieFrame_IMG := TFSaisieFrame_IMG.Create(Form1);
   FSaisieFrame_POIDS := TFSaisieFrame_POIDS.Create(Form1);
+  FSaisieFrame_DIABETE := TFSaisieFrame_DIABETE.Create(Form1);
+  FSaisieFrame_PARAMS := TFSaisieFrame_PARAMS.Create(Form1);
+
 end;
 
 finalization
 begin
   FSaisieFrame_IMC.Free;
+  FSaisieFrame_IMG.Free;
   FSaisieFrame_POIDS.Free;
+  FSaisieFrame_DIABETE.Free;
+  FSaisieFrame_PARAMS.Free;
 end;
 
 end.

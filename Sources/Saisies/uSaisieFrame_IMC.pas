@@ -24,8 +24,6 @@ type
     ZName: string;
     aColor : TColor;
     { Déclarations publiques }
-    constructor create(AOwner: TComponent); override;
-    destructor Destroy; override;
   end;
 
 var
@@ -33,22 +31,10 @@ var
 
 implementation
 {$R *.dfm}
-uses 
+uses
   uDataModule;
 
 { TFSaisieFrame_IMC }
 
-constructor TFSaisieFrame_IMC.create(AOwner: TComponent);
-begin
-  inherited;
-  ZName := 'zzzzzzzzzzzz';
-
-end;
-
-
-destructor TFSaisieFrame_IMC.Destroy;
-begin
-  inherited;
-end;
 
 end.
