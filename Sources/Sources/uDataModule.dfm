@@ -65,6 +65,21 @@ object DataModule1: TDataModule1
     object T_POIDSIMC_ID: TLongWordField
       FieldName = 'IMC_ID'
     end
+    object T_POIDSEcart1: TFloatField
+      FieldName = 'Ecart-1'
+    end
+    object T_POIDSEcart_Cum: TFloatField
+      FieldName = 'Ecart_Cum'
+    end
+    object T_POIDSIMG_Graisse_BF: TFloatField
+      FieldName = 'IMG_Graisse_BF'
+    end
+    object T_POIDSIMG_Hydrat_BW: TFloatField
+      FieldName = 'IMG_Hydrat_BW'
+    end
+    object T_POIDSIMG_Muscle_BM: TFloatField
+      FieldName = 'IMG_Muscle_BM'
+    end
   end
   object DS_POIDS: TMyDataSource
     DataSet = T_POIDS

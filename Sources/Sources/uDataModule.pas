@@ -31,6 +31,11 @@ type
     cxStyleRepository: TcxStyleRepository;
     Gras: TcxStyle;
     T_IMCColor: TLargeintField;
+    T_POIDSEcart1: TFloatField;
+    T_POIDSEcart_Cum: TFloatField;
+    T_POIDSIMG_Graisse_BF: TFloatField;
+    T_POIDSIMG_Hydrat_BW: TFloatField;
+    T_POIDSIMG_Muscle_BM: TFloatField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private

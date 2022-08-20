@@ -17,6 +17,11 @@ type
     cxGridDBTableView1Poids: TcxGridDBColumn;
     cxGridDBTableView1IMC_Calc: TcxGridDBColumn;
     cxGridDBTableView1IMC_ID: TcxGridDBColumn;
+    cxGridDBTableView1Ecart1: TcxGridDBColumn;
+    cxGridDBTableView1Ecart_Cum: TcxGridDBColumn;
+    cxGridDBTableView1IMG_Graisse_BF: TcxGridDBColumn;
+    cxGridDBTableView1IMG_Hydrat_BW: TcxGridDBColumn;
+    cxGridDBTableView1IMG_Muscle_BM: TcxGridDBColumn;
     procedure FrameResize(Sender: TObject);
     procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
