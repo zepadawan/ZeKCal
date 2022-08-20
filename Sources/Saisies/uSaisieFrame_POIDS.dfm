@@ -7,7 +7,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
         ExplicitTop = 5
         inherited cxGridDBTableView1: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_POIDS
-          OptionsData.DeletingConfirmation = False
           object cxGridDBTableView1ID: TcxGridDBColumn
             DataBinding.FieldName = 'ID'
             Visible = False

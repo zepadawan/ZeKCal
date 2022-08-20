@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess, MemDS,
-  uComponent_IMC, cxStyles, cxClasses;
+  uComponent, cxStyles, cxClasses;
 
 type
   TDataModule1 = class(TDataModule)
@@ -56,7 +56,7 @@ type
     { Déclarations privées }
   public
     { Déclarations publiques }
-    FComponentManager_IMC : TComponentManager_IMC;
+    FComponentManager : TComponentManager;
   end;
 
 var
@@ -86,7 +86,7 @@ procedure TDataModule1.T_POIDSBeforePost(DataSet: TDataSet);
 begin
   // Calcul d l'IMC
   T_POIDSIMC_Calc.Value := TUtils.IMC(T_POIDSPoids.Value);
-  T_POIDSIMC_ID.Value := FComponentManager_IMC.getIDByValue(T_POIDSIMC_Calc.Value);
+  T_POIDSIMC_ID.Value := FComponentManager.getCompoIMC_IDByValue(T_POIDSIMC_Calc.Value);
 
 end;
 
