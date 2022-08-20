@@ -12,7 +12,7 @@ uses
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
-  uComponent_IMC, uFrameMenu;
+  uComponent, uFrameMenu;
 
 type
   TForm1 = class(TForm)
@@ -48,7 +48,7 @@ type
     { Déclarations privées }
     FCurrent_Frame : TFrame;
     FFrame_Manager : TFrame_Manager;
-    FComponentManager_IMC : TComponentManager_IMC;
+    FComponentManager: TComponentManager;
     procedure ShowFrame(aFrame:TFrame);
   public
     { Déclarations publiques }
@@ -103,22 +103,22 @@ var
 begin
 //   calcul de l'IMC   : Poids / Talle au carré
 //  aIMC := TUtils.IMC(100.8);
-  aID := FComponentManager_IMC.getIDByValue(34.98);
+  aID := FComponentManager.getCompoIMC_IDByValue(34.98);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   FFrame_Manager := TFrame_Manager.Create;
   initialiizeFrames;
-  FComponentManager_IMC := TComponentManager_IMC.Create(Self);
-  DataModule1.FComponentManager_IMC := FComponentManager_IMC;
-  FSaisieFrame_POIDS.FComponentManager_IMC := FComponentManager_IMC;
+  FComponentManager := TComponentManager.Create(Self);
+  DataModule1.FComponentManager := FComponentManager;
+  FSaisieFrame_POIDS.FComponentManager := FComponentManager;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
   Btn_FermerClick(Self);
-  FComponentManager_IMC.Free;
+  FComponentManager.Free;
 end;
 
 procedure TForm1.initialiizeFrames;
@@ -132,7 +132,7 @@ begin
 end;
 procedure TForm1.initializeComponents;
 begin
-  FComponentManager_IMC.initialize;
+  FComponentManager.initialize;
 end;
 
 procedure TForm1.ShowFrame(aFrame: TFrame);

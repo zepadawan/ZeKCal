@@ -8,7 +8,7 @@ uses
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit,
-  uComponent_IMC, cxCalendar;
+  uComponent, cxCalendar;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
@@ -32,7 +32,7 @@ type
     { Déclarations privées }
   public
     { Déclarations publiques }
-    FComponentManager_IMC : TComponentManager_IMC;
+    FComponentManager : TComponentManager;
 
   end;
 
@@ -51,7 +51,7 @@ begin
   inherited;
   if AViewInfo.Value <> null  then
   
-  ACanvas.Brush.Color := FComponentManager_IMC.getColorByID(AViewInfo.Value);
+  ACanvas.Brush.Color := FComponentManager.getCompoIMC_ColorByID(AViewInfo.Value);
 end;
 
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem;
@@ -59,7 +59,7 @@ procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCus
   var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
 begin
   inherited;
-  aHintText := FComponentManager_IMC.getLabelByID(ACellViewInfo.Value);
+  aHintText := FComponentManager.getCompoIMC_LabelByID(ACellViewInfo.Value);
 end;
 
 procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);
