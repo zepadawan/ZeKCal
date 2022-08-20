@@ -41,6 +41,15 @@ type
     T_PARAMSID: TIntegerField;
     T_PARAMSLabel: TStringField;
     T_PARAMSValue: TStringField;
+    T_DIABETEApres_Repas: TBooleanField;
+    T_IMG: TMyTable;
+    DS_IMG: TMyDataSource;
+    T_IMGID: TIntegerField;
+    T_IMGLabel: TStringField;
+    T_IMGBF_Graisse_Min: TFloatField;
+    T_IMGBF_Graisse_Max: TFloatField;
+    T_IMGBF_Hydrat_Min: TFloatField;
+    T_IMGBF_Hydrat_Max: TFloatField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private
@@ -65,10 +74,11 @@ uses
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
+  T_PARAMS.Open;
   T_IMC.Open;
+  T_IMG.Open;
   T_POIDS.Open;
   T_DIABETE.Open;
-  T_PARAMS.Open
 
 end;
 

@@ -18,7 +18,7 @@ object DataModule1: TDataModule1
     Connection = MyConnection1
     Options.FieldOrigins = foNone
     Left = 144
-    Top = 16
+    Top = 56
     object T_IMCID: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'ID'
@@ -39,7 +39,7 @@ object DataModule1: TDataModule1
   object DS_IMC: TMyDataSource
     DataSet = T_IMC
     Left = 192
-    Top = 16
+    Top = 56
   end
   object T_POIDS: TMyTable
     TableName = 't_suivi_poids'
@@ -105,6 +105,9 @@ object DataModule1: TDataModule1
     object T_DIABETEValeur: TLongWordField
       FieldName = 'Valeur'
     end
+    object T_DIABETEApres_Repas: TBooleanField
+      FieldName = 'Apres_Repas'
+    end
   end
   object DS_DIABETE: TMyDataSource
     DataSet = T_DIABETE
@@ -129,7 +132,7 @@ object DataModule1: TDataModule1
     Connection = MyConnection1
     Options.FieldOrigins = foNone
     Left = 144
-    Top = 64
+    Top = 8
     object T_PARAMSID: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'ID'
@@ -144,6 +147,45 @@ object DataModule1: TDataModule1
   object DS_PARAMS: TMyDataSource
     DataSet = T_PARAMS
     Left = 192
-    Top = 64
+    Top = 8
+  end
+  object T_IMG: TMyTable
+    TableName = 't_img'
+    Connection = MyConnection1
+    Options.FieldOrigins = foNone
+    Left = 144
+    Top = 104
+    object T_IMGID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+    end
+    object T_IMGLabel: TStringField
+      FieldName = 'Label'
+    end
+    object T_IMGBF_Graisse_Min: TFloatField
+      FieldName = 'BF_Graisse_Min'
+      DisplayFormat = '0#.0 %'
+      EditFormat = '##.#'
+    end
+    object T_IMGBF_Graisse_Max: TFloatField
+      FieldName = 'BF_Graisse_Max'
+      DisplayFormat = '0#.0 %'
+      EditFormat = 'v'
+    end
+    object T_IMGBF_Hydrat_Min: TFloatField
+      FieldName = 'BF_Hydrat_Min'
+      DisplayFormat = '0#.0 %'
+      EditFormat = '##.#'
+    end
+    object T_IMGBF_Hydrat_Max: TFloatField
+      FieldName = 'BF_Hydrat_Max'
+      DisplayFormat = '0#.0 %'
+      EditFormat = '##.#'
+    end
+  end
+  object DS_IMG: TMyDataSource
+    DataSet = T_IMG
+    Left = 192
+    Top = 104
   end
 end

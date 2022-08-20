@@ -1,4 +1,4 @@
-unit uSaisieFrame_DIABETE;
+unit uSaisieFrame_IMG;
 
 interface
 
@@ -7,15 +7,16 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uSaisieFrame, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit, cxCheckBox;
+  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit;
 
 type
-  TFSaisieFrame_DIABETE = class(TFSaisieFrame)
+  TFSaisieFrame_IMG = class(TFSaisieFrame)
     cxGridDBTableView1ID: TcxGridDBColumn;
-    cxGridDBTableView1Date: TcxGridDBColumn;
-    cxGridDBTableView1Heurre: TcxGridDBColumn;
-    cxGridDBTableView1Valeur: TcxGridDBColumn;
-    cxGridDBTableView1Apres_Repas: TcxGridDBColumn;
+    cxGridDBTableView1Label: TcxGridDBColumn;
+    cxGridDBTableView1BF_Graisse_Min: TcxGridDBColumn;
+    cxGridDBTableView1BF_Graisse_Max: TcxGridDBColumn;
+    cxGridDBTableView1BF_Hydrat_Min: TcxGridDBColumn;
+    cxGridDBTableView1BF_Hydrat_Max: TcxGridDBColumn;
   private
     { Déclarations privées }
   public
@@ -23,12 +24,12 @@ type
   end;
 
 var
-  FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE;
+  FSaisieFrame_IMG: TFSaisieFrame_IMG;
 
 implementation
+
 uses
   uDataModule;
 {$R *.dfm}
-
 
 end.

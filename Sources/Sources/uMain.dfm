@@ -160,11 +160,19 @@ object Form1: TForm1
       ItemLinks = <
         item
           Visible = True
+          ItemName = 'Bt_Gene_Params'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarSeparator1'
+        end
+        item
+          Visible = True
           ItemName = 'Btn_IMC'
         end
         item
           Visible = True
-          ItemName = 'Bt_Gene_Params'
+          ItemName = 'Btn_Gene_IMG'
         end>
     end
     object dxBarSubItem2: TdxBarSubItem
@@ -231,6 +239,20 @@ object Form1: TForm1
       Hint = 'Parametres'
       Visible = ivAlways
       OnClick = Bt_Gene_ParamsClick
+    end
+    object Btn_Gene_IMG: TdxBarButton
+      Caption = 'IMG'
+      Category = 0
+      Hint = 'IMG'
+      Visible = ivAlways
+      OnClick = Btn_Gene_IMGClick
+    end
+    object dxBarSeparator1: TdxBarSeparator
+      Caption = '-'
+      Category = 0
+      Hint = '-'
+      Visible = ivAlways
+      ShowCaption = False
     end
     object dxBarGroup1: TdxBarGroup
       Items = ()

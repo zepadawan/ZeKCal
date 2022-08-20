@@ -13,7 +13,8 @@ uses
   uComponent_IMC in 'Sources\Components\uComponent_IMC.pas',
   uSaisieFrame_DIABETE in 'Sources\Saisies\uSaisieFrame_DIABETE.pas' {FSaisieFrame_DIABETE: TFrame},
   uFrameMenu in 'Sources\Sources\uFrameMenu.pas' {FFrameMenu: TFrame},
-  uSaisieFrame_PARAMS in 'Sources\Saisies\uSaisieFrame_PARAMS.pas' {FSaisieFrame_PARAMS: TFrame};
+  uSaisieFrame_PARAMS in 'Sources\Saisies\uSaisieFrame_PARAMS.pas' {FSaisieFrame_PARAMS: TFrame},
+  uSaisieFrame_IMG in 'Sources\Saisies\uSaisieFrame_IMG.pas' {FSaisieFrame_IMG: TFrame};
 
 {$R *.res}
 
