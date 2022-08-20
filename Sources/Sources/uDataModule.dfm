@@ -20,6 +20,7 @@ object DataModule1: TDataModule1
     Left = 144
     Top = 16
     object T_IMCID: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
     end
     object T_IMCLabel: TStringField
@@ -31,7 +32,7 @@ object DataModule1: TDataModule1
     object T_IMCMx: TLongWordField
       FieldName = 'Mx'
     end
-    object T_IMCColor: TIntegerField
+    object T_IMCColor: TLargeintField
       FieldName = 'Color'
     end
   end

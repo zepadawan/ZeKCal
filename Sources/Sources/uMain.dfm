@@ -48,6 +48,27 @@ object Form1: TForm1
     Color = clSilver
     ParentBackground = False
     TabOrder = 1
+    inline FFrameMenu1: TFFrameMenu
+      Left = 1
+      Top = 1
+      Width = 974
+      Height = 509
+      Align = alClient
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 2
+      ExplicitWidth = 974
+      ExplicitHeight = 509
+      inherited cxButton1: TcxButton
+        OnClick = Btn_SaisiePoidsClick
+      end
+      inherited cxButton2: TcxButton
+        OnClick = Btn_Gene_SaisieDiabeteClick
+      end
+    end
   end
   object Panel1: TPanel
     Left = 0

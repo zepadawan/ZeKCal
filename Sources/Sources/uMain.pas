@@ -10,7 +10,7 @@ uses
   dxBar, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls, cxButtons,
   uUtils,
   uFrame_Manager, uSaisieFrame_IMC, uSaisieFrame_POIDS, uSaisieFrame_DIABETE,
-  uComponent_IMC;
+  uComponent_IMC, uFrameMenu;
 
 type
   TForm1 = class(TForm)
@@ -29,6 +29,7 @@ type
     Test: TdxBarButton;
     dxBarSubItem4: TdxBarSubItem;
     Btn_Gene_SaisieDiabete: TdxBarButton;
+    FFrameMenu1: TFFrameMenu;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);

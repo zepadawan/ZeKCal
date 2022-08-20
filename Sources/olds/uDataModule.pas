@@ -13,6 +13,7 @@ type
     DS_IMC: TMyDataSource;
     T_POIDS: TMyTable;
     DS_POIDS: TMyDataSource;
+    T_DIABETEID: TIntegerField;
     T_IMCID: TIntegerField;
     T_IMCLabel: TStringField;
     T_IMCMin: TLongWordField;
@@ -25,7 +26,6 @@ type
     T_POIDSIMC_ID: TLongWordField;
     T_DIABETE: TMyTable;
     DS_DIABETE: TMyDataSource;
-    T_DIABETEID: TIntegerField;
     T_DIABETEDate: TDateField;
     T_DIABETEHeurre: TTimeField;
     T_DIABETEValeur: TLongWordField;
@@ -54,7 +54,8 @@ uses
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
   T_IMC.Open;
-   T_POIDS.Open;
+  T_POIDS.Open;
+  T_DIABETE.Open;
 end;
 
 procedure TDataModule1.T_POIDSBeforePost(DataSet: TDataSet);

@@ -17,6 +17,8 @@ inherited FSaisieFrame_IMC: TFSaisieFrame_IMC
       ExplicitWidth = 972
       inherited cxGrid2: TcxGrid
         Width = 970
+        ExplicitLeft = 2
+        ExplicitTop = 5
         ExplicitWidth = 970
         inherited cxGridDBTableView1: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_IMC

@@ -17,7 +17,6 @@ type
     T_IMCLabel: TStringField;
     T_IMCMin: TLongWordField;
     T_IMCMx: TLongWordField;
-    T_IMCColor: TIntegerField;
     T_POIDSID: TIntegerField;
     T_POIDSDate: TDateField;
     T_POIDSPoids: TFloatField;
@@ -31,6 +30,7 @@ type
     T_DIABETEValeur: TLongWordField;
     cxStyleRepository: TcxStyleRepository;
     Gras: TcxStyle;
+    T_IMCColor: TLargeintField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private
