@@ -36,6 +36,11 @@ type
     T_POIDSIMG_Graisse_BF: TFloatField;
     T_POIDSIMG_Hydrat_BW: TFloatField;
     T_POIDSIMG_Muscle_BM: TFloatField;
+    T_PARAMS: TMyTable;
+    DS_PARAMS: TMyDataSource;
+    T_PARAMSID: TIntegerField;
+    T_PARAMSLabel: TStringField;
+    T_PARAMSValue: TStringField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private
@@ -63,6 +68,8 @@ begin
   T_IMC.Open;
   T_POIDS.Open;
   T_DIABETE.Open;
+  T_PARAMS.Open
+
 end;
 
 procedure TDataModule1.T_POIDSBeforePost(DataSet: TDataSet);

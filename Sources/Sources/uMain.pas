@@ -9,7 +9,8 @@ uses
   dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
   dxBar, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls, cxButtons,
   uUtils,
-  uFrame_Manager, uSaisieFrame_IMC, uSaisieFrame_POIDS, uSaisieFrame_DIABETE,
+  uFrame_Manager,
+  uSaisieFrame_IMC, uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
   uComponent_IMC, uFrameMenu;
 
 type
@@ -30,6 +31,7 @@ type
     dxBarSubItem4: TdxBarSubItem;
     Btn_Gene_SaisieDiabete: TdxBarButton;
     FFrameMenu1: TFFrameMenu;
+    Bt_Gene_Params: TdxBarButton;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);
@@ -37,6 +39,7 @@ type
     procedure Btn_SaisiePoidsClick(Sender: TObject);
     procedure TestClick(Sender: TObject);
     procedure Btn_Gene_SaisieDiabeteClick(Sender: TObject);
+    procedure Bt_Gene_ParamsClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
@@ -74,6 +77,11 @@ begin
    ShowFrame(FSaisieFrame_POIDS);
 end;
 
+procedure TForm1.Bt_Gene_ParamsClick(Sender: TObject);
+begin
+  ShowFrame(FSaisieFrame_PARAMS);
+end;
+
 procedure TForm1.Btn_Gene_SaisieDiabeteClick(Sender: TObject);
 begin
    ShowFrame(FSaisieFrame_DIABETE);
@@ -109,6 +117,8 @@ begin
   FFrame_Manager.AddFrame(FSaisieFrame_IMC);
   FFrame_Manager.AddFrame(FSaisieFrame_POIDS);
   FFrame_Manager.AddFrame(FSaisieFrame_DIABETE);
+  FFrame_Manager.AddFrame(FSaisieFrame_PARAMS);
+
 end;
 procedure TForm1.initializeComponents;
 begin
@@ -130,6 +140,8 @@ begin
   FSaisieFrame_IMC := TFSaisieFrame_IMC.Create(Form1);
   FSaisieFrame_POIDS := TFSaisieFrame_POIDS.Create(Form1);
   FSaisieFrame_DIABETE := TFSaisieFrame_DIABETE.Create(Form1);
+  FSaisieFrame_PARAMS := TFSaisieFrame_PARAMS.Create(Form1);
+
 end;
 
 finalization
@@ -137,6 +149,7 @@ begin
   FSaisieFrame_IMC.Free;
   FSaisieFrame_POIDS.Free;
   FSaisieFrame_DIABETE.Free;
+  FSaisieFrame_PARAMS.Free;
 end;
 
 end.

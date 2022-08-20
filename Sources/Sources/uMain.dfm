@@ -58,8 +58,8 @@ object Form1: TForm1
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 2
+      ExplicitLeft = 1
+      ExplicitTop = 1
       ExplicitWidth = 974
       ExplicitHeight = 509
       inherited cxButton1: TcxButton
@@ -161,6 +161,10 @@ object Form1: TForm1
         item
           Visible = True
           ItemName = 'Btn_IMC'
+        end
+        item
+          Visible = True
+          ItemName = 'Bt_Gene_Params'
         end>
     end
     object dxBarSubItem2: TdxBarSubItem
@@ -220,6 +224,13 @@ object Form1: TForm1
       Hint = 'Saisie Valeurs'
       Visible = ivAlways
       OnClick = Btn_Gene_SaisieDiabeteClick
+    end
+    object Bt_Gene_Params: TdxBarButton
+      Caption = 'Parametres'
+      Category = 0
+      Hint = 'Parametres'
+      Visible = ivAlways
+      OnClick = Bt_Gene_ParamsClick
     end
     object dxBarGroup1: TdxBarGroup
       Items = ()

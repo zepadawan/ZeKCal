@@ -90,8 +90,8 @@ object DataModule1: TDataModule1
     TableName = 't_suivi_diabete'
     Connection = MyConnection1
     Options.FieldOrigins = foNone
-    Left = 144
-    Top = 72
+    Left = 280
+    Top = 64
     object T_DIABETEID: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'ID'
@@ -108,8 +108,8 @@ object DataModule1: TDataModule1
   end
   object DS_DIABETE: TMyDataSource
     DataSet = T_DIABETE
-    Left = 192
-    Top = 72
+    Left = 328
+    Top = 64
   end
   object cxStyleRepository: TcxStyleRepository
     Left = 536
@@ -123,5 +123,27 @@ object DataModule1: TDataModule1
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
     end
+  end
+  object T_PARAMS: TMyTable
+    TableName = 't_params'
+    Connection = MyConnection1
+    Options.FieldOrigins = foNone
+    Left = 144
+    Top = 64
+    object T_PARAMSID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+    end
+    object T_PARAMSLabel: TStringField
+      FieldName = 'Label'
+    end
+    object T_PARAMSValue: TStringField
+      FieldName = 'Value'
+    end
+  end
+  object DS_PARAMS: TMyDataSource
+    DataSet = T_PARAMS
+    Left = 192
+    Top = 64
   end
 end
