@@ -15,8 +15,8 @@ type
   TFSaisieFrame_IMC = class(TFSaisieFrame)
     cxGridDBTableView1ID: TcxGridDBColumn;
     cxGridDBTableView1Label: TcxGridDBColumn;
+    cxGridDBTableView1Max: TcxGridDBColumn;
     cxGridDBTableView1Min: TcxGridDBColumn;
-    cxGridDBTableView1Mx: TcxGridDBColumn;
     cxGridDBTableView1Color: TcxGridDBColumn;
   private
     { Déclarations privées }

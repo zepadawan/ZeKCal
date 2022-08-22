@@ -12,7 +12,7 @@ uses
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
-  uComponent, uFrameMenu;
+  uComponent, uFrameMenu, dxSkinsDefaultPainters;
 
 type
   TForm1 = class(TForm)

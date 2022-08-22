@@ -8,20 +8,20 @@ uses
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit,
-  uComponent, cxCalendar;
+  uComponent, cxCalendar, dxSkinsDefaultPainters;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
     cxGridDBTableView1ID: TcxGridDBColumn;
     cxGridDBTableView1Date: TcxGridDBColumn;
     cxGridDBTableView1Poids: TcxGridDBColumn;
-    cxGridDBTableView1IMC_Calc: TcxGridDBColumn;
     cxGridDBTableView1IMC_ID: TcxGridDBColumn;
-    cxGridDBTableView1Ecart1: TcxGridDBColumn;
-    cxGridDBTableView1Ecart_Cum: TcxGridDBColumn;
+    cxGridDBTableView1IMC_Calc: TcxGridDBColumn;
+    cxGridDBTableView1Ecart_Poids: TcxGridDBColumn;
     cxGridDBTableView1IMG_Graisse_BF: TcxGridDBColumn;
     cxGridDBTableView1IMG_Hydrat_BW: TcxGridDBColumn;
     cxGridDBTableView1IMG_Muscle_BM: TcxGridDBColumn;
+    cxGridDBTableView1Ecart_Cumul: TcxGridDBColumn;
     procedure FrameResize(Sender: TObject);
     procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);

@@ -9,7 +9,7 @@ uses
   cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator,
   dxDateRanges, Data.DB, cxDBData, MemDS, DBAccess, MyAccess, cxDBNavigator,
   cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid;
+  cxGridTableView, cxGridDBTableView, cxGrid, dxSkinsDefaultPainters;
 
 type
   TFSaisieFrame = class(TFCustomFrame)

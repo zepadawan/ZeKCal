@@ -4,16 +4,18 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uSaisieFrame, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
-  cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
-  cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit, cxCheckBox;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uSaisieFrame, cxGraphics, cxControls,
+  cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinsCore, cxCustomData,
+  cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
+  cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid,
+  Vcl.ExtCtrls, cxCheckBox, cxCalendar, cxTimeEdit, cxTextEdit;
 
 type
   TFSaisieFrame_DIABETE = class(TFSaisieFrame)
     cxGridDBTableView1ID: TcxGridDBColumn;
     cxGridDBTableView1Date: TcxGridDBColumn;
-    cxGridDBTableView1Heurre: TcxGridDBColumn;
+    cxGridDBTableView1Heure: TcxGridDBColumn;
     cxGridDBTableView1Valeur: TcxGridDBColumn;
     cxGridDBTableView1Apres_Repas: TcxGridDBColumn;
   private
@@ -28,7 +30,7 @@ var
 implementation
 uses
   uDataModule;
-{$R *.dfm}
 
+{$R *.dfm}
 
 end.
