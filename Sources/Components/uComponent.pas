@@ -99,8 +99,8 @@ begin
       FComponent_IMC.IMC_ID := DataModule1.T_IMCID.Value;
       FComponent_IMC.IMC_Label := DataModule1.T_IMCLabel.Value;
       FComponent_IMC.IMC_Min := DataModule1.T_IMCMin.Value;
-      FComponent_IMC.IMC_Max := DataModule1.T_IMCMx.Value;
-      FComponent_IMC.IMC_Color := DataModule1.T_IMCColor.Value;
+      FComponent_IMC.IMC_Max := DataModule1.T_IMCMax.Value;
+      FComponent_IMC.IMC_Color := Tcolor(DataModule1.T_IMCColor.Value);
       FCompoList.Add(FComponent_IMC);
       T_IMC.Next;
     end;

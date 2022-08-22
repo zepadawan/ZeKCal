@@ -11,7 +11,7 @@ object DataModule1: TDataModule1
     LoginPrompt = False
     Left = 64
     Top = 16
-    EncryptedPassword = 'A0FFB2FF9EFF8DFF96FF91FF9AFF8BFF8BFF9AFFCEFFCDFFCCFF'
+    EncryptedPassword = 'A0FFA5FF9AFF8FFF9EFF9BFF9EFF88FF9EFF91FFCBFFCAFFC9FF'
   end
   object T_IMC: TMyTable
     TableName = 't_imc'
@@ -20,19 +20,18 @@ object DataModule1: TDataModule1
     Left = 144
     Top = 56
     object T_IMCID: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
     end
     object T_IMCLabel: TStringField
       FieldName = 'Label'
     end
+    object T_IMCMax: TLongWordField
+      FieldName = 'Max'
+    end
     object T_IMCMin: TLongWordField
       FieldName = 'Min'
     end
-    object T_IMCMx: TLongWordField
-      FieldName = 'Mx'
-    end
-    object T_IMCColor: TLargeintField
+    object T_IMCColor: TStringField
       FieldName = 'Color'
     end
   end
@@ -42,8 +41,9 @@ object DataModule1: TDataModule1
     Top = 56
   end
   object T_POIDS: TMyTable
-    TableName = 't_suivi_poids'
+    TableName = 't_poids'
     Connection = MyConnection1
+    Active = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
     Left = 280
@@ -57,28 +57,31 @@ object DataModule1: TDataModule1
     end
     object T_POIDSPoids: TFloatField
       FieldName = 'Poids'
-      DisplayFormat = '000.00   Kg'
+      DisplayFormat = '###.## Kg'
+    end
+    object T_POIDSIMC_ID: TIntegerField
+      FieldName = 'IMC_ID'
     end
     object T_POIDSIMC_Calc: TFloatField
       FieldName = 'IMC_Calc'
     end
-    object T_POIDSIMC_ID: TLongWordField
-      FieldName = 'IMC_ID'
+    object T_POIDSEcart_Poids: TFloatField
+      FieldName = 'Ecart_Poids'
     end
-    object T_POIDSEcart1: TFloatField
-      FieldName = 'Ecart-1'
-    end
-    object T_POIDSEcart_Cum: TFloatField
-      FieldName = 'Ecart_Cum'
+    object T_POIDSEcart_Cumul: TFloatField
+      FieldName = 'Ecart_Cumul'
     end
     object T_POIDSIMG_Graisse_BF: TFloatField
       FieldName = 'IMG_Graisse_BF'
+      DisplayFormat = '00.0 %'
     end
     object T_POIDSIMG_Hydrat_BW: TFloatField
       FieldName = 'IMG_Hydrat_BW'
+      DisplayFormat = '00.0 %'
     end
     object T_POIDSIMG_Muscle_BM: TFloatField
       FieldName = 'IMG_Muscle_BM'
+      DisplayFormat = '00.0 %'
     end
   end
   object DS_POIDS: TMyDataSource
@@ -87,8 +90,11 @@ object DataModule1: TDataModule1
     Top = 16
   end
   object T_DIABETE: TMyTable
-    TableName = 't_suivi_diabete'
+    TableName = 't_diabete'
     Connection = MyConnection1
+    Active = True
+    Options.AutoRefresh = True
+    Options.AutoPrepare = True
     Options.FieldOrigins = foNone
     Left = 280
     Top = 64
@@ -99,13 +105,14 @@ object DataModule1: TDataModule1
     object T_DIABETEDate: TDateField
       FieldName = 'Date'
     end
-    object T_DIABETEHeurre: TTimeField
-      FieldName = 'Heurre'
+    object T_DIABETEHeure: TTimeField
+      FieldName = 'Heure'
     end
-    object T_DIABETEValeur: TLongWordField
+    object T_DIABETEValeur: TSmallintField
       FieldName = 'Valeur'
+      DisplayFormat = '000  mg /dL'
     end
-    object T_DIABETEApres_Repas: TBooleanField
+    object T_DIABETEApres_Repas: TShortintField
       FieldName = 'Apres_Repas'
     end
   end
@@ -162,25 +169,23 @@ object DataModule1: TDataModule1
     object T_IMGLabel: TStringField
       FieldName = 'Label'
     end
-    object T_IMGBF_Graisse_Min: TFloatField
-      FieldName = 'BF_Graisse_Min'
-      DisplayFormat = '0#.0 %'
-      EditFormat = '##.#'
+    object T_IMGGraiise_Min: TFloatField
+      FieldName = 'Graiise_Min'
+      DisplayFormat = '000.00 %'
+      EditFormat = '000.00'
     end
-    object T_IMGBF_Graisse_Max: TFloatField
-      FieldName = 'BF_Graisse_Max'
+    object T_IMGGraisse_Max: TFloatField
+      FieldName = 'Graisse_Max'
       DisplayFormat = '0#.0 %'
       EditFormat = 'v'
     end
-    object T_IMGBF_Hydrat_Min: TFloatField
-      FieldName = 'BF_Hydrat_Min'
+    object T_IMGHydra_Max: TFloatField
+      FieldName = 'Hydra_Max'
       DisplayFormat = '0#.0 %'
       EditFormat = '##.#'
     end
-    object T_IMGBF_Hydrat_Max: TFloatField
-      FieldName = 'BF_Hydrat_Max'
-      DisplayFormat = '0#.0 %'
-      EditFormat = '##.#'
+    object T_IMGHydrat_Min: TFloatField
+      FieldName = 'Hydrat_Min'
     end
   end
   object DS_IMG: TMyDataSource
