@@ -29,8 +29,6 @@ type
     T_PARAMSValue: TStringField;
     T_IMG: TMyTable;
     DS_IMG: TMyDataSource;
-    T_IMGID: TIntegerField;
-    T_IMGLabel: TStringField;
     T_IMCID: TIntegerField;
     T_IMCLabel: TStringField;
     T_IMCMax: TLongWordField;
@@ -45,6 +43,13 @@ type
     T_POIDSDate: TDateField;
     T_POIDSPoids: TFloatField;
     T_POIDSEcart_Cumul: TFloatField;
+    T_IMGID: TIntegerField;
+    T_IMGLabel: TStringField;
+    T_IMGGraiise_Min: TFloatField;
+    T_IMGGraisse_Max: TFloatField;
+    T_IMGHydra_Max: TFloatField;
+    T_IMGHydrat_Min: TFloatField;
+    T_IMGColor: TStringField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private

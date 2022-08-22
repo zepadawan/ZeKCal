@@ -3,11 +3,7 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
     inherited Panel3: TPanel
       inherited cxGrid2: TcxGrid
         inherited cxGridDBTableView1: TcxGridDBTableView
-          DataController.DataModeController.GridMode = True
-          DataController.DataModeController.SmartRefresh = True
           DataController.DataSource = DataModule1.DS_DIABETE
-          DataController.Options = [dcoAnsiSort, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding, dcoSortByDisplayText]
-          OptionsData.Appending = True
           object cxGridDBTableView1ID: TcxGridDBColumn
             DataBinding.FieldName = 'ID'
           end

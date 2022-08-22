@@ -17,6 +17,8 @@ inherited FSaisieFrame_IMC: TFSaisieFrame_IMC
       ExplicitWidth = 972
       inherited cxGrid2: TcxGrid
         Width = 970
+        ExplicitLeft = 0
+        ExplicitTop = 5
         ExplicitWidth = 970
         inherited cxGridDBTableView1: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_IMC
@@ -36,10 +38,11 @@ inherited FSaisieFrame_IMC: TFSaisieFrame_IMC
           object cxGridDBTableView1Color: TcxGridDBColumn
             DataBinding.FieldName = 'Color'
             PropertiesClassName = 'TcxColorComboBoxProperties'
-            Properties.Alignment.Horz = taRightJustify
+            Properties.Alignment.Horz = taCenter
             Properties.AllowSelectColor = True
             Properties.ColorValueFormat = cxcvHexadecimal
             Properties.CustomColors = <>
+            Properties.ShowDescriptions = False
           end
         end
       end

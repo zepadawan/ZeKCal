@@ -20,6 +20,7 @@ object DataModule1: TDataModule1
     Left = 144
     Top = 56
     object T_IMCID: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
     end
     object T_IMCLabel: TStringField
@@ -159,6 +160,7 @@ object DataModule1: TDataModule1
   object T_IMG: TMyTable
     TableName = 't_img'
     Connection = MyConnection1
+    Active = True
     Options.FieldOrigins = foNone
     Left = 144
     Top = 104
@@ -171,21 +173,18 @@ object DataModule1: TDataModule1
     end
     object T_IMGGraiise_Min: TFloatField
       FieldName = 'Graiise_Min'
-      DisplayFormat = '000.00 %'
-      EditFormat = '000.00'
     end
     object T_IMGGraisse_Max: TFloatField
       FieldName = 'Graisse_Max'
-      DisplayFormat = '0#.0 %'
-      EditFormat = 'v'
     end
     object T_IMGHydra_Max: TFloatField
       FieldName = 'Hydra_Max'
-      DisplayFormat = '0#.0 %'
-      EditFormat = '##.#'
     end
     object T_IMGHydrat_Min: TFloatField
       FieldName = 'Hydrat_Min'
+    end
+    object T_IMGColor: TStringField
+      FieldName = 'Color'
     end
   end
   object DS_IMG: TMyDataSource
