@@ -4,15 +4,21 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, dxStatusBar, dxRibbonStatusBar,
-  dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
-  dxBar, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls, cxButtons,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+//  cxControls,
+//  cxLookAndFeels,
+//  cxLookAndFeelPainters, dxSkinsCore, dxStatusBar, dxRibbonStatusBar,
+//  dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
+//  dxBar,
+  Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls,
+//  cxButtons,
   uUtils,
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
-  uComponentManager, uFrameMenu, dxSkinsDefaultPainters, cxGraphics;
+  uComponentManager, uFrameMenu, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxBar, cxClasses, cxButtons, dxStatusBar,
+  dxRibbonStatusBar;
 
 type
   TForm1 = class(TForm)
