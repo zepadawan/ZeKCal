@@ -93,7 +93,6 @@ object DataModule1: TDataModule1
   object T_DIABETE: TMyTable
     TableName = 't_diabete'
     Connection = MyConnection1
-    Active = True
     Options.AutoRefresh = True
     Options.AutoPrepare = True
     Options.FieldOrigins = foNone
@@ -111,7 +110,7 @@ object DataModule1: TDataModule1
     end
     object T_DIABETEValeur: TSmallintField
       FieldName = 'Valeur'
-      DisplayFormat = '000  mg /dL'
+      DisplayFormat = '###  mg/dL'
     end
     object T_DIABETEApres_Repas: TShortintField
       FieldName = 'Apres_Repas'

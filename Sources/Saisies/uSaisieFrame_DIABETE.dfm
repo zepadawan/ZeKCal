@@ -9,15 +9,9 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
           end
           object cxGridDBTableView1Date: TcxGridDBColumn
             DataBinding.FieldName = 'Date'
-            PropertiesClassName = 'TcxDateEditProperties'
-            Properties.Alignment.Horz = taCenter
-            Properties.DateButtons = [btnClear, btnNow, btnToday]
           end
           object cxGridDBTableView1Heure: TcxGridDBColumn
             DataBinding.FieldName = 'Heure'
-            PropertiesClassName = 'TcxTimeEditProperties'
-            Properties.Alignment.Horz = taCenter
-            Properties.TimeFormat = tfHourMin
           end
           object cxGridDBTableView1Valeur: TcxGridDBColumn
             DataBinding.FieldName = 'Valeur'
@@ -29,7 +23,8 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
             DataBinding.FieldName = 'Apres_Repas'
             PropertiesClassName = 'TcxCheckBoxProperties'
             Properties.Alignment = taRightJustify
-            Properties.NullStyle = nssUnchecked
+            Properties.ValueChecked = 1
+            Properties.ValueUnchecked = 0
           end
         end
       end

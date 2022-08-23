@@ -36,11 +36,6 @@ type
     T_IMCMin: TLongWordField;
     T_IMCColor: TStringField;
     T_POIDSIMC_ID: TIntegerField;
-    T_DIABETEID: TIntegerField;
-    T_DIABETEDate: TDateField;
-    T_DIABETEHeure: TTimeField;
-    T_DIABETEValeur: TSmallintField;
-    T_DIABETEApres_Repas: TShortintField;
     T_POIDSDate: TDateField;
     T_POIDSPoids: TFloatField;
     T_POIDSEcart_Cumul: TFloatField;
@@ -51,6 +46,11 @@ type
     T_IMGHydra_Max: TFloatField;
     T_IMGHydrat_Min: TFloatField;
     T_IMGColor: TStringField;
+    T_DIABETEID: TIntegerField;
+    T_DIABETEDate: TDateField;
+    T_DIABETEHeure: TTimeField;
+    T_DIABETEValeur: TSmallintField;
+    T_DIABETEApres_Repas: TShortintField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private
