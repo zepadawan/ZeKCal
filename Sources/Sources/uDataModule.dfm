@@ -58,7 +58,6 @@ object DataModule1: TDataModule1
     end
     object T_POIDSPoids: TFloatField
       FieldName = 'Poids'
-      DisplayFormat = '###.## Kg'
     end
     object T_POIDSIMC_ID: TIntegerField
       FieldName = 'IMC_ID'
@@ -74,15 +73,12 @@ object DataModule1: TDataModule1
     end
     object T_POIDSIMG_Graisse_BF: TFloatField
       FieldName = 'IMG_Graisse_BF'
-      DisplayFormat = '00.0 %'
     end
     object T_POIDSIMG_Hydrat_BW: TFloatField
       FieldName = 'IMG_Hydrat_BW'
-      DisplayFormat = '00.0 %'
     end
     object T_POIDSIMG_Muscle_BM: TFloatField
       FieldName = 'IMG_Muscle_BM'
-      DisplayFormat = '00.0 %'
     end
   end
   object DS_POIDS: TMyDataSource

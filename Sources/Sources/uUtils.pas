@@ -8,7 +8,7 @@ uses
 
 type
 
-  TComponentType = (IMC, IMG);
+  TComponentType = (IMC, IMG, POIDS);
 
   TUtils = class
    public

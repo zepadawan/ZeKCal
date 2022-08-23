@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess, MemDS,
-  uComponent, cxStyles, cxClasses;
+  uComponentManager, cxStyles, cxClasses;
 
 type
 
@@ -14,15 +14,10 @@ type
     DS_IMC: TMyDataSource;
     T_POIDS: TMyTable;
     DS_POIDS: TMyDataSource;
-    T_POIDSID: TIntegerField;
-    T_POIDSIMC_Calc: TFloatField;
     T_DIABETE: TMyTable;
     DS_DIABETE: TMyDataSource;
     cxStyleRepository: TcxStyleRepository;
     Gras: TcxStyle;
-    T_POIDSIMG_Graisse_BF: TFloatField;
-    T_POIDSIMG_Hydrat_BW: TFloatField;
-    T_POIDSIMG_Muscle_BM: TFloatField;
     T_PARAMS: TMyTable;
     DS_PARAMS: TMyDataSource;
     T_PARAMSID: TIntegerField;
@@ -35,10 +30,6 @@ type
     T_IMCMax: TLongWordField;
     T_IMCMin: TLongWordField;
     T_IMCColor: TStringField;
-    T_POIDSIMC_ID: TIntegerField;
-    T_POIDSDate: TDateField;
-    T_POIDSPoids: TFloatField;
-    T_POIDSEcart_Cumul: TFloatField;
     T_IMGID: TIntegerField;
     T_IMGLabel: TStringField;
     T_IMGGraiise_Min: TFloatField;
@@ -51,6 +42,16 @@ type
     T_DIABETEHeure: TTimeField;
     T_DIABETEValeur: TSmallintField;
     T_DIABETEApres_Repas: TShortintField;
+    T_POIDSID: TIntegerField;
+    T_POIDSDate: TDateField;
+    T_POIDSPoids: TFloatField;
+    T_POIDSIMC_ID: TIntegerField;
+    T_POIDSIMC_Calc: TFloatField;
+    T_POIDSEcart_Poids: TFloatField;
+    T_POIDSEcart_Cumul: TFloatField;
+    T_POIDSIMG_Graisse_BF: TFloatField;
+    T_POIDSIMG_Hydrat_BW: TFloatField;
+    T_POIDSIMG_Muscle_BM: TFloatField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private

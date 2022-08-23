@@ -8,7 +8,7 @@ uses
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit,
-  uComponent, cxCalendar, dxSkinsDefaultPainters;
+  uComponentManager, cxCalendar, dxSkinsDefaultPainters;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
