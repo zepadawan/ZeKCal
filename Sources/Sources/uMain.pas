@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxStatusBar, dxRibbonStatusBar,
   dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
   dxBar, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls, cxButtons,
@@ -12,7 +12,7 @@ uses
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
-  uComponentManager, uFrameMenu, dxSkinsDefaultPainters;
+  uComponentManager, uFrameMenu, dxSkinsDefaultPainters, cxGraphics;
 
 type
   TForm1 = class(TForm)
