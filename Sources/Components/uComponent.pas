@@ -4,7 +4,7 @@ interface
 
 uses
   System.Classes, System.Contnrs, Vcl.Graphics,
-  uComponent_IMC;
+  uComponent_IMC,  uUtils;
 
 type
 
@@ -95,7 +95,8 @@ begin
     T_IMC.First;
     while not T_IMC.eof do
     begin
-      FComponent_IMC := TComponent_IMC.Create(self);
+      FComponent_IMC := TComponent_IMC.Create();
+      FComponent_IMC.ComponentType := IMC;
       FComponent_IMC.IMC_ID := DataModule1.T_IMCID.Value;
       FComponent_IMC.IMC_Label := DataModule1.T_IMCLabel.Value;
       FComponent_IMC.IMC_Min := DataModule1.T_IMCMin.Value;

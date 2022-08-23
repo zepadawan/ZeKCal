@@ -7,6 +7,9 @@ uses
   const TAILLE ='1,73';
 
 type
+
+  TComponentType = (IMC, IMG);
+
   TUtils = class
    public
      class function IMC(aPoids:Double): Double;

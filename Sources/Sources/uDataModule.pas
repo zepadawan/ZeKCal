@@ -7,6 +7,7 @@ uses
   uComponent, cxStyles, cxClasses;
 
 type
+
   TDataModule1 = class(TDataModule)
     MyConnection1: TMyConnection;
     T_IMC: TMyTable;
