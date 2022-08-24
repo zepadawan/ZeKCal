@@ -4,7 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess, MemDS,
-  uComponentManager, cxStyles, cxClasses;
+  uComponentManager, cxStyles,
+  cxClasses;
 
 type
 
