@@ -532,3 +532,5 @@ SETUP/db/
 build.db/
 
 Sources/Components/_uComponent_IMC.pas
+
+Utils/Build_KCal - Copie.bat
