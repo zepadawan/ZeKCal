@@ -17,8 +17,6 @@ inherited FSaisieFrame_IMC: TFSaisieFrame_IMC
       ExplicitWidth = 972
       inherited cxGrid2: TcxGrid
         Width = 970
-        ExplicitLeft = 0
-        ExplicitTop = 5
         ExplicitWidth = 970
         inherited cxGridDBTableView1: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_IMC
@@ -28,12 +26,17 @@ inherited FSaisieFrame_IMC: TFSaisieFrame_IMC
           end
           object cxGridDBTableView1Label: TcxGridDBColumn
             DataBinding.FieldName = 'Label'
+            Styles.Content = DataModule1.Gras
           end
           object cxGridDBTableView1Min: TcxGridDBColumn
             DataBinding.FieldName = 'Min'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
           end
           object cxGridDBTableView1Max: TcxGridDBColumn
             DataBinding.FieldName = 'Max'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
           end
           object cxGridDBTableView1Color: TcxGridDBColumn
             DataBinding.FieldName = 'Color'

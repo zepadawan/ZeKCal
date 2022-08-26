@@ -44,7 +44,6 @@ object DataModule1: TDataModule1
   object T_POIDS: TMyTable
     TableName = 't_poids'
     Connection = MyConnection1
-    Active = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
     Left = 280
@@ -58,7 +57,7 @@ object DataModule1: TDataModule1
     end
     object T_POIDSPoids: TFloatField
       FieldName = 'Poids'
-      DisplayFormat = '000.00'
+      DisplayFormat = '000.00  Kg'
     end
     object T_POIDSIMC_ID: TIntegerField
       FieldName = 'IMC_ID'
@@ -82,6 +81,7 @@ object DataModule1: TDataModule1
     end
     object T_POIDSIMG_Muscle_BM: TFloatField
       FieldName = 'IMG_Muscle_BM'
+      DisplayFormat = '00.0 %'
     end
   end
   object DS_POIDS: TMyDataSource
@@ -158,7 +158,6 @@ object DataModule1: TDataModule1
   object T_IMG: TMyTable
     TableName = 't_img'
     Connection = MyConnection1
-    Active = True
     Options.FieldOrigins = foNone
     Left = 144
     Top = 104
@@ -171,15 +170,19 @@ object DataModule1: TDataModule1
     end
     object T_IMGGraiise_Min: TFloatField
       FieldName = 'Graiise_Min'
+      DisplayFormat = '00.0'
     end
     object T_IMGGraisse_Max: TFloatField
       FieldName = 'Graisse_Max'
+      DisplayFormat = '00.0'
     end
     object T_IMGHydra_Max: TFloatField
       FieldName = 'Hydra_Max'
+      DisplayFormat = '00.0'
     end
     object T_IMGHydrat_Min: TFloatField
       FieldName = 'Hydrat_Min'
+      DisplayFormat = '00.0'
     end
     object T_IMGColor: TStringField
       FieldName = 'Color'
