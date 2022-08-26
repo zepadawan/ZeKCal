@@ -3,7 +3,10 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
   inherited PanelClient: TPanel
     inherited Panel3: TPanel
       inherited cxGrid2: TcxGrid
+        ExplicitLeft = 0
+        ExplicitTop = 5
         inherited cxGridDBTableView1: TcxGridDBTableView
+          OnCustomDrawCell = cxGridDBTableView1CustomDrawCell
           DataController.DataSource = DataModule1.DS_POIDS
           object cxGridDBTableView1ID: TcxGridDBColumn
             DataBinding.FieldName = 'ID'

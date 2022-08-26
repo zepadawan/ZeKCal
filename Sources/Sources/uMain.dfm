@@ -60,11 +60,13 @@ object Form1: TForm1
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 2
+      ExplicitLeft = 1
+      ExplicitTop = 1
       ExplicitWidth = 974
       ExplicitHeight = 509
       inherited cxButton1: TcxButton
+        OptionsImage.ImageIndex = 0
+        OptionsImage.Images = DataModule1.ImageList_32
         OnClick = Btn_SaisiePoidsClick
       end
       inherited cxButton2: TcxButton
@@ -81,13 +83,15 @@ object Form1: TForm1
     Caption = 'Panel1'
     TabOrder = 2
     object Btn_Fermer: TcxButton
-      Left = 877
-      Top = 6
-      Width = 75
+      Left = 832
+      Top = 5
+      Width = 120
       Height = 25
-      Caption = 'Btn_Fermer'
+      Caption = 'Fermer Fen'#234're'
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = True
+      OptionsImage.ImageIndex = 0
+      OptionsImage.Images = DataModule1.ImageList_16
       TabOrder = 0
       OnClick = Btn_FermerClick
     end

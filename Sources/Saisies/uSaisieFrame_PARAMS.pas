@@ -14,6 +14,9 @@ type
     cxGridDBTableView1ID: TcxGridDBColumn;
     cxGridDBTableView1Label: TcxGridDBColumn;
     cxGridDBTableView1Value: TcxGridDBColumn;
+    procedure cxGridDBTableView1CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
   private
     { Déclarations privées }
   public
@@ -28,5 +31,17 @@ uses
   uDataModule;
 
 {$R *.dfm}
+
+procedure TFSaisieFrame_PARAMS.cxGridDBTableView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+    if Odd(AViewInfo.GridRecord.Index) then
+    ACanvas.Brush.Color := clRed
+  else
+    //...
+
+end;
 
 end.

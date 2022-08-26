@@ -4,7 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess, MemDS,
-  uComponentManager, cxStyles, cxClasses;
+  uComponentManager, cxStyles, cxClasses, System.ImageList, Vcl.ImgList,
+  Vcl.Controls, cxImageList, cxGraphics;
 
 type
 
@@ -52,6 +53,8 @@ type
     T_POIDSIMG_Graisse_BF: TFloatField;
     T_POIDSIMG_Hydrat_BW: TFloatField;
     T_POIDSIMG_Muscle_BM: TFloatField;
+    ImageList_16: TcxImageList;
+    ImageList_32: TcxImageList;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
   private

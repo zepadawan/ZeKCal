@@ -111,8 +111,8 @@ begin
   FFrame_Manager := TFrame_Manager.Create;
   initialiizeFrames;
   FComponentManager := TComponentManager.Create(Self);
-  DataModule1.FComponentManager := FComponentManager;
-  FSaisieFrame_POIDS.FComponentManager := FComponentManager;
+//  DataModule1.FComponentManager := FComponentManager;
+//  FSaisieFrame_POIDS.FComponentManager := FComponentManager;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);

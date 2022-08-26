@@ -28,6 +28,9 @@ type
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
       ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption;
       var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
+    procedure cxGridDBTableView1CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
   private
     { Déclarations privées }
   public
@@ -44,6 +47,18 @@ implementation
 {$R *.dfm}
 uses
   uDataModule;
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+    if Odd(AViewInfo.GridRecord.Index) then
+//    ACanvas.Brush.Color := clNone
+  else
+    ACanvas.Brush.Color := clSkyBlue
+
+end;
 
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
