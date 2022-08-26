@@ -38,9 +38,10 @@ procedure TFSaisieFrame_PARAMS.cxGridDBTableView1CustomDrawCell(
 begin
   inherited;
     if Odd(AViewInfo.GridRecord.Index) then
-    ACanvas.Brush.Color := clRed
+    //
   else
-    //...
+    ACanvas.Brush.Color := clWebLightBlue;
+
 
 end;
 

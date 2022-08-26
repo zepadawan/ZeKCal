@@ -6,6 +6,20 @@ uses
   uUtils;
 
 type
+  TComponent_IMC = class;
+
+  TComponentManager_IMC = class(TComponent)
+  private
+  public
+    FCompoList: TObjectList;
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+    procedure initialize;
+    function getCompoIMC_ByID( aID: Integer): TComponent_IMC;
+    function getCompoIMC_IDByValue(aValue : Double): Integer;
+    function getCompoIMC_LabelByID(aID : Integer): String;
+    function getCompoIMC_ColorByID(aID : Integer): TColor;
+  end;
 
   TComponent_IMC = class(TObject)
   private
@@ -14,17 +28,14 @@ type
     FIMC_Max: Integer;
     FIMC_Min: Integer;
     FIMC_Color: TColor;
-    FComponentType: TComponentType;
     procedure SetIMC_ID(const Value: Integer);
     procedure SetIMC_Label(const Value: string);
     procedure SetIMC_Color(const Value: TColor);
     procedure SetIMC_Max(const Value: Integer);
     procedure SetIMC_Min(const Value: Integer);
-    procedure SetComponentType(const Value: TComponentType);
   public
     constructor Create(); overload;
     constructor Create(aLabel: string; aMin, aMax: Integer; aColor: TColor); overload;
-    property ComponentType : TComponentType read FComponentType write SetComponentType;
     property IMC_ID: Integer read FIMC_ID write SetIMC_ID;
     property IMC_Label: string read FIMC_Label write SetIMC_Label;
     property IMC_Min: Integer read FIMC_Min write SetIMC_Min;
@@ -33,13 +44,13 @@ type
   end;
 
 implementation
+uses
+ uDataModule;
 
 { TComponent_IMC }
 
 constructor TComponent_IMC.Create();
 begin
-  inherited;
-  ComponentType := IMC;
 
 end;
 
@@ -58,10 +69,6 @@ begin
   FIMC_ID := Value;
 end;
 
-procedure TComponent_IMC.SetComponentType(const Value: TComponentType);
-begin
-  FComponentType := Value;
-end;
 
 procedure TComponent_IMC.SetIMC_Color(const Value: TColor);
 begin
@@ -83,5 +90,82 @@ begin
   FIMC_Min := Value;
 end;
 
+constructor TComponentManager_IMC.Create(AOwner: TComponent);
+begin
+  inherited;
+  FCompoList := TObjectList.Create;
+  initialize;
+end;
+
+destructor TComponentManager_IMC.Destroy;
+begin
+  FCompoList.Free;
+  inherited;
+end;
+
+function TComponentManager_IMC.getCompoIMC_ColorByID(aID: Integer): TColor;
+begin
+  Result := getCompoIMC_ByID(aID).IMC_Color;
+end;
+
+function TComponentManager_IMC.getCompoIMC_ByID(aID: Integer): TComponent_IMC;
+var
+  i: Integer;
+  aCompoIMC: TComponent_IMC;
+begin
+  Result := nil;
+  for i := 0 to FCompoList.Count - 1 do
+  begin
+    aCompoIMC := TComponent_IMC(FCompoList[i]);
+    if (aCompoIMC.IMC_ID = aID) then
+    begin
+      Result := aCompoIMC;
+    end;
+  end;
+end;
+
+function TComponentManager_IMC.getCompoIMC_IDByValue(aValue: Double): Integer;
+var
+  i: Integer;
+  aCompoIMC: TComponent_IMC;
+begin
+  Result := 0;
+  for i := 0 to FCompoList.Count - 1 do
+  begin
+    aCompoIMC := TComponent_IMC(FCompoList[i]);
+      if (aValue >= aCompoIMC.IMC_Min) and (aValue < aCompoIMC.IMC_Max) then
+      begin
+        Result := aCompoIMC.IMC_ID;
+    end;
+  end;
+end;
+
+function TComponentManager_IMC.getCompoIMC_LabelByID(aID: Integer): String;
+begin
+  Result := getCompoIMC_ByID(aID).IMC_Label;
+end;
+
+procedure TComponentManager_IMC.initialize;
+var
+  FComponent_IMC: TComponent_IMC;
+begin
+  FCompoList.Clear;
+  with DataModule1 do
+  begin
+    T_IMC.First;
+    while not T_IMC.eof do
+    begin
+      FComponent_IMC := TComponent_IMC.Create();
+      FComponent_IMC.IMC_ID := DataModule1.T_IMCID.Value;
+      FComponent_IMC.IMC_Label := DataModule1.T_IMCLabel.Value;
+      FComponent_IMC.IMC_Min := DataModule1.T_IMCMin.Value;
+      FComponent_IMC.IMC_Max := DataModule1.T_IMCMax.Value;
+      FComponent_IMC.IMC_Color := Tcolor(DataModule1.T_IMCColor.Value);
+      FCompoList.Add(FComponent_IMC);
+      T_IMC.Next;
+    end;
+
+  end;
+end;
 
 end.

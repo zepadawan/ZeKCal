@@ -10,7 +10,8 @@ uses
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
-  uComponentManager, uFrameMenu, cxGraphics, cxControls, cxLookAndFeels,
+  uDataModule,
+  uFrameMenu, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxBar, cxClasses, cxButtons, dxStatusBar,
   dxRibbonStatusBar;
 
@@ -44,11 +45,11 @@ type
     procedure Btn_Gene_SaisieDiabeteClick(Sender: TObject);
     procedure Bt_Gene_ParamsClick(Sender: TObject);
     procedure Btn_Gene_IMGClick(Sender: TObject);
+    procedure dxBarSubItem3Click(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
     FFrame_Manager : TFrame_Manager;
-    FComponentManager: TComponentManager;
     procedure ShowFrame(aFrame:TFrame);
   public
     { Déclarations publiques }
@@ -62,8 +63,6 @@ var
 
 implementation
 {$R *.dfm}
-
-uses uDataModule;
 
 procedure TForm1.Btn_FermerClick(Sender: TObject);
 begin
@@ -86,6 +85,11 @@ begin
   ShowFrame(FSaisieFrame_PARAMS);
 end;
 
+procedure TForm1.dxBarSubItem3Click(Sender: TObject);
+begin
+//  DataModule1.FComponentManager.
+end;
+
 procedure TForm1.Btn_Gene_IMGClick(Sender: TObject);
 begin
    ShowFrame(FSaisieFrame_IMG);
@@ -103,22 +107,17 @@ var
 begin
 //   calcul de l'IMC   : Poids / Talle au carré
 //  aIMC := TUtils.IMC(100.8);
-  aID := FComponentManager.getCompoIMC_IDByValue(34.98);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   FFrame_Manager := TFrame_Manager.Create;
   initialiizeFrames;
-  FComponentManager := TComponentManager.Create(Self);
-//  DataModule1.FComponentManager := FComponentManager;
-//  FSaisieFrame_POIDS.FComponentManager := FComponentManager;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
   Btn_FermerClick(Self);
-  FComponentManager.Free;
 end;
 
 procedure TForm1.initialiizeFrames;
@@ -132,14 +131,15 @@ begin
 end;
 procedure TForm1.initializeComponents;
 begin
-  FComponentManager.initialize;
+//  FComponentManager.initialize;
 end;
 
 procedure TForm1.ShowFrame(aFrame: TFrame);
 begin
   Btn_FermerClick(Self);
   FCurrent_Frame := FFrame_Manager.getFramebyFrame(aFrame);
-  FCurrent_Frame.Parent :=  Panel_Frame;
+  if FCurrent_Frame <> nil then
+    FCurrent_Frame.Parent :=  Panel_Frame;
 end;
 
 

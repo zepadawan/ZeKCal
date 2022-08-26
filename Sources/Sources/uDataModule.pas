@@ -4,7 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess, MemDS,
-  uComponentManager, cxStyles, cxClasses, System.ImageList, Vcl.ImgList,
+  uComponentManager,
+  cxStyles, cxClasses, System.ImageList, Vcl.ImgList,
   Vcl.Controls, cxImageList, cxGraphics;
 
 type
@@ -56,12 +57,16 @@ type
     ImageList_16: TcxImageList;
     ImageList_32: TcxImageList;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
-    procedure DataModuleCreate(Sender: TObject);
   private
     { Déclarations privées }
+    procedure InitializeTables(Sender: TObject);
   public
     { Déclarations publiques }
     FComponentManager : TComponentManager;
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+
+
   end;
 
 var
@@ -77,21 +82,35 @@ uses
 
 {$R *.dfm}
 
-procedure TDataModule1.DataModuleCreate(Sender: TObject);
+constructor TDataModule1.Create(AOwner: TComponent);
+begin
+  inherited;
+  InitializeTables(Self);
+  FComponentManager := TComponentManager.Create(Self);;
+end;
+
+procedure TDataModule1.InitializeTables(Sender: TObject);
 begin
   T_PARAMS.Open;
   T_IMC.Open;
   T_IMG.Open;
   T_POIDS.Open;
   T_DIABETE.Open;
+end;
 
+
+destructor TDataModule1.Destroy;
+begin
+  FComponentManager.Free;
+  inherited;
 end;
 
 procedure TDataModule1.T_POIDSBeforePost(DataSet: TDataSet);
 begin
   // Calcul d l'IMC
-//  T_POIDSIMC_Calc.Value := TUtils.IMC(T_POIDSPoids.Value);
-  T_POIDSIMC_ID.Value := FComponentManager.getCompoIMC_IDByValue(T_POIDSIMC_Calc.Value);
+  T_POIDSIMC_Calc.Value := TUtils.IMC(T_POIDSPoids.Value);
+//  T_POIDSIMC_ID.Value := FComponentManager.getCompoIMC_IDByValue(T_POIDSIMC_Calc.Value);
+
 
 end;
 

@@ -6,6 +6,17 @@ uses
   uUtils;
 
 type
+  TComponent_POIDS = class;
+
+  TComponentManager_POIDS = class(TComponent)
+  private
+  public
+    FCompoList: TObjectList;
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+    procedure initialize;
+    function getCompo_POIDS_ByID( aID: Integer): TComponent_POIDS;
+    end;
 
   TComponent_POIDS = class(TObject)
   private
@@ -15,12 +26,10 @@ type
     FPOIDS_ID: Integer;
     FPOIDS_Ecart_Cumul: Double;
     FIMC_ID: Integer;
-    FComponentType: TComponentType;
     FPOIDS_Date: TDate;
     FIMG_Graisse_BF: Double;
     FPOIDS_Poids: Double;
     FIMG_Muscle_BM: Double;
-    procedure SetComponentType(const Value: TComponentType);
     procedure SetIMC_Calc(const Value: Double);
     procedure SetIMC_ID(const Value: Integer);
     procedure SetIMG_Graisse_BF(const Value: Double);
@@ -33,7 +42,6 @@ type
     procedure SetIMG_Muscle_BM(const Value: Double);
   public
     constructor Create(); overload;
-    property ComponentType : TComponentType read FComponentType write SetComponentType;
     property POIDS_ID: Integer read FPOIDS_ID write SetPOIDS_ID;
     property POIDS_Date: TDate read FPOIDS_Date write SetPOIDS_Date;
     property POIDS_Poids: Double read FPOIDS_Poids write SetPOIDS_Poids;
@@ -49,16 +57,13 @@ type
 implementation
 
 { TComponent_POIDS }
+uses
+  uDataModule;
+
 
 
 constructor TComponent_POIDS.Create;
 begin
-  ComponentType := POIDS;
-end;
-
-procedure TComponent_POIDS.SetComponentType(const Value: TComponentType);
-begin
-  FComponentType := Value;
 end;
 
 procedure TComponent_POIDS.SetIMC_Calc(const Value: Double);
@@ -110,6 +115,69 @@ end;
 procedure TComponent_POIDS.SetPOIDS_Poids(const Value: Double);
 begin
   FPOIDS_Poids := Value;
+end;
+
+{ TComponentManager }
+
+constructor TComponentManager_POIDS.Create(AOwner: TComponent);
+begin
+  inherited;
+  FCompoList := TObjectList.Create;
+end;
+
+destructor TComponentManager_POIDS.Destroy;
+begin
+  FCompoList.Free;
+  inherited;
+end;
+
+function TComponentManager_POIDS.getCompo_POIDS_ByID(aID: Integer): TComponent_POIDS;
+var
+  i:Integer;
+  aComponent_POIDS : TComponent_POIDS;
+begin
+  for i := 0 to FCompoList.Count - 1 do
+  begin
+    aComponent_POIDS := TComponent_POIDS(FCompoList[i]);
+    if aComponent_POIDS.FPOIDS_ID = aID then
+    begin
+      Result := aComponent_POIDS;
+      Break;
+    end;
+
+
+  end;
+
+
+
+end;
+
+procedure TComponentManager_POIDS.initialize;
+var
+  FComponent_POIDS: TComponent_POIDS;
+begin
+  FCompoList.Clear;
+  with DataModule1 do
+  begin
+    T_POIDS.First;
+    while not T_POIDS.eof do
+    begin
+      FComponent_POIDS := TComponent_POIDS.Create();
+      FComponent_POIDS.IMC_ID := DataModule1.T_POIDSID.Value;
+      FComponent_POIDS.POIDS_Date := DataModule1.T_POIDSDate.Value;
+      FComponent_POIDS.POIDS_Poids := DataModule1.T_POIDSPoids.Value;
+      FComponent_POIDS.IMC_ID := DataModule1.T_POIDSIMC_ID.value;
+      FComponent_POIDS.IMC_Calc := DataModule1.T_POIDSIMC_Calc.Value;
+      FComponent_POIDS.POIDS_Ecart_Poids := DataModule1.T_POIDSEcart_Poids.Value;
+      FComponent_POIDS.POIDS_Ecart_Cumul := DataModule1.T_POIDSEcart_Cumul.value;
+      FComponent_POIDS.IMG_Graisse_BF := DataModule1.T_POIDSIMG_Graisse_BF.Value;
+      FComponent_POIDS.IMG_Hydra_BW := DataModule1.T_POIDSIMG_Hydrat_BW.Value;
+      FComponent_POIDS.IMG_Muscle_BM := DataModule1.T_POIDSIMG_Muscle_BM.Value;
+      FCompoList.Add(FComponent_POIDS);
+      T_POIDS.Next;
+    end;
+
+  end;
 end;
 
 end.

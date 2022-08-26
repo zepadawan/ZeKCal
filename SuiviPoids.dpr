@@ -10,13 +10,13 @@ uses
   uSaisieFrame_IMC in 'Sources\Saisies\uSaisieFrame_IMC.pas' {FSaisieFrame_IMC: TFrame},
   uSaisieFrame_POIDS in 'Sources\Saisies\uSaisieFrame_POIDS.pas' {FSaisieFrame_POIDS: TFrame},
   uUtils in 'Sources\Sources\uUtils.pas',
-  uComponentManager in 'Sources\Components\uComponentManager.pas',
   uFrameMenu in 'Sources\Sources\uFrameMenu.pas' {FFrameMenu: TFrame},
   uSaisieFrame_PARAMS in 'Sources\Saisies\uSaisieFrame_PARAMS.pas' {FSaisieFrame_PARAMS: TFrame},
   uSaisieFrame_IMG in 'Sources\Saisies\uSaisieFrame_IMG.pas' {FSaisieFrame_IMG: TFrame},
   uComponent_IMC in 'Sources\Components\uComponent_IMC.pas',
   uSaisieFrame_DIABETE in 'Sources\Saisies\uSaisieFrame_DIABETE.pas' {FSaisieFrame_DIABETE: TFrame},
-  uComponent_POIDS in 'Sources\Components\uComponent_POIDS.pas';
+  uComponent_POIDS in 'Sources\Components\uComponent_POIDS.pas',
+  uComponentManager in 'Sources\Components\uComponentManager.pas';
 
 {$R *.res}
 

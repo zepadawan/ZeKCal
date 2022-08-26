@@ -1,6 +1,5 @@
 object DataModule1: TDataModule1
   OldCreateOrder = True
-  OnCreate = DataModuleCreate
   Height = 289
   Width = 744
   object MyConnection1: TMyConnection
@@ -491,7 +490,7 @@ object DataModule1: TDataModule1
     Height = 32
     Width = 32
     FormatVersion = 1
-    DesignInfo = 5767752
+    DesignInfo = 1049240
     ImageInfo = <
       item
         Image.Data = {
