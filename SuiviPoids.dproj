@@ -88,6 +88,7 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_UnitSearchPath>F:\Download\Embarcadero\DevEpress\DELPHI\19\DevExp19\Source;C:\Program Files (x86)\Devart\MyDAC for RAD Studio 10.3\Lib\Win32;C:\Program Files (x86)\Embarcadero\Studio\20.0\lib\win32\release;C:\Program Files (x86)\Embarcadero\Studio\20.0\lib\win32\release\fr;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_ExeOutput>D:\Dev\Project\ZeKCal\bin\</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
