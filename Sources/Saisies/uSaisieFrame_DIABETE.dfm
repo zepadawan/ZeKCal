@@ -9,6 +9,8 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
           end
           object cxGridDBTableView1Date: TcxGridDBColumn
             DataBinding.FieldName = 'Date'
+            PropertiesClassName = 'TcxDateEditProperties'
+            Properties.DateButtons = [btnClear, btnNow, btnToday]
           end
           object cxGridDBTableView1Heure: TcxGridDBColumn
             DataBinding.FieldName = 'Heure'

@@ -5,13 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-//  cxControls,
-//  cxLookAndFeels,
-//  cxLookAndFeelPainters, dxSkinsCore, dxStatusBar, dxRibbonStatusBar,
-//  dxRibbonSkins, dxRibbonCustomizationForm, cxClasses, dxRibbon,
-//  dxBar,
   Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls,
-//  cxButtons,
   uUtils,
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
