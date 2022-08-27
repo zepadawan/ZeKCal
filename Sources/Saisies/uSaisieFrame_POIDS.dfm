@@ -28,6 +28,11 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
           end
           object cxGridDBTableView1IMC_Calc: TcxGridDBColumn
             DataBinding.FieldName = 'IMC_Calc'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+            OnCustomDrawCell = cxGridDBTableView1IMC_CalcCustomDrawCell
+            OnGetCellHint = cxGridDBTableView1IMC_CalcGetCellHint
+            Styles.Content = DataModule1.Gras
           end
           object cxGridDBTableView1Ecart_Poids: TcxGridDBColumn
             DataBinding.FieldName = 'Ecart_Poids'

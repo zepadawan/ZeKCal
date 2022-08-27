@@ -24,14 +24,17 @@ type
     cxGridDBTableView1IMG_Muscle_BM: TcxGridDBColumn;
     cxGridDBTableView1Ecart_Cumul: TcxGridDBColumn;
     procedure FrameResize(Sender: TObject);
-    procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
       ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption;
       var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableView1CustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
+    procedure cxGridDBTableView1IMC_CalcGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption;
+      var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
+    procedure cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
   private
     { Déclarations privées }
   public
@@ -55,19 +58,27 @@ procedure TFSaisieFrame_POIDS.cxGridDBTableView1CustomDrawCell(
 begin
   inherited;
     if Odd(AViewInfo.GridRecord.Index) then
-//    ACanvas.Brush.Color := clNone
   else
     ACanvas.Brush.Color := clSkyBlue
 
 end;
 
-procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: TcxCustomGridTableView;
+  ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
   inherited;
   if AViewInfo.Value <> null  then
-  
-//  ACanvas.Brush.Color := FComponentManager.getCompoIMC_ColorByID(AViewInfo.Value);
+    ACanvas.Brush.Color := DataModule1.FComponentManager.getCompoIMC_ColorByID(AViewInfo.Value);
+
+end;
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_CalcGetCellHint(Sender: TcxCustomGridTableItem;
+  ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;
+  var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
+begin
+  inherited;
+//  AHintText :=DataModule1.T_IMCLabel.Value + ' : ( ' + DataModule1.T_IMCMin.AsString + ' - ' + DataModule1.T_IMCMax.AsString   + ' )';
+
 end;
 
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem;

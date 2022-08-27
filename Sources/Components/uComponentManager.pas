@@ -47,7 +47,7 @@ end;
 
 function TComponentManager.getCompoIMC_ColorByID(aID: Integer): TColor;
 begin
-    Result :=FManager_IMC.getCompoIMC_ByID(aID).IMC_Color;
+//    Result :=FManager_IMC.getCompoIMC_ByID(aID).IMC_Color;
 end;
 
 function TComponentManager.getCompoPOIDS_ByID(aID: Integer): TComponent_POIDS;

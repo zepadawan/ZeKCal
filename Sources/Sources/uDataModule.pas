@@ -55,7 +55,7 @@ type
     T_POIDSIMG_Hydrat_BW: TFloatField;
     T_POIDSIMG_Muscle_BM: TFloatField;
     ImageList_16: TcxImageList;
-    ImageList_32: TcxImageList;
+    cxImageList_ext: TcxImageList;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
   private
     { Déclarations privées }

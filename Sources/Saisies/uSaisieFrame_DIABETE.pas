@@ -18,6 +18,14 @@ type
     cxGridDBTableView1Heure: TcxGridDBColumn;
     cxGridDBTableView1Valeur: TcxGridDBColumn;
     cxGridDBTableView1Apres_Repas: TcxGridDBColumn;
+    procedure cxGridDBTableView1CustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+    procedure cxGridDBTableView1ValeurGetCellHint(
+      Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;
+      var AHintText: TCaption; var AIsHintMultiLine: Boolean;
+      var AHintTextRect: TRect);
   private
     { Déclarations privées }
   public
@@ -32,5 +40,26 @@ uses
   uDataModule;
 
 {$R *.dfm}
+
+procedure TFSaisieFrame_DIABETE.cxGridDBTableView1CustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+    if Odd(AViewInfo.GridRecord.Index) then
+//    ACanvas.Brush.Color := clNone
+  else
+    ACanvas.Brush.Color := clSkyBlue
+end;
+
+procedure TFSaisieFrame_DIABETE.cxGridDBTableView1ValeurGetCellHint(
+  Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+  ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;
+  var AHintText: TCaption; var AIsHintMultiLine: Boolean;
+  var AHintTextRect: TRect);
+begin
+  inherited;
+//
+end;
 
 end.

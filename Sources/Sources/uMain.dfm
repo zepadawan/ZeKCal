@@ -60,17 +60,27 @@ object Form1: TForm1
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = 1
+      ExplicitLeft = 2
+      ExplicitTop = 2
       ExplicitWidth = 974
       ExplicitHeight = 509
       inherited cxButton1: TcxButton
-        OptionsImage.ImageIndex = 0
-        OptionsImage.Images = DataModule1.ImageList_32
+        Width = 273
+        OptionsImage.ImageIndex = 1
+        OptionsImage.Images = DataModule1.cxImageList_ext
+        OptionsImage.Margin = 10
+        OptionsImage.Spacing = 20
         OnClick = Btn_SaisiePoidsClick
+        ExplicitWidth = 273
       end
       inherited cxButton2: TcxButton
+        Width = 273
+        OptionsImage.ImageIndex = 0
+        OptionsImage.Images = DataModule1.cxImageList_ext
+        OptionsImage.Margin = 10
+        OptionsImage.Spacing = 20
         OnClick = Btn_Gene_SaisieDiabeteClick
+        ExplicitWidth = 273
       end
     end
   end
@@ -84,7 +94,7 @@ object Form1: TForm1
     TabOrder = 2
     object Btn_Fermer: TcxButton
       Left = 832
-      Top = 5
+      Top = 6
       Width = 120
       Height = 25
       Caption = 'Fermer Fen'#234're'
