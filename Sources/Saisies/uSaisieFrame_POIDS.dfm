@@ -1,9 +1,11 @@
 inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
-  OnResize = FrameResize
   inherited PanelClient: TPanel
     inherited Panel3: TPanel
       inherited cxGrid2: TcxGrid
+        ExplicitLeft = 0
+        ExplicitTop = 5
         inherited cxGridDBTableView1: TcxGridDBTableView
+          OnCellClick = cxGridDBTableView1CellClick
           OnCustomDrawCell = cxGridDBTableView1CustomDrawCell
           DataController.DataSource = DataModule1.DS_POIDS
           object cxGridDBTableView1ID: TcxGridDBColumn
@@ -25,6 +27,7 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
             DataBinding.FieldName = 'IMC_ID'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
+            OnGetCellHint = cxGridDBTableView1IMC_IDGetCellHint
           end
           object cxGridDBTableView1IMC_Calc: TcxGridDBColumn
             DataBinding.FieldName = 'IMC_Calc'

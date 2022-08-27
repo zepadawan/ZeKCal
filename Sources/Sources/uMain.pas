@@ -101,9 +101,9 @@ begin
 end;
 
 procedure TForm1.TestClick(Sender: TObject);
-var
-  aIMC : Double;
-  aID : Integer;
+//var
+//  aIMC : Double;
+//  aID : Integer;
 begin
 //   calcul de l'IMC   : Poids / Talle au carré
 //  aIMC := TUtils.IMC(100.8);

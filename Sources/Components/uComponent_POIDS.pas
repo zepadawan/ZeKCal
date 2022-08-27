@@ -136,6 +136,7 @@ var
   i:Integer;
   aComponent_POIDS : TComponent_POIDS;
 begin
+  Result := nil;
   for i := 0 to FCompoList.Count - 1 do
   begin
     aComponent_POIDS := TComponent_POIDS(FCompoList[i]);
@@ -144,12 +145,7 @@ begin
       Result := aComponent_POIDS;
       Break;
     end;
-
-
   end;
-
-
-
 end;
 
 procedure TComponentManager_POIDS.initialize;

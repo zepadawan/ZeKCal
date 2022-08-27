@@ -60,8 +60,8 @@ object Form1: TForm1
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 2
+      ExplicitLeft = 1
+      ExplicitTop = 1
       ExplicitWidth = 974
       ExplicitHeight = 509
       inherited cxButton1: TcxButton

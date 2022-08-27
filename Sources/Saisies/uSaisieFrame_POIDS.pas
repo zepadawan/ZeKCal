@@ -23,7 +23,6 @@ type
     cxGridDBTableView1IMG_Hydrat_BW: TcxGridDBColumn;
     cxGridDBTableView1IMG_Muscle_BM: TcxGridDBColumn;
     cxGridDBTableView1Ecart_Cumul: TcxGridDBColumn;
-    procedure FrameResize(Sender: TObject);
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
       ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption;
       var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
@@ -35,12 +34,13 @@ type
       var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+      AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
   private
     { Déclarations privées }
+    FCurrentPoids_ID : Integer;
   public
     { Déclarations publiques }
-//    FComponentManager : TComponentManager;
-
   end;
 
 var
@@ -51,6 +51,13 @@ implementation
 {$R *.dfm}
 uses
   uDataModule;
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView;
+  ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+  inherited;
+  FCurrentPoids_ID := DataModule1.T_POIDSID.Value;
+end;
 
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1CustomDrawCell(
   Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
@@ -67,8 +74,8 @@ procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_CalcCustomDrawCell(Sender: T
   ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
   inherited;
-  if AViewInfo.Value <> null  then
-    ACanvas.Brush.Color := DataModule1.FComponentManager.getCompoIMC_ColorByID(AViewInfo.Value);
+//  if AViewInfo.Value <> null  then
+//    ACanvas.Brush.Color := DataModule1.FComponentManager.getCompoIMC_ColorByPoidsValue(AViewInfo.Value);
 
 end;
 
@@ -86,13 +93,7 @@ procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCus
   var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
 begin
   inherited;
-//  aHintText := FComponentManager.getCompoIMC_LabelByID(ACellViewInfo.Value);
-end;
-
-procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);
-begin
-  inherited;
-  Refresh;
+  AHintText := DataModule1.FComponentManager.getFull_IMC_Label(ACellViewInfo.Value);
 end;
 
 end.
