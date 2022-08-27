@@ -6,7 +6,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
         ExplicitTop = 5
         inherited cxGridDBTableView1: TcxGridDBTableView
           OnCellClick = cxGridDBTableView1CellClick
-          OnCustomDrawCell = cxGridDBTableView1CustomDrawCell
           DataController.DataSource = DataModule1.DS_POIDS
           object cxGridDBTableView1ID: TcxGridDBColumn
             DataBinding.FieldName = 'ID'
@@ -27,14 +26,13 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
             DataBinding.FieldName = 'IMC_ID'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
+            OnCustomDrawCell = cxGridDBTableView1IMC_IDCustomDrawCell
             OnGetCellHint = cxGridDBTableView1IMC_IDGetCellHint
           end
           object cxGridDBTableView1IMC_Calc: TcxGridDBColumn
             DataBinding.FieldName = 'IMC_Calc'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
-            OnCustomDrawCell = cxGridDBTableView1IMC_CalcCustomDrawCell
-            OnGetCellHint = cxGridDBTableView1IMC_CalcGetCellHint
             Styles.Content = DataModule1.Gras
           end
           object cxGridDBTableView1Ecart_Poids: TcxGridDBColumn

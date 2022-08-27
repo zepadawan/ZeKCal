@@ -31,14 +31,12 @@ type
     T_IMCLabel: TStringField;
     T_IMCMax: TLongWordField;
     T_IMCMin: TLongWordField;
-    T_IMCColor: TStringField;
     T_IMGID: TIntegerField;
     T_IMGLabel: TStringField;
     T_IMGGraiise_Min: TFloatField;
     T_IMGGraisse_Max: TFloatField;
     T_IMGHydra_Max: TFloatField;
     T_IMGHydrat_Min: TFloatField;
-    T_IMGColor: TStringField;
     T_DIABETEID: TIntegerField;
     T_DIABETEDate: TDateField;
     T_DIABETEHeure: TTimeField;
@@ -56,6 +54,8 @@ type
     T_POIDSIMG_Muscle_BM: TFloatField;
     ImageList_16: TcxImageList;
     cxImageList_ext: TcxImageList;
+    T_IMCColor: TIntegerField;
+    T_IMGColor: TIntegerField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
   private
     { Déclarations privées }

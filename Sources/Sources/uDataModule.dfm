@@ -31,7 +31,7 @@ object DataModule1: TDataModule1
     object T_IMCMin: TLongWordField
       FieldName = 'Min'
     end
-    object T_IMCColor: TStringField
+    object T_IMCColor: TIntegerField
       FieldName = 'Color'
     end
   end
@@ -183,7 +183,7 @@ object DataModule1: TDataModule1
       FieldName = 'Hydrat_Min'
       DisplayFormat = '00.0'
     end
-    object T_IMGColor: TStringField
+    object T_IMGColor: TIntegerField
       FieldName = 'Color'
     end
   end
