@@ -32,12 +32,13 @@ type
     Test: TdxBarButton;
     dxBarSubItem4: TdxBarSubItem;
     Btn_Gene_SaisieDiabete: TdxBarButton;
-    FFrameMenu1: TFFrameMenu;
     Bt_Gene_Params: TdxBarButton;
     Btn_Gene_IMG: TdxBarButton;
     dxBarSeparator1: TdxBarSeparator;
     Btn_Gene_Poids_MAJCumul: TdxBarButton;
     Btn_CumulPoids: TcxButton;
+    Btn_Gene_SaisiePoids: TcxButton;
+    cxButton1: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);
@@ -50,6 +51,8 @@ type
     procedure TestClick(Sender: TObject);
     procedure Btn_Gene_Poids_MAJCumulClick(Sender: TObject);
     procedure Btn_CumulPoidsClick(Sender: TObject);
+    procedure Btn_Gene_SaisiePoidsClick(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
@@ -72,6 +75,7 @@ implementation
 procedure TForm1.Btn_CumulPoidsClick(Sender: TObject);
 begin
   FTraitements.TraitementGolbal;
+ ShowFrame(FSaisieFrame_POIDS);
 
 end;
 
@@ -96,6 +100,11 @@ begin
   ShowFrame(FSaisieFrame_PARAMS);
 end;
 
+procedure TForm1.cxButton1Click(Sender: TObject);
+begin
+   ShowFrame(FSaisieFrame_DIABETE);
+end;
+
 procedure TForm1.dxBarSubItem3Click(Sender: TObject);
 begin
 //  DataModule1.FComponentManager.
@@ -114,6 +123,12 @@ end;
 procedure TForm1.Btn_Gene_SaisieDiabeteClick(Sender: TObject);
 begin
    ShowFrame(FSaisieFrame_DIABETE);
+end;
+
+procedure TForm1.Btn_Gene_SaisiePoidsClick(Sender: TObject);
+begin
+ ShowFrame(FSaisieFrame_POIDS);
+
 end;
 
 procedure TForm1.TestClick(Sender: TObject);

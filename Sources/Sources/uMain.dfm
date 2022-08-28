@@ -46,44 +46,11 @@ object Form1: TForm1
     Width = 976
     Height = 511
     Align = alClient
-    Caption = 'Panel_Frame'
-    Color = clSilver
+    Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    inline FFrameMenu1: TFFrameMenu
-      Left = 1
-      Top = 1
-      Width = 974
-      Height = 509
-      Align = alClient
-      Color = clWhite
-      ParentBackground = False
-      ParentColor = False
-      TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 2
-      ExplicitWidth = 974
-      ExplicitHeight = 509
-      inherited cxButton1: TcxButton
-        Width = 281
-        Height = 72
-        OptionsImage.ImageIndex = 1
-        OptionsImage.Images = DataModule1.cxImageList_ext
-        OptionsImage.Margin = 10
-        OptionsImage.Spacing = 20
-        OnClick = Btn_SaisiePoidsClick
-        ExplicitWidth = 281
-        ExplicitHeight = 72
-      end
-      inherited cxButton2: TcxButton
-        Width = 220
-        OptionsImage.ImageIndex = 0
-        OptionsImage.Margin = 10
-        OptionsImage.Spacing = 20
-        OnClick = Btn_Gene_SaisieDiabeteClick
-        ExplicitWidth = 220
-      end
-    end
+    ExplicitLeft = 336
+    ExplicitTop = 1
     object Btn_CumulPoids: TcxButton
       Left = 336
       Top = 17
@@ -97,7 +64,7 @@ object Form1: TForm1
       OptionsImage.Images = DataModule1.cxImageList_ext
       OptionsImage.Margin = 10
       OptionsImage.Spacing = 20
-      TabOrder = 1
+      TabOrder = 0
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clHighlight
       Font.Height = -20
@@ -105,6 +72,50 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = Btn_CumulPoidsClick
+    end
+    object Btn_Gene_SaisiePoids: TcxButton
+      Left = 33
+      Top = 17
+      Width = 281
+      Height = 72
+      Caption = 'Saisie Poids'
+      Colors.Default = clWhite
+      Colors.DefaultText = clHighlight
+      LookAndFeel.NativeStyle = True
+      OptionsImage.ImageIndex = 1
+      OptionsImage.Images = DataModule1.cxImageList_ext
+      OptionsImage.Margin = 10
+      OptionsImage.Spacing = 20
+      TabOrder = 1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = Btn_Gene_SaisiePoidsClick
+    end
+    object cxButton1: TcxButton
+      Left = 33
+      Top = 105
+      Width = 281
+      Height = 72
+      Caption = 'Saisie Diab'#232'te'
+      Colors.Default = clWhite
+      Colors.DefaultText = clHighlight
+      LookAndFeel.NativeStyle = True
+      OptionsImage.ImageIndex = 0
+      OptionsImage.Images = DataModule1.cxImageList_ext
+      OptionsImage.Margin = 10
+      OptionsImage.Spacing = 20
+      TabOrder = 2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = cxButton1Click
     end
   end
   object Panel1: TPanel

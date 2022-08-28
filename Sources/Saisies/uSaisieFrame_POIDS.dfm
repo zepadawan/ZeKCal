@@ -1,12 +1,10 @@
 inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
-  inherited PanelTop: TPanel
-    ExplicitLeft = 232
-    ExplicitTop = 64
-  end
+  OnResize = FrameResize
   inherited PanelClient: TPanel
     inherited Panel3: TPanel
       inherited cxGrid2: TcxGrid
         inherited cxGridDBTableView1: TcxGridDBTableView
+          OnKeyDown = cxGridDBTableView1KeyDown
           OnCellClick = cxGridDBTableView1CellClick
           DataController.DataSource = DataModule1.DS_POIDS
           OptionsView.ShowEditButtons = gsebForFocusedRecord

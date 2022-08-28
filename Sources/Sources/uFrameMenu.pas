@@ -9,8 +9,6 @@ uses
 
 type
   TFFrameMenu = class(TFrame)
-    cxButton1: TcxButton;
-    cxButton2: TcxButton;
   private
     { Déclarations privées }
   public
@@ -20,6 +18,8 @@ type
 implementation
 
 {$R *.dfm}
+uses
+  uDataModule;
 
 
 end.

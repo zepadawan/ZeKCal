@@ -31,6 +31,8 @@ type
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure cxGridDBTableView1Ecart_CumulCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure FrameResize(Sender: TObject);
+    procedure cxGridDBTableView1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Déclarations privées }
     FCurrentPoids_ID: Integer;
@@ -95,6 +97,24 @@ begin
   inherited;
   if ACellViewInfo.Value<> Null then
     AHintText := DataModule1.FComponentManager.getFull_IMC_Label(ACellViewInfo.Value);
+end;
+
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_TAB then
+  begin
+    Key := 0;
+    cxGridDBTableView1.Controller.FocusedRowIndex := cxGridDBTableView1.Controller.FocusedRowIndex + 1;
+    cxGridDBTableView1.Controller.EditingController.ShowEdit;
+  end;
+end;
+
+procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);
+begin
+  inherited;
+  cxGridDBTableView1.Controller.FocusedColumn:= cxGridDBTableView1Date;
 end;
 
 end.
