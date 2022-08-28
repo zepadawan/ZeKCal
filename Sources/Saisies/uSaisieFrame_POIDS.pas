@@ -10,7 +10,7 @@ uses
   cxNavigator, dxDateRanges, Data.DB, cxDBData, cxDBNavigator, cxGridLevel,
   cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit, cxCalendar,
-  dxSkinsDefaultPainters;
+  dxSkinsDefaultPainters, cxMaskEdit;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
@@ -27,6 +27,10 @@ type
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure cxGridDBTableView1Ecart_PoidsCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure cxGridDBTableView1Ecart_CumulCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
   private
     { Déclarations privées }
     FCurrentPoids_ID: Integer;
@@ -49,6 +53,36 @@ begin
   FCurrentPoids_ID := DataModule1.T_POIDSID.Value;
 end;
 
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1Ecart_CumulCustomDrawCell(Sender: TcxCustomGridTableView;
+  ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+  if AViewInfo.Value <=0 then
+  begin
+    ACanvas.Font.Color := clGreen;
+    ACanvas.Font. Style := [fsbold];
+  end else
+  begin
+    ACanvas.Font.Color := clRed;
+    ACanvas.Font. Style := [fsbold];
+  end;
+end;
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableView1Ecart_PoidsCustomDrawCell(Sender: TcxCustomGridTableView;
+  ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+  if AViewInfo.Value <=0 then
+  begin
+    ACanvas.Font.Color := clGreen;
+    ACanvas.Font. Style := [fsbold];
+  end else
+  begin
+    ACanvas.Font.Color := clRed;
+    ACanvas.Font. Style := [fsbold];
+  end;
+end;
+
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
   inherited;
@@ -59,7 +93,8 @@ end;
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
 begin
   inherited;
-  AHintText := DataModule1.FComponentManager.getFull_IMC_Label(ACellViewInfo.Value);
+  if ACellViewInfo.Value<> Null then
+    AHintText := DataModule1.FComponentManager.getFull_IMC_Label(ACellViewInfo.Value);
 end;
 
 end.

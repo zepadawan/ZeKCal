@@ -54,6 +54,41 @@ type
     property IMG_Muscle_BM : Double read FIMG_Muscle_BM write SetIMG_Muscle_BM;
   end;
 
+  TComponent_POIDS_Traitement = class(TComponent_POIDS)
+  private
+    FPOIDS_ID_Prec: Integer;
+    FPOIDS_Ecart_Cumul_Prec: Double;
+    FIMC_ID_Prec: Integer;
+    FPOIDS_Date_Prec: TDate;
+    FIMG_Graisse_BF_Prec: Double;
+    FPOIDS_Poids_Prec: Double;
+    FIMG_Muscle_BM_Prec: Double;
+    FIMG_Hydra_BW_Prec: Double;
+    FIMC_Calc_Prec: Double;
+    FPOIDS_Ecart_Poids_Prec: Double;
+    procedure SetIMC_Calc_Prec(const Value: Double);
+    procedure SetIMC_ID_Prec(const Value: Integer);
+    procedure SetIMG_Graisse_BF_Prec(const Value: Double);
+    procedure SetIMG_Hydra_BW_Prec(const Value: Double);
+    procedure SetIMG_Muscle_BM_Prec(const Value: Double);
+    procedure SetPOIDS_Date_Prec(const Value: TDate);
+    procedure SetPOIDS_Ecart_Cumul_Prec(const Value: Double);
+    procedure SetPOIDS_Ecart_Poids_Prec(const Value: Double);
+    procedure SetPOIDS_ID_Prec(const Value: Integer);
+    procedure SetPOIDS_Poids_Prec(const Value: Double);
+  public
+    property POIDS_ID_Prec: Integer  read FPOIDS_ID_Prec write SetPOIDS_ID_Prec;
+    property POIDS_Date_Prec: TDate  read FPOIDS_Date_Prec write SetPOIDS_Date_Prec;
+    property POIDS_Poids_Prec: Double  read FPOIDS_Poids_Prec write SetPOIDS_Poids_Prec;
+    property IMC_ID_Prec: Integer  read FIMC_ID_Prec write SetIMC_ID_Prec;
+    property IMC_Calc_Prec: Double  read FIMC_Calc_Prec write SetIMC_Calc_Prec;
+    property POIDS_Ecart_Poids_Prec : Double  read FPOIDS_Ecart_Poids_Prec write SetPOIDS_Ecart_Poids_Prec;
+    property POIDS_Ecart_Cumul_Prec : Double  read FPOIDS_Ecart_Cumul_Prec write SetPOIDS_Ecart_Cumul_Prec;
+    property IMG_Graisse_BF_Prec : Double  read FIMG_Graisse_BF_Prec write SetIMG_Graisse_BF_Prec;
+    property IMG_Hydra_BW_Prec : Double  read FIMG_Hydra_BW_Prec write SetIMG_Hydra_BW_Prec;
+    property IMG_Muscle_BM_Prec : Double  read FIMG_Muscle_BM_Prec write SetIMG_Muscle_BM_Prec;
+  end;
+
 implementation
 
 { TComponent_POIDS }
@@ -174,6 +209,58 @@ begin
     end;
 
   end;
+end;
+
+{ TComponent_POIDS_Traitement }
+
+procedure TComponent_POIDS_Traitement.SetIMC_Calc_Prec(const Value: Double);
+begin
+  FIMC_Calc_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetIMC_ID_Prec(const Value: Integer);
+begin
+  FIMC_ID_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetIMG_Graisse_BF_Prec(const Value: Double);
+begin
+  FIMG_Graisse_BF_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetIMG_Hydra_BW_Prec(const Value: Double);
+begin
+  FIMG_Hydra_BW_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetIMG_Muscle_BM_Prec(const Value: Double);
+begin
+  FIMG_Muscle_BM_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetPOIDS_Date_Prec(const Value: TDate);
+begin
+  FPOIDS_Date_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetPOIDS_Ecart_Cumul_Prec(const Value: Double);
+begin
+  FPOIDS_Ecart_Cumul_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetPOIDS_Ecart_Poids_Prec(const Value: Double);
+begin
+  FPOIDS_Ecart_Poids_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetPOIDS_ID_Prec(const Value: Integer);
+begin
+  FPOIDS_ID_Prec := Value;
+end;
+
+procedure TComponent_POIDS_Traitement.SetPOIDS_Poids_Prec(const Value: Double);
+begin
+  FPOIDS_Poids_Prec := Value;
 end;
 
 end.

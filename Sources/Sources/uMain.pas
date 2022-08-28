@@ -10,7 +10,7 @@ uses
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
-  uDataModule,
+  uDataModule, uTraitements,
   uFrameMenu, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxBar, cxClasses, cxButtons, dxStatusBar,
   dxRibbonStatusBar;
@@ -36,20 +36,25 @@ type
     Bt_Gene_Params: TdxBarButton;
     Btn_Gene_IMG: TdxBarButton;
     dxBarSeparator1: TdxBarSeparator;
+    Btn_Gene_Poids_MAJCumul: TdxBarButton;
+    Btn_CumulPoids: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Btn_SaisiePoidsClick(Sender: TObject);
-    procedure TestClick(Sender: TObject);
     procedure Btn_Gene_SaisieDiabeteClick(Sender: TObject);
     procedure Bt_Gene_ParamsClick(Sender: TObject);
     procedure Btn_Gene_IMGClick(Sender: TObject);
     procedure dxBarSubItem3Click(Sender: TObject);
+    procedure TestClick(Sender: TObject);
+    procedure Btn_Gene_Poids_MAJCumulClick(Sender: TObject);
+    procedure Btn_CumulPoidsClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
     FFrame_Manager : TFrame_Manager;
+    FTraitements : TTraitements;
     procedure ShowFrame(aFrame:TFrame);
   public
     { Déclarations publiques }
@@ -64,6 +69,12 @@ var
 implementation
 {$R *.dfm}
 
+procedure TForm1.Btn_CumulPoidsClick(Sender: TObject);
+begin
+  FTraitements.TraitementGolbal;
+
+end;
+
 procedure TForm1.Btn_FermerClick(Sender: TObject);
 begin
   if FCurrent_Frame <> nil then
@@ -77,7 +88,7 @@ end;
 
 procedure TForm1.Btn_SaisiePoidsClick(Sender: TObject);
 begin
-   ShowFrame(FSaisieFrame_POIDS);
+ ShowFrame(FSaisieFrame_POIDS);
 end;
 
 procedure TForm1.Bt_Gene_ParamsClick(Sender: TObject);
@@ -95,23 +106,31 @@ begin
    ShowFrame(FSaisieFrame_IMG);
 end;
 
+procedure TForm1.Btn_Gene_Poids_MAJCumulClick(Sender: TObject);
+begin
+  FTraitements.TraitementGolbal;
+end;
+
 procedure TForm1.Btn_Gene_SaisieDiabeteClick(Sender: TObject);
 begin
    ShowFrame(FSaisieFrame_DIABETE);
 end;
 
 procedure TForm1.TestClick(Sender: TObject);
-//var
+var
 //  aIMC : Double;
 //  aID : Integer;
+ i: Integer;
 begin
 //   calcul de l'IMC   : Poids / Talle au carré
 //  aIMC := TUtils.IMC(100.8);
+  FTraitements.TraitementGolbal;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   FFrame_Manager := TFrame_Manager.Create;
+  FTraitements := TTraitements.Create;
   initialiizeFrames;
 end;
 

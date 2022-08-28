@@ -108,9 +108,11 @@ end;
 procedure TDataModule1.T_POIDSBeforePost(DataSet: TDataSet);
 begin
   // Calcul d l'IMC
-  T_POIDSIMC_Calc.Value := TUtils.IMC(T_POIDSPoids.Value);
-//  T_POIDSIMC_ID.Value := FComponentManager.getCompoIMC_IDByValue(T_POIDSIMC_Calc.Value).IMC_ID;
-
+  if T_POIDSPoids.Value <> 0  then
+  begin
+    T_POIDSIMC_Calc.Value := TUtils.IMC(T_POIDSPoids.Value);
+    T_POIDSIMC_ID.Value := FComponentManager.getCompoIMC_IMCIDByValue(T_POIDSIMC_Calc.Value);
+  end;
 end;
 
 end.

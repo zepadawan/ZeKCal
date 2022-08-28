@@ -60,28 +60,51 @@ object Form1: TForm1
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = 1
+      ExplicitLeft = 2
+      ExplicitTop = 2
       ExplicitWidth = 974
       ExplicitHeight = 509
       inherited cxButton1: TcxButton
-        Width = 273
+        Width = 281
+        Height = 72
         OptionsImage.ImageIndex = 1
         OptionsImage.Images = DataModule1.cxImageList_ext
         OptionsImage.Margin = 10
         OptionsImage.Spacing = 20
         OnClick = Btn_SaisiePoidsClick
-        ExplicitWidth = 273
+        ExplicitWidth = 281
+        ExplicitHeight = 72
       end
       inherited cxButton2: TcxButton
-        Width = 273
+        Width = 220
         OptionsImage.ImageIndex = 0
-        OptionsImage.Images = DataModule1.cxImageList_ext
         OptionsImage.Margin = 10
         OptionsImage.Spacing = 20
         OnClick = Btn_Gene_SaisieDiabeteClick
-        ExplicitWidth = 273
+        ExplicitWidth = 220
       end
+    end
+    object Btn_CumulPoids: TcxButton
+      Left = 336
+      Top = 17
+      Width = 281
+      Height = 72
+      Caption = 'Mal Cumul Poids'
+      Colors.Default = clWhite
+      Colors.DefaultText = clHighlight
+      LookAndFeel.NativeStyle = True
+      OptionsImage.ImageIndex = 2
+      OptionsImage.Images = DataModule1.cxImageList_ext
+      OptionsImage.Margin = 10
+      OptionsImage.Spacing = 20
+      TabOrder = 1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = Btn_CumulPoidsClick
     end
   end
   object Panel1: TPanel
@@ -101,7 +124,6 @@ object Form1: TForm1
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = True
       OptionsImage.ImageIndex = 0
-      OptionsImage.Images = DataModule1.ImageList_16
       TabOrder = 0
       OnClick = Btn_FermerClick
     end
@@ -124,8 +146,8 @@ object Form1: TForm1
     ShowFullMenusAfterDelay = False
     ShowShortCutInHint = True
     UseSystemFont = True
-    Left = 704
-    Top = 80
+    Left = 56
+    Top = 424
     PixelsPerInch = 96
     DockControlHeights = (
       0
@@ -199,6 +221,10 @@ object Form1: TForm1
         item
           Visible = True
           ItemName = 'Btn_SaisiePoids'
+        end
+        item
+          Visible = True
+          ItemName = 'Btn_Gene_Poids_MAJCumul'
         end>
     end
     object dxBarSubItem3: TdxBarSubItem
@@ -270,6 +296,13 @@ object Form1: TForm1
       Hint = '-'
       Visible = ivAlways
       ShowCaption = False
+    end
+    object Btn_Gene_Poids_MAJCumul: TdxBarButton
+      Caption = 'MAJ Cumuls'
+      Category = 0
+      Hint = 'MAJ Cumuls'
+      Visible = ivAlways
+      OnClick = Btn_Gene_Poids_MAJCumulClick
     end
     object dxBarGroup1: TdxBarGroup
       Items = ()

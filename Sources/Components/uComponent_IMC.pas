@@ -15,8 +15,10 @@ type
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
     procedure initialize;
-    function getCompoIMC_ByID(aID: Integer): TComponent_IMC;
+    function getCompoIMC_IDByValue(aID: Integer): TComponent_IMC;
     function getCompoIMC_ColorByID(aIMC_ID: Integer): TColor;
+    function getCompoIMC_IMCIDByValue(aValue: Double): Integer;
+
   end;
 
   TComponent_IMC = class(TObject)
@@ -102,7 +104,7 @@ begin
   inherited;
 end;
 
-function TComponentManager_IMC.getCompoIMC_ByID(aID: Integer): TComponent_IMC;
+function TComponentManager_IMC.getCompoIMC_IDByValue(aID: Integer): TComponent_IMC;
 var
   i: Integer;
   aCompoIMC: TComponent_IMC;
@@ -123,8 +125,27 @@ function TComponentManager_IMC.getCompoIMC_ColorByID(aIMC_ID: Integer): TColor;
 var
   aCompoIMC: TComponent_IMC;
 begin
-  aCompoIMC := getCompoIMC_ByID(aIMC_ID);
-  Result := aCompoIMC.IMC_Color;
+  if aIMC_ID <> 0  then
+  begin
+    aCompoIMC := getCompoIMC_IDByValue(aIMC_ID);
+    Result := aCompoIMC.IMC_Color;
+  end;
+end;
+
+function TComponentManager_IMC.getCompoIMC_IMCIDByValue(aValue: Double): Integer;
+var
+  i: Integer;
+  aCompoIMC: TComponent_IMC;
+begin
+  Result := 0;
+  for i := 0 to FCompoList.Count - 1 do
+  begin
+    aCompoIMC := TComponent_IMC(FCompoList[i]);
+      if (aValue >= aCompoIMC.IMC_Min) and (aValue < aCompoIMC.IMC_Max) then
+      begin
+        Result := aCompoIMC.IMC_ID;
+      end;
+    end;
 end;
 
 procedure TComponentManager_IMC.initialize;

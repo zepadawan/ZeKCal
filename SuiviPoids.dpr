@@ -16,7 +16,8 @@ uses
   uComponent_IMC in 'Sources\Components\uComponent_IMC.pas',
   uSaisieFrame_DIABETE in 'Sources\Saisies\uSaisieFrame_DIABETE.pas' {FSaisieFrame_DIABETE: TFrame},
   uComponent_POIDS in 'Sources\Components\uComponent_POIDS.pas',
-  uComponentManager in 'Sources\Components\uComponentManager.pas';
+  uComponentManager in 'Sources\Components\uComponentManager.pas',
+  uTraitements in 'Sources\Sources\uTraitements.pas';
 
 {$R *.res}
 
