@@ -10,14 +10,13 @@ uses
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
-  uDataModule, uTraitements,
+  uTraitements,
   uFrameMenu, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxBar, cxClasses, cxButtons, dxStatusBar,
-  dxRibbonStatusBar;
+  dxRibbonStatusBar, System.ImageList, Vcl.ImgList, cxImageList;
 
 type
   TForm1 = class(TForm)
-    dxRibbonStatusBar1: TdxRibbonStatusBar;
     Panel_Frame: TPanel;
     Panel1: TPanel;
     Btn_Fermer: TcxButton;
@@ -39,6 +38,9 @@ type
     Btn_CumulPoids: TcxButton;
     Btn_Gene_SaisiePoids: TcxButton;
     cxButton1: TcxButton;
+    Btn_Quitter: TcxButton;
+    ImageList_16: TcxImageList;
+    cxImageList_ext: TcxImageList;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);
@@ -53,6 +55,7 @@ type
     procedure Btn_CumulPoidsClick(Sender: TObject);
     procedure Btn_Gene_SaisiePoidsClick(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
+    procedure Btn_QuitterClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
@@ -71,6 +74,8 @@ var
 
 implementation
 {$R *.dfm}
+uses
+  uDataModule;
 
 procedure TForm1.Btn_CumulPoidsClick(Sender: TObject);
 begin
@@ -88,6 +93,11 @@ end;
 procedure TForm1.Btn_IMCClick(Sender: TObject);
 begin
    ShowFrame(FSaisieFrame_IMC);
+end;
+
+procedure TForm1.Btn_QuitterClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TForm1.Btn_SaisiePoidsClick(Sender: TObject);

@@ -6,7 +6,6 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
   inherited PanelTop: TPanel
     Width = 768
     Caption = 'Saisie des valeurs IMG'
-    ExplicitLeft = 1
     ExplicitWidth = 768
   end
   inherited Panel_Client: TPanel
@@ -21,9 +20,9 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
       ExplicitHeight = 379
       inherited cxGrid: TcxGrid
         Width = 764
-        Height = 349
+        Height = 343
         ExplicitWidth = 764
-        ExplicitHeight = 349
+        ExplicitHeight = 343
         inherited cxGridDBTableView: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_IMG
           OptionsView.ColumnAutoWidth = True
@@ -64,21 +63,23 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
           end
         end
       end
-      inherited cxDBNavigator1: TcxDBNavigator
-        Top = 350
-        Width = 750
+      inherited cxDBNavigator: TcxDBNavigator
+        Top = 347
+        Width = 758
         DataSource = DataModule1.DS_IMG
-        LookAndFeel.ScrollbarMode = sbmClassic
+        InfoPanel.DisplayMask = '[RecordIndex]   o  f [RecordCount]'
+        InfoPanel.Visible = True
+        InfoPanel.Width = 50
+        ExplicitLeft = 7
         ExplicitTop = 346
-        ExplicitWidth = 750
+        ExplicitWidth = 758
       end
     end
   end
   inherited PanelCBottom: TPanel
     Top = 422
     Width = 768
-    ExplicitLeft = -1
-    ExplicitTop = 426
+    ExplicitTop = 422
     ExplicitWidth = 768
   end
 end

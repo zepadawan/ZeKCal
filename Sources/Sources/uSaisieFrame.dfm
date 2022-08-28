@@ -10,7 +10,6 @@ inherited FSaisieFrame: TFSaisieFrame
     Font.Height = -19
     Font.Style = [fsBold]
     ParentFont = False
-    ExplicitTop = -4
     ExplicitWidth = 961
   end
   object Panel_Client: TPanel
@@ -34,14 +33,13 @@ inherited FSaisieFrame: TFSaisieFrame
         Height = 385
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = 5
-        ExplicitHeight = 391
         object cxGridDBTableView: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
+          OptionsView.Footer = True
+          OptionsView.Indicator = True
         end
         object cxGridLevel: TcxGridLevel
           GridView = cxGridDBTableView
@@ -51,27 +49,40 @@ inherited FSaisieFrame: TFSaisieFrame
         AlignWithMargins = True
         Left = 4
         Top = 389
-        Width = 948
+        Width = 951
         Height = 28
         BorderStyle = nbsNone
+        Buttons.ConfirmDelete = False
         Buttons.CustomButtons = <>
+        Buttons.First.Hint = 'D'#233'but'
         Buttons.First.Visible = True
         Buttons.PriorPage.Visible = False
         Buttons.Prior.Visible = False
         Buttons.Next.Enabled = False
         Buttons.Next.Visible = False
         Buttons.NextPage.Visible = False
+        Buttons.Last.Hint = 'Dernier'
+        Buttons.Insert.Hint = 'Ajouter'
         Buttons.Insert.Visible = True
         Buttons.Append.Visible = False
+        Buttons.Delete.Hint = 'Supprimer'
         Buttons.Delete.Visible = True
         Buttons.Edit.Visible = False
+        Buttons.Post.Hint = 'Valider'
         Buttons.Post.Visible = True
+        Buttons.Cancel.Hint = 'Annuler'
+        Buttons.Cancel.Visible = True
         Buttons.Refresh.Visible = False
         Buttons.SaveBookmark.Visible = False
         Buttons.GotoBookmark.Visible = False
         Buttons.Filter.Visible = False
+        InfoPanel.DisplayMask = '[RecordIndex]  sur  [RecordCount]'
+        InfoPanel.Visible = True
         Align = alBottom
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
+        ExplicitWidth = 945
       end
     end
   end

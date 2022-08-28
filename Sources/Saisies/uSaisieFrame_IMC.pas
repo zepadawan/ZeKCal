@@ -9,7 +9,7 @@ uses
   cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, MemDS, DBAccess, MyAccess, cxDBNavigator, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxGrid, Vcl.ExtCtrls, cxColorComboBox, cxTextEdit;
+  cxGrid, Vcl.ExtCtrls, cxColorComboBox, cxTextEdit, dxColorEdit;
 
 type
   TFSaisieFrame_IMC = class(TFSaisieFrame)

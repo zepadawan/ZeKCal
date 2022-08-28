@@ -6,7 +6,6 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
   inherited PanelTop: TPanel
     Width = 1036
     Caption = 'Grille des prises de tests de la Glyc'#233'mie'
-    ExplicitTop = 0
     ExplicitWidth = 1036
   end
   inherited Panel_Client: TPanel
@@ -21,9 +20,9 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
       ExplicitHeight = 387
       inherited cxGrid: TcxGrid
         Width = 1032
-        Height = 357
+        Height = 351
         ExplicitWidth = 1032
-        ExplicitHeight = 357
+        ExplicitHeight = 351
         inherited cxGridDBTableView: TcxGridDBTableView
           OnCustomDrawCell = cxGridDBTableViewCustomDrawCell
           DataController.DataSource = DataModule1.DS_DIABETE
@@ -66,13 +65,13 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
           end
         end
       end
-      inherited cxDBNavigator1: TcxDBNavigator
-        Top = 358
-        Width = 1020
+      inherited cxDBNavigator: TcxDBNavigator
+        Top = 355
+        Width = 1026
         DataSource = DataModule1.DS_DIABETE
-        ExplicitLeft = -1
-        ExplicitTop = 354
-        ExplicitWidth = 1020
+        ExplicitLeft = 4
+        ExplicitTop = 355
+        ExplicitWidth = 1026
       end
     end
   end

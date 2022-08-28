@@ -2,13 +2,10 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
   OnResize = FrameResize
   inherited PanelTop: TPanel
     Caption = 'Grille des pes'#233'es de Poids'
-    ExplicitLeft = -1
   end
   inherited Panel_Client: TPanel
     inherited Panel_Grid: TPanel
       inherited cxGrid: TcxGrid
-        ExplicitLeft = 1
-        ExplicitTop = 1
         inherited cxGridDBTableView: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_POIDS
           OptionsView.CellAutoHeight = True
@@ -70,8 +67,10 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
           end
         end
       end
-      inherited cxDBNavigator1: TcxDBNavigator
+      inherited cxDBNavigator: TcxDBNavigator
         DataSource = DataModule1.DS_POIDS
+        ParentShowHint = False
+        ShowHint = True
       end
     end
   end

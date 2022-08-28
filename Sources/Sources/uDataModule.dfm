@@ -497,7 +497,7 @@ object DataModule1: TDataModule1
     Height = 64
     Width = 64
     FormatVersion = 1
-    DesignInfo = 5767704
+    DesignInfo = 4194888
     ImageInfo = <
       item
         Image.Data = {
