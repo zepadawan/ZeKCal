@@ -13,11 +13,11 @@ uses
 
 type
   TFSaisieFrame_IMC = class(TFSaisieFrame)
-    cxGridDBTableView1ID: TcxGridDBColumn;
-    cxGridDBTableView1Label: TcxGridDBColumn;
-    cxGridDBTableView1Max: TcxGridDBColumn;
-    cxGridDBTableView1Min: TcxGridDBColumn;
-    cxGridDBTableView1Color: TcxGridDBColumn;
+    cxGridDBTableViewID: TcxGridDBColumn;
+    cxGridDBTableViewLabel: TcxGridDBColumn;
+    cxGridDBTableViewMax: TcxGridDBColumn;
+    cxGridDBTableViewMin: TcxGridDBColumn;
+    cxGridDBTableViewColor: TcxGridDBColumn;
   private
     { Déclarations privées }
   public

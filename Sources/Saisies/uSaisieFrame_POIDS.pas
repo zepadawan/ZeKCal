@@ -14,16 +14,16 @@ uses
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
-    cxGridDBTableView1ID: TcxGridDBColumn;
-    cxGridDBTableView1Date: TcxGridDBColumn;
-    cxGridDBTableView1Poids: TcxGridDBColumn;
-    cxGridDBTableView1IMC_ID: TcxGridDBColumn;
-    cxGridDBTableView1IMC_Calc: TcxGridDBColumn;
-    cxGridDBTableView1Ecart_Poids: TcxGridDBColumn;
-    cxGridDBTableView1IMG_Graisse_BF: TcxGridDBColumn;
-    cxGridDBTableView1IMG_Hydrat_BW: TcxGridDBColumn;
-    cxGridDBTableView1IMG_Muscle_BM: TcxGridDBColumn;
-    cxGridDBTableView1Ecart_Cumul: TcxGridDBColumn;
+    cxGridDBTableViewID: TcxGridDBColumn;
+    cxGridDBTableViewDate: TcxGridDBColumn;
+    cxGridDBTableViewPoids: TcxGridDBColumn;
+    cxGridDBTableViewIMC_ID: TcxGridDBColumn;
+    cxGridDBTableViewIMC_Calc: TcxGridDBColumn;
+    cxGridDBTableViewEcart_Poids: TcxGridDBColumn;
+    cxGridDBTableViewEcart_Cumul: TcxGridDBColumn;
+    cxGridDBTableViewIMG_Graisse_BF: TcxGridDBColumn;
+    cxGridDBTableViewIMG_Hydrat_BW: TcxGridDBColumn;
+    cxGridDBTableViewIMG_Muscle_BM: TcxGridDBColumn;
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
@@ -106,15 +106,15 @@ begin
   if Key = VK_TAB then
   begin
     Key := 0;
-    cxGridDBTableView1.Controller.FocusedRowIndex := cxGridDBTableView1.Controller.FocusedRowIndex + 1;
-    cxGridDBTableView1.Controller.EditingController.ShowEdit;
+    cxGridDBTableView.Controller.FocusedRowIndex := cxGridDBTableView.Controller.FocusedRowIndex + 1;
+    cxGridDBTableView.Controller.EditingController.ShowEdit;
   end;
 end;
 
 procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);
 begin
   inherited;
-  cxGridDBTableView1.Controller.FocusedColumn:= cxGridDBTableView1Date;
+  cxGridDBTableView.Controller.FocusedColumn:= cxGridDBTableViewDate;
 end;
 
 end.

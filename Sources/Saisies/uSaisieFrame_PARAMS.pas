@@ -11,9 +11,9 @@ uses
 
 type
   TFSaisieFrame_PARAMS = class(TFSaisieFrame)
-    cxGridDBTableView1ID: TcxGridDBColumn;
-    cxGridDBTableView1Label: TcxGridDBColumn;
-    cxGridDBTableView1Value: TcxGridDBColumn;
+    cxGridDBTableViewID: TcxGridDBColumn;
+    cxGridDBTableViewLabel: TcxGridDBColumn;
+    cxGridDBTableViewValue: TcxGridDBColumn;
     procedure cxGridDBTableView1CustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);

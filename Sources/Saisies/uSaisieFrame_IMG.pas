@@ -7,17 +7,17 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uSaisieFrame, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit, cxColorComboBox;
+  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit, cxColorComboBox, dxColorEdit;
 
 type
   TFSaisieFrame_IMG = class(TFSaisieFrame)
-    cxGridDBTableView1ID: TcxGridDBColumn;
-    cxGridDBTableView1Label: TcxGridDBColumn;
-    cxGridDBTableView1Graiise_Min: TcxGridDBColumn;
-    cxGridDBTableView1Graisse_Max: TcxGridDBColumn;
-    cxGridDBTableView1Hydra_Max: TcxGridDBColumn;
-    cxGridDBTableView1Hydrat_Min: TcxGridDBColumn;
-    cxGridDBTableView1Color: TcxGridDBColumn;
+    cxGridDBTableViewID: TcxGridDBColumn;
+    cxGridDBTableViewLabel: TcxGridDBColumn;
+    cxGridDBTableViewGraiise_Min: TcxGridDBColumn;
+    cxGridDBTableViewGraisse_Max: TcxGridDBColumn;
+    cxGridDBTableViewHydra_Max: TcxGridDBColumn;
+    cxGridDBTableViewHydrat_Min: TcxGridDBColumn;
+    cxGridDBTableViewColor: TcxGridDBColumn;
   private
     { Déclarations privées }
   public

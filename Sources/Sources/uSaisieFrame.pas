@@ -15,15 +15,11 @@ type
   TFSaisieFrame = class(TFCustomFrame)
     Panel_Client: TPanel;
     Panel_Grid: TPanel;
-    cxGrid1: TcxGrid;
-    cxGrid1DBTableView1: TcxGridDBTableView;
-    cxGrid1Level1: TcxGridLevel;
-    cxDBNavigator1: TcxDBNavigator;
-    PanelClient: TPanel;
-    Panel3: TPanel;
-    cxGrid2: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    cxGridLevel1: TcxGridLevel;
+    cxGrid: TcxGrid;
+    cxGridDBTableView: TcxGridDBTableView;
+    cxGridLevel: TcxGridLevel;
+    cxDBNavigator: TcxDBNavigator;
+    PanelCBottom: TPanel;
   private
     { Déclarations privées }
   public

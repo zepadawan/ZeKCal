@@ -5,63 +5,80 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
   ExplicitHeight = 459
   inherited PanelTop: TPanel
     Width = 768
+    Caption = 'Saisie des valeurs IMG'
+    ExplicitLeft = 1
     ExplicitWidth = 768
   end
   inherited Panel_Client: TPanel
     Width = 768
-    Height = 418
+    Height = 381
     ExplicitWidth = 768
-    ExplicitHeight = 418
-  end
-  inherited PanelClient: TPanel
-    Width = 768
-    Height = 418
-    ExplicitWidth = 768
-    ExplicitHeight = 418
-    inherited Panel3: TPanel
+    ExplicitHeight = 381
+    inherited Panel_Grid: TPanel
       Width = 766
-      Height = 416
+      Height = 379
       ExplicitWidth = 766
-      ExplicitHeight = 416
-      inherited cxGrid2: TcxGrid
+      ExplicitHeight = 379
+      inherited cxGrid: TcxGrid
         Width = 764
-        Height = 414
+        Height = 349
         ExplicitWidth = 764
-        ExplicitHeight = 414
-        inherited cxGridDBTableView1: TcxGridDBTableView
+        ExplicitHeight = 349
+        inherited cxGridDBTableView: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_IMG
-          object cxGridDBTableView1ID: TcxGridDBColumn
+          OptionsView.ColumnAutoWidth = True
+          object cxGridDBTableViewID: TcxGridDBColumn
             DataBinding.FieldName = 'ID'
+            Visible = False
           end
-          object cxGridDBTableView1Label: TcxGridDBColumn
+          object cxGridDBTableViewLabel: TcxGridDBColumn
             DataBinding.FieldName = 'Label'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
             Styles.Content = DataModule1.Gras
           end
-          object cxGridDBTableView1Graiise_Min: TcxGridDBColumn
+          object cxGridDBTableViewGraiise_Min: TcxGridDBColumn
             DataBinding.FieldName = 'Graiise_Min'
-          end
-          object cxGridDBTableView1Graisse_Max: TcxGridDBColumn
-            DataBinding.FieldName = 'Graisse_Max'
-          end
-          object cxGridDBTableView1Hydra_Max: TcxGridDBColumn
-            DataBinding.FieldName = 'Hydra_Max'
-          end
-          object cxGridDBTableView1Hydrat_Min: TcxGridDBColumn
-            DataBinding.FieldName = 'Hydrat_Min'
-          end
-          object cxGridDBTableView1Color: TcxGridDBColumn
-            DataBinding.FieldName = 'Color'
-            PropertiesClassName = 'TcxColorComboBoxProperties'
+            PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
-            Properties.AllowSelectColor = True
-            Properties.ColorValueFormat = cxcvHexadecimal
-            Properties.CustomColors = <>
-            Properties.ShowDescriptions = False
+          end
+          object cxGridDBTableViewGraisse_Max: TcxGridDBColumn
+            DataBinding.FieldName = 'Graisse_Max'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+          end
+          object cxGridDBTableViewHydra_Max: TcxGridDBColumn
+            DataBinding.FieldName = 'Hydra_Max'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+          end
+          object cxGridDBTableViewHydrat_Min: TcxGridDBColumn
+            DataBinding.FieldName = 'Hydrat_Min'
+            PropertiesClassName = 'TcxTextEditProperties'
+            Properties.Alignment.Horz = taCenter
+          end
+          object cxGridDBTableViewColor: TcxGridDBColumn
+            DataBinding.FieldName = 'Color'
+            PropertiesClassName = 'TdxColorEditProperties'
+            Properties.ColorPalette = cpExtended
           end
         end
       end
+      inherited cxDBNavigator1: TcxDBNavigator
+        Top = 350
+        Width = 750
+        DataSource = DataModule1.DS_IMG
+        LookAndFeel.ScrollbarMode = sbmClassic
+        ExplicitTop = 346
+        ExplicitWidth = 750
+      end
     end
+  end
+  inherited PanelCBottom: TPanel
+    Top = 422
+    Width = 768
+    ExplicitLeft = -1
+    ExplicitTop = 426
+    ExplicitWidth = 768
   end
 end

@@ -15,6 +15,7 @@ object DataModule1: TDataModule1
   object T_IMC: TMyTable
     TableName = 't_imc'
     Connection = MyConnection1
+    Active = True
     Options.FieldOrigins = foNone
     Left = 144
     Top = 56
@@ -94,6 +95,7 @@ object DataModule1: TDataModule1
   object T_DIABETE: TMyTable
     TableName = 't_diabete'
     Connection = MyConnection1
+    Active = True
     Options.AutoRefresh = True
     Options.AutoPrepare = True
     Options.FieldOrigins = foNone
@@ -138,6 +140,7 @@ object DataModule1: TDataModule1
   object T_PARAMS: TMyTable
     TableName = 't_params'
     Connection = MyConnection1
+    Active = True
     Options.FieldOrigins = foNone
     Left = 144
     Top = 8
@@ -160,6 +163,7 @@ object DataModule1: TDataModule1
   object T_IMG: TMyTable
     TableName = 't_img'
     Connection = MyConnection1
+    Active = True
     Options.FieldOrigins = foNone
     Left = 144
     Top = 104
@@ -172,19 +176,19 @@ object DataModule1: TDataModule1
     end
     object T_IMGGraiise_Min: TFloatField
       FieldName = 'Graiise_Min'
-      DisplayFormat = '00.0'
+      DisplayFormat = '00.0 %'
     end
     object T_IMGGraisse_Max: TFloatField
       FieldName = 'Graisse_Max'
-      DisplayFormat = '00.0'
+      DisplayFormat = '00.0 %'
     end
     object T_IMGHydra_Max: TFloatField
       FieldName = 'Hydra_Max'
-      DisplayFormat = '00.0'
+      DisplayFormat = '00.0 %'
     end
     object T_IMGHydrat_Min: TFloatField
       FieldName = 'Hydrat_Min'
-      DisplayFormat = '00.0'
+      DisplayFormat = '00.0 %'
     end
     object T_IMGColor: TIntegerField
       FieldName = 'Color'
