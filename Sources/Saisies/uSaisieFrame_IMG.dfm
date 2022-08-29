@@ -21,6 +21,8 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
       inherited cxGrid: TcxGrid
         Width = 764
         Height = 343
+        ExplicitLeft = 4
+        ExplicitTop = 5
         ExplicitWidth = 764
         ExplicitHeight = 343
         inherited cxGridDBTableView: TcxGridDBTableView
@@ -36,8 +38,8 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
             Properties.Alignment.Horz = taCenter
             Styles.Content = DataModule1.Gras
           end
-          object cxGridDBTableViewGraiise_Min: TcxGridDBColumn
-            DataBinding.FieldName = 'Graiise_Min'
+          object cxGridDBTableViewGraisse_Min: TcxGridDBColumn
+            DataBinding.FieldName = 'Graisse_Min'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
           end
@@ -68,10 +70,8 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
         Width = 758
         DataSource = DataModule1.DS_IMG
         InfoPanel.DisplayMask = '[RecordIndex]   o  f [RecordCount]'
-        InfoPanel.Visible = True
         InfoPanel.Width = 50
-        ExplicitLeft = 7
-        ExplicitTop = 346
+        ExplicitTop = 347
         ExplicitWidth = 758
       end
     end
@@ -81,5 +81,18 @@ inherited FSaisieFrame_IMG: TFSaisieFrame_IMG
     Width = 768
     ExplicitTop = 422
     ExplicitWidth = 768
+  end
+  inherited Printer: TdxComponentPrinter
+    PixelsPerInch = 96
+    inherited PrinterLink_Grid: TdxGridReportLink
+      PixelsPerInch = 96
+      BuiltInReportLink = True
+    end
+  end
+  inherited PrinterStyleManager: TdxPrintStyleManager
+    PixelsPerInch = 96
+    inherited PrinterStyleManagerStyle1: TdxPSPrintStyle
+      BuiltInStyle = True
+    end
   end
 end

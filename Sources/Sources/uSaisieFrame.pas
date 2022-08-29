@@ -28,6 +28,7 @@ type
     PrinterStyleManager: TdxPrintStyleManager;
     Btn_Print: TcxButton;
     PrinterLink_Grid: TdxGridReportLink;
+    PrinterStyleManagerStyle1: TdxPSPrintStyle;
     procedure Btn_PrintClick(Sender: TObject);
   private
     { Déclarations privées }

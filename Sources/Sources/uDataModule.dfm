@@ -174,20 +174,20 @@ object DataModule1: TDataModule1
     object T_IMGLabel: TStringField
       FieldName = 'Label'
     end
-    object T_IMGGraiise_Min: TFloatField
-      FieldName = 'Graiise_Min'
+    object T_IMGGraisse_Min: TFloatField
+      FieldName = 'Graisse_Min'
       DisplayFormat = '00.0 %'
     end
     object T_IMGGraisse_Max: TFloatField
       FieldName = 'Graisse_Max'
       DisplayFormat = '00.0 %'
     end
-    object T_IMGHydra_Max: TFloatField
-      FieldName = 'Hydra_Max'
-      DisplayFormat = '00.0 %'
-    end
     object T_IMGHydrat_Min: TFloatField
       FieldName = 'Hydrat_Min'
+      DisplayFormat = '00.0 %'
+    end
+    object T_IMGHydra_Max: TFloatField
+      FieldName = 'Hydra_Max'
       DisplayFormat = '00.0 %'
     end
     object T_IMGColor: TIntegerField

@@ -33,7 +33,6 @@ type
     T_IMCMin: TLongWordField;
     T_IMGID: TIntegerField;
     T_IMGLabel: TStringField;
-    T_IMGGraiise_Min: TFloatField;
     T_IMGGraisse_Max: TFloatField;
     T_IMGHydra_Max: TFloatField;
     T_IMGHydrat_Min: TFloatField;
@@ -56,6 +55,7 @@ type
     cxImageList_ext: TcxImageList;
     T_IMCColor: TIntegerField;
     T_IMGColor: TIntegerField;
+    T_IMGGraisse_Min: TFloatField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
   private
     { Déclarations privées }

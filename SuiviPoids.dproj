@@ -155,6 +155,7 @@
         <DCCReference Include="Sources\Components\uComponent_POIDS.pas"/>
         <DCCReference Include="Sources\Components\uComponentManager.pas"/>
         <DCCReference Include="Sources\Sources\uTraitements.pas"/>
+        <DCCReference Include="Sources\Components\uComponent_IMG.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
