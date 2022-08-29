@@ -69,9 +69,13 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
       end
       inherited cxDBNavigator: TcxDBNavigator
         DataSource = DataModule1.DS_POIDS
-        ParentShowHint = False
-        ShowHint = True
       end
     end
+  end
+  inherited dxComponentPrinter: TdxComponentPrinter
+    PixelsPerInch = 96
+  end
+  inherited dxPrintStyleManager: TdxPrintStyleManager
+    PixelsPerInch = 96
   end
 end

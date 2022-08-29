@@ -9,7 +9,11 @@ uses
   cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator,
   dxDateRanges, Data.DB, cxDBData, MemDS, DBAccess, MyAccess, cxDBNavigator,
   cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid, dxSkinsDefaultPainters;
+  cxGridTableView, cxGridDBTableView, cxGrid, dxSkinsDefaultPainters, dxPSGlbl, dxPSUtl, dxPSEngn, dxPrnPg, dxBkgnd,
+  dxWrap, dxPrnDev, dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport,
+  cxDrawTextUtils, dxPSPrVwStd, dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxEditorProducers,
+  dxPScxExtEditorProducers, Vcl.Menus, Vcl.StdCtrls, cxButtons, dxPgsDlg, dxPSCore, dxPScxGridLnk,
+  dxPScxGridLayoutViewLnk, dxPScxCommon;
 
 type
   TFSaisieFrame = class(TFCustomFrame)
@@ -20,6 +24,11 @@ type
     cxGridLevel: TcxGridLevel;
     cxDBNavigator: TcxDBNavigator;
     PanelCBottom: TPanel;
+    Printer: TdxComponentPrinter;
+    PrinterStyleManager: TdxPrintStyleManager;
+    Btn_Print: TcxButton;
+    PrinterLink_Grid: TdxGridReportLink;
+    procedure Btn_PrintClick(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -30,8 +39,17 @@ var
   FSaisieFrame: TFSaisieFrame;
 
 implementation
+uses
+  uDataModule;
+
 
 
 {$R *.dfm}
+
+procedure TFSaisieFrame.Btn_PrintClick(Sender: TObject);
+begin
+  inherited;
+  Printer.Preview(True);
+end;
 
 end.

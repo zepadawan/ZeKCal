@@ -10,7 +10,11 @@ uses
   cxNavigator, dxDateRanges, Data.DB, cxDBData, cxDBNavigator, cxGridLevel,
   cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit, cxCalendar,
-  dxSkinsDefaultPainters, cxMaskEdit;
+  dxSkinsDefaultPainters, cxMaskEdit, dxPSGlbl, dxPSUtl, dxPSEngn, dxPrnPg, dxBkgnd, dxWrap, dxPrnDev,
+  dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport, cxDrawTextUtils, dxPSPrVwStd,
+  dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxGridLnk, dxPScxGridLayoutViewLnk, dxPScxEditorProducers,
+  dxPScxExtEditorProducers, dxPSCore, dxPScxCommon, cxContainer, cxButtonEdit, Vcl.Menus, Vcl.StdCtrls, cxButtons,
+  dxPgsDlg;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
@@ -114,7 +118,7 @@ end;
 procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);
 begin
   inherited;
-  cxGridDBTableView.Controller.FocusedColumn:= cxGridDBTableViewDate;
+  cxGridDBTableView.DataController.RefreshExternalData;
 end;
 
 end.
