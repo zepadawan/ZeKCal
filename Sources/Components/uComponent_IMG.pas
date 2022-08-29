@@ -2,7 +2,8 @@ unit uComponent_IMG;
 
 interface
 uses
-  System.Classes, System.Contnrs, Vcl.Graphics, uUtils;
+  System.Classes, System.Contnrs, Vcl.Graphics, System.sysUtils,
+  uUtils;
 
 type
   TComponent_IMG = class;
@@ -16,7 +17,11 @@ type
     procedure initialize;
     function getCompoIMG_IDByValue(aID: Integer): TComponent_IMG;
     function getCompoIMG_ColorByID(aIMG_ID: Integer): TColor;
-    function getCompoIMG_IMGIDByValue(aValue: Double): Integer;
+    function getCompoIMG_LongHint(aIMG_Graisse : Double): string;
+    function getCompoIMG_IMGIDByValue(aIMG_Graisse: Double): Integer;
+    function getCompoIMC_ColorByID(aIMGValue : Double) : TColor;
+
+
   end;
 
   TComponent_IMG = class(TObject)
@@ -139,6 +144,7 @@ begin
   end;
 end;
 
+
 function TComponentManager_IMG.getCompoIMG_ColorByID(aIMG_ID: Integer): TColor;
 var
   aCompoIMG: TComponent_IMG;
@@ -150,21 +156,50 @@ begin
   end;
 end;
 
-function TComponentManager_IMG.getCompoIMG_IMGIDByValue(aValue: Double): Integer;
+function TComponentManager_IMG.getCompoIMG_IMGIDByValue(aIMG_Graisse: Double): Integer;
 var
   i: Integer;
-  aCompoIMG: TComponent_IMG;
+  aCompoIMG :TComponent_IMG;
 begin
   Result := 0;
   for i := 0 to FCompoList.Count - 1 do
   begin
     aCompoIMG := TComponent_IMG(FCompoList[i]);
-//      if (aValue >= aCompoIMG.IMG_Min) and (aValue < aCompoIMG.IMG_Max) then
+      if (aIMG_Graisse >= aCompoIMG.IMG_Graisse_Min) and (aIMG_Graisse < aCompoIMG.IMG_Graisse_Max) then
       begin
         Result := aCompoIMG.IMG_ID;
       end;
     end;
 end;
+
+function TComponentManager_IMG.getCompoIMG_LongHint(aIMG_Graisse: Double): string;
+var
+  i: integer;
+  aID : Integer;
+  aCompoIMG: TComponent_IMG;
+begin
+  Result := '';
+  aID := getCompoIMG_IMGIDByValue(aIMG_Graisse);
+  aCompoIMG := getCompoIMG_IDByValue(aID);
+  Result := aCompoIMG.FIMG_Label + ' - ( Entre ' + FloatToStr(aCompoIMG.IMG_Graisse_Min) +  '% et ' + FloatToStr(aCompoIMG.IMG_Graisse_Max) + '% )';
+end;
+
+function TComponentManager_IMG.getCompoIMC_ColorByID(aIMGValue: Double): TColor;
+var
+  i: integer;
+  aID : Integer;
+  aCompoIMG: TComponent_IMG;
+begin
+  Result := 255;
+  aID := getCompoIMG_IMGIDByValue(aIMGValue);
+  aCompoIMG := getCompoIMG_IDByValue(aID);
+  Result := aCompoIMG.IMG_Color;
+end;
+
+
+
+
+
 
 procedure TComponentManager_IMG.initialize;
 var
@@ -179,8 +214,10 @@ begin
       FComponent_IMG := TComponent_IMG.Create();
       FComponent_IMG.IMG_ID := DataModule1.T_IMGID.Value;
       FComponent_IMG.IMG_Label := DataModule1.T_IMGLabel.AsString;
-//      FComponent_IMG.IMG_Min := DataModule1.T_IMGMin.Value;
-//      FComponent_IMG.IMG_Max := DataModule1.T_IMGMax.Value;
+      FComponent_IMG.IMG_Graisse_Min := DataModule1.T_IMGGraisse_Min.Value;
+      FComponent_IMG.IMG_Graisse_Max := DataModule1.T_IMGGraisse_Max.Value;
+      FComponent_IMG.IMG_Hydrat_Min := DataModule1.T_IMGHydrat_Min.Value;
+      FComponent_IMG.IMG_Hydrat_Max := DataModule1.T_IMGHydra_Max.Value;
       FComponent_IMG.IMG_Color := DataModule1.T_IMGColor.Value;
       FCompoList.Add(FComponent_IMG);
       T_IMG.Next;

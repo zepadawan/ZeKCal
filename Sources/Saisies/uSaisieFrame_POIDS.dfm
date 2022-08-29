@@ -6,8 +6,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
   inherited Panel_Client: TPanel
     inherited Panel_Grid: TPanel
       inherited cxGrid: TcxGrid
-        ExplicitLeft = 0
-        ExplicitTop = -2
         inherited cxGridDBTableView: TcxGridDBTableView
           DataController.DataSource = DataModule1.DS_POIDS
           DataController.Summary.FooterSummaryItems = <
@@ -93,6 +91,8 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
             DataBinding.FieldName = 'IMG_Graisse_BF'
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
+            OnCustomDrawCell = cxGridDBTableViewIMG_Graisse_BFCustomDrawCell
+            OnGetCellHint = cxGridDBTableViewIMG_Graisse_BFGetCellHint
             HeaderAlignmentHorz = taCenter
             Options.Editing = False
           end
@@ -122,7 +122,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
   inherited Printer: TdxComponentPrinter
     PixelsPerInch = 96
     inherited PrinterLink_Grid: TdxGridReportLink
-      Active = True
       PrinterPage.CenterOnPageH = True
       PrinterPage.FitToPagesVertically = 20
       PrinterPage.Header = 6600

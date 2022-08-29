@@ -37,6 +37,11 @@ type
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure FrameResize(Sender: TObject);
     procedure cxGridDBTableView1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure cxGridDBTableViewIMG_Graisse_BFGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption;
+      var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
+    procedure cxGridDBTableViewIMG_Graisse_BFCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
   private
     { Déclarations privées }
     FCurrentPoids_ID: Integer;
@@ -113,6 +118,23 @@ begin
     cxGridDBTableView.Controller.FocusedRowIndex := cxGridDBTableView.Controller.FocusedRowIndex + 1;
     cxGridDBTableView.Controller.EditingController.ShowEdit;
   end;
+end;
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableViewIMG_Graisse_BFCustomDrawCell(Sender: TcxCustomGridTableView;
+  ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+  if AViewInfo.Value <> null then
+    ACanvas.Brush.Color := DataModule1.FComponentManager.getCompoIMG_ColorByID(AViewInfo.Value);
+end;
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableViewIMG_Graisse_BFGetCellHint(Sender: TcxCustomGridTableItem;
+  ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;
+  var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
+begin
+  inherited;
+  if ACellViewInfo.Value<> Null then
+    AHintText := DataModule1.FComponentManager.getCompoIMG_LongHint(ACellViewInfo.Value);
 end;
 
 procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);
