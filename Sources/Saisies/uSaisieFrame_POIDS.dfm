@@ -124,13 +124,15 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
       PrinterPage.FitToPagesVertically = 20
       PrinterPage.Header = 6600
       PrinterPage.Margins.Top = 23000
+      PrinterPage.PageFooter.RightTitle.Strings = (
+        'Page : [Page # of Pages #]')
       PrinterPage.PageHeader.CenterTitle.Strings = (
         'Historique des pes'#233'es de Poids')
       PrinterPage.PageHeader.Font.Color = clBlue
       PrinterPage.PageHeader.Font.Height = -19
       PrinterPage.PageHeader.Font.Style = [fsBold]
       PrinterPage.ScaleMode = smFit
-      ReportDocument.CreationDate = 44803.343224317130000000
+      ReportDocument.CreationDate = 44803.393493310180000000
       OptionsSize.AutoWidth = True
       PixelsPerInch = 96
       BuiltInReportLink = True
