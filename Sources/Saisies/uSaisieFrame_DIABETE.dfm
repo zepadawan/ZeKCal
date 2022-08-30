@@ -67,11 +67,10 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
       end
       inherited cxDBNavigator: TcxDBNavigator
         Top = 355
-        Width = 1026
+        Width = 1023
         DataSource = DataModule1.DS_DIABETE
-        ExplicitLeft = 4
         ExplicitTop = 355
-        ExplicitWidth = 1026
+        ExplicitWidth = 1023
       end
     end
   end
@@ -80,5 +79,33 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
     Width = 1036
     ExplicitTop = 430
     ExplicitWidth = 1036
+  end
+  inherited Printer: TdxComponentPrinter
+    PixelsPerInch = 96
+    inherited PrinterLink_Grid: TdxGridReportLink
+      Active = True
+      PrinterPage.CenterOnPageH = True
+      PrinterPage.PageFooter.CenterTitle.Strings = (
+        '')
+      PrinterPage.PageFooter.Font.Style = [fsBold]
+      PrinterPage.PageHeader.CenterTitle.Strings = (
+        'Historique des prises Clyc'#233'miques')
+      PrinterPage.PageHeader.Font.Color = clBlue
+      PrinterPage.PageHeader.Font.Height = -19
+      PrinterPage.PageHeader.Font.Style = [fsBold]
+      ReportDocument.CreationDate = 44803.343419155090000000
+      ReportTitle.Color = clBlue
+      ReportTitle.Font.Color = clBlue
+      ReportTitle.Font.Height = -29
+      OptionsSize.AutoWidth = True
+      PixelsPerInch = 96
+      BuiltInReportLink = True
+    end
+  end
+  inherited PrinterStyleManager: TdxPrintStyleManager
+    PixelsPerInch = 96
+    inherited PrinterStyleManagerStyle1: TdxPSPrintStyle
+      BuiltInStyle = True
+    end
   end
 end

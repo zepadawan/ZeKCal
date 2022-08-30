@@ -153,6 +153,7 @@ object DataModule1: TDataModule1
     end
     object T_PARAMSValue: TStringField
       FieldName = 'Value'
+      Size = 50
     end
   end
   object DS_PARAMS: TMyDataSource

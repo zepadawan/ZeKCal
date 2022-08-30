@@ -133,7 +133,7 @@ procedure TFSaisieFrame_POIDS.cxGridDBTableViewIMG_Graisse_BFGetCellHint(Sender:
   var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
 begin
   inherited;
-  if ACellViewInfo.Value<> Null then
+  if (ACellViewInfo.Value<> Null) and (ACellViewInfo.Value <> 0) then
     AHintText := DataModule1.FComponentManager.getCompoIMG_LongHint(ACellViewInfo.Value);
 end;
 

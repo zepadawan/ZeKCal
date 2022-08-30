@@ -24,7 +24,6 @@ type
     DS_PARAMS: TMyDataSource;
     T_PARAMSID: TIntegerField;
     T_PARAMSLabel: TStringField;
-    T_PARAMSValue: TStringField;
     T_IMG: TMyTable;
     DS_IMG: TMyDataSource;
     T_IMCID: TIntegerField;
@@ -56,6 +55,7 @@ type
     T_IMCColor: TIntegerField;
     T_IMGColor: TIntegerField;
     T_IMGGraisse_Min: TFloatField;
+    T_PARAMSValue: TStringField;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
   private
     { Déclarations privées }

@@ -191,9 +191,12 @@ var
   aCompoIMG: TComponent_IMG;
 begin
   Result := 255;
-  aID := getCompoIMG_IMGIDByValue(aIMGValue);
-  aCompoIMG := getCompoIMG_IDByValue(aID);
-  Result := aCompoIMG.IMG_Color;
+  if aIMGValue <> 0 then
+  begin
+    aID := getCompoIMG_IMGIDByValue(aIMGValue);
+    aCompoIMG := getCompoIMG_IDByValue(aID);
+    Result := aCompoIMG.IMG_Color;
+  end;
 end;
 
 

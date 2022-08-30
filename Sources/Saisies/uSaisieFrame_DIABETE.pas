@@ -9,7 +9,11 @@ uses
   cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid,
-  Vcl.ExtCtrls, cxCheckBox, cxCalendar, cxTimeEdit, cxTextEdit;
+  Vcl.ExtCtrls, cxCheckBox, cxCalendar, cxTimeEdit, cxTextEdit, Vcl.Menus, dxPSGlbl, dxPSUtl, dxPSEngn, dxPrnPg,
+  dxBkgnd, dxWrap, dxPrnDev, dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport,
+  cxDrawTextUtils, dxPSPrVwStd, dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxGridLnk,
+  dxPScxGridLayoutViewLnk, dxPScxEditorProducers, dxPScxExtEditorProducers, dxPgsDlg, dxPSCore, dxPScxCommon,
+  Vcl.StdCtrls, cxButtons;
 
 type
   TFSaisieFrame_DIABETE = class(TFSaisieFrame)

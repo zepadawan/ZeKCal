@@ -7,7 +7,10 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uSaisieFrame, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxStyles, dxSkinsCore, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB,
   cxDBData, cxDBNavigator, cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit;
+  cxGridDBTableView, cxGrid, Vcl.ExtCtrls, cxTextEdit, Vcl.Menus, dxPSGlbl, dxPSUtl, dxPSEngn, dxPrnPg, dxBkgnd, dxWrap,
+  dxPrnDev, dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport, cxDrawTextUtils,
+  dxPSPrVwStd, dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxGridLnk, dxPScxGridLayoutViewLnk,
+  dxPScxEditorProducers, dxPScxExtEditorProducers, dxPgsDlg, dxPSCore, dxPScxCommon, Vcl.StdCtrls, cxButtons, cxRichEdit;
 
 type
   TFSaisieFrame_PARAMS = class(TFSaisieFrame)

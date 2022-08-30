@@ -94,7 +94,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
             OnCustomDrawCell = cxGridDBTableViewIMG_Graisse_BFCustomDrawCell
             OnGetCellHint = cxGridDBTableViewIMG_Graisse_BFGetCellHint
             HeaderAlignmentHorz = taCenter
-            Options.Editing = False
           end
           object cxGridDBTableViewIMG_Hydrat_BW: TcxGridDBColumn
             Caption = 'IMG : Hydrat.'
@@ -102,7 +101,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
             HeaderAlignmentHorz = taCenter
-            Options.Editing = False
           end
           object cxGridDBTableViewIMG_Muscle_BM: TcxGridDBColumn
             Caption = 'IMG : Muscle'
@@ -110,7 +108,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
             PropertiesClassName = 'TcxTextEditProperties'
             Properties.Alignment.Horz = taCenter
             HeaderAlignmentHorz = taCenter
-            Options.Editing = False
           end
         end
       end
@@ -122,6 +119,7 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
   inherited Printer: TdxComponentPrinter
     PixelsPerInch = 96
     inherited PrinterLink_Grid: TdxGridReportLink
+      Active = True
       PrinterPage.CenterOnPageH = True
       PrinterPage.FitToPagesVertically = 20
       PrinterPage.Header = 6600
@@ -132,7 +130,8 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
       PrinterPage.PageHeader.Font.Height = -19
       PrinterPage.PageHeader.Font.Style = [fsBold]
       PrinterPage.ScaleMode = smFit
-      ReportDocument.CreationDate = 44802.708745925930000000
+      ReportDocument.CreationDate = 44803.343224317130000000
+      OptionsSize.AutoWidth = True
       PixelsPerInch = 96
       BuiltInReportLink = True
     end
