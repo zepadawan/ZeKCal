@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess, MemDS,
   uComponentManager,
   cxStyles, cxClasses, System.ImageList, Vcl.ImgList,
-  Vcl.Controls, cxImageList, cxGraphics;
+  Vcl.Controls, cxImageList, cxGraphics, IdComponent, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase,
+  IdMessageClient, IdSMTPBase, IdSMTP, IdBaseComponent, IdMailBox, IdMessage, IdAttachment;
 
 type
 
@@ -56,7 +57,11 @@ type
     T_IMGColor: TIntegerField;
     T_IMGGraisse_Min: TFloatField;
     T_PARAMSValue: TStringField;
+    IdSMTP: TIdSMTP;
+    IdMessage: TIdMessage;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
+    procedure IdMessageCreateAttachment(const AMsg: TIdMessage; const AHeaders: TStrings;
+      var AAttachment: TIdAttachment);
   private
     { Déclarations privées }
     procedure InitializeTables(Sender: TObject);
@@ -87,6 +92,12 @@ begin
   inherited;
   InitializeTables(Self);
   FComponentManager := TComponentManager.Create(Self);;
+end;
+
+procedure TDataModule1.IdMessageCreateAttachment(const AMsg: TIdMessage; const AHeaders: TStrings;
+  var AAttachment: TIdAttachment);
+begin
+   AAttachment.LoadFromFile('');
 end;
 
 procedure TDataModule1.InitializeTables(Sender: TObject);

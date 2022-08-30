@@ -116,23 +116,56 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
       end
     end
   end
+  inherited PanelCBottom: TPanel
+    object Btn_Pdf: TcxButton
+      Left = 191
+      Top = 6
+      Width = 161
+      Height = 25
+      Caption = 'G'#233'n'#233'rer PDF'
+      OptionsImage.ImageIndex = 10
+      OptionsImage.Images = DataModule1.ImageList_16
+      TabOrder = 1
+      OnClick = Btn_PdfClick
+    end
+    object Btn_Partager: TcxButton
+      Left = 358
+      Top = 6
+      Width = 161
+      Height = 25
+      Caption = 'Partager'
+      OptionsImage.ImageIndex = 12
+      OptionsImage.Images = DataModule1.ImageList_16
+      TabOrder = 2
+      OnClick = Btn_PartagerClick
+    end
+  end
   inherited Printer: TdxComponentPrinter
+    Left = 616
     PixelsPerInch = 96
     inherited PrinterLink_Grid: TdxGridReportLink
       Active = True
+      PDFExportOptions.Author = 'JFP'
+      PDFExportOptions.Title = 'GrillePoids.pdf'
+      PDFExportOptions.CompressStreams = True
+      PDFExportOptions.DefaultFileName = 'c:\Tmp\GrillePoids.pdf'
+      PDFExportOptions.DefaultFileNameAssigned = True
+      PDFExportOptions.IsTitleAssigned = True
       PrinterPage.CenterOnPageH = True
       PrinterPage.FitToPagesVertically = 20
       PrinterPage.Header = 6600
       PrinterPage.Margins.Top = 23000
+      PrinterPage.PageFooter.LeftTitle.Strings = (
+        '[Date Printed]')
       PrinterPage.PageFooter.RightTitle.Strings = (
-        'Page : [Page # of Pages #]')
+        '[Page #] / [Total Pages]')
       PrinterPage.PageHeader.CenterTitle.Strings = (
         'Historique des pes'#233'es de Poids')
       PrinterPage.PageHeader.Font.Color = clBlue
       PrinterPage.PageHeader.Font.Height = -19
       PrinterPage.PageHeader.Font.Style = [fsBold]
       PrinterPage.ScaleMode = smFit
-      ReportDocument.CreationDate = 44803.393493310180000000
+      ReportDocument.CreationDate = 44803.473188101850000000
       OptionsSize.AutoWidth = True
       PixelsPerInch = 96
       BuiltInReportLink = True

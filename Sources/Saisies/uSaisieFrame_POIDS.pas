@@ -28,6 +28,8 @@ type
     cxGridDBTableViewIMG_Graisse_BF: TcxGridDBColumn;
     cxGridDBTableViewIMG_Hydrat_BW: TcxGridDBColumn;
     cxGridDBTableViewIMG_Muscle_BM: TcxGridDBColumn;
+    Btn_Pdf: TcxButton;
+    Btn_Partager: TcxButton;
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
@@ -42,6 +44,8 @@ type
       var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableViewIMG_Graisse_BFCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure Btn_PdfClick(Sender: TObject);
+    procedure Btn_PartagerClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrentPoids_ID: Integer;
@@ -57,6 +61,19 @@ uses
   uDataModule;
 
 {$R *.dfm}
+
+procedure TFSaisieFrame_POIDS.Btn_PartagerClick(Sender: TObject);
+begin
+  inherited;
+  PrinterLink_Grid.ExportToPDF('c:\Tmp\GrillePoids.pdf',False);
+  DataModule1.IdMessage.Date := Now;
+end;
+
+procedure TFSaisieFrame_POIDS.Btn_PdfClick(Sender: TObject);
+begin
+  inherited;
+  Printer.ExportToPDF(PrinterLink_Grid);
+end;
 
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
 begin
