@@ -144,7 +144,6 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
     Left = 616
     PixelsPerInch = 96
     inherited PrinterLink_Grid: TdxGridReportLink
-      Active = True
       PDFExportOptions.Author = 'JFP'
       PDFExportOptions.Title = 'GrillePoids.pdf'
       PDFExportOptions.CompressStreams = True
