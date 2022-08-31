@@ -80,7 +80,7 @@ uses
 procedure TForm1.Btn_CumulPoidsClick(Sender: TObject);
 begin
   FTraitements.TraitementGolbal;
- ShowFrame(FSaisieFrame_POIDS);
+  ShowFrame(FSaisieFrame_POIDS);
 
 end;
 

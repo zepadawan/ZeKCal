@@ -26,7 +26,6 @@ object Form1: TForm1
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 8
     object Btn_CumulPoids: TcxButton
       Left = 336
       Top = 17
