@@ -58,9 +58,6 @@ type
     T_IMGColor: TIntegerField;
     T_IMGGraisse_Min: TFloatField;
     T_PARAMSValue: TStringField;
-    IdSMTP: TIdSMTP;
-    IdMessage: TIdMessage;
-    SSL: TIdSSLIOHandlerSocketOpenSSL;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure IdMessageCreateAttachment(const AMsg: TIdMessage; const AHeaders: TStrings;
       var AAttachment: TIdAttachment);

@@ -137,6 +137,7 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
       OptionsImage.ImageIndex = 12
       OptionsImage.Images = DataModule1.ImageList_16
       TabOrder = 2
+      Visible = False
       OnClick = Btn_PartagerClick
     end
   end

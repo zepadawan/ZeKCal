@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = True
-  Height = 289
-  Width = 744
+  Height = 336
+  Width = 717
   object MyConnection1: TMyConnection
     Database = 'jfp_db'
     Username = 'jfp'
@@ -2703,69 +2703,5 @@ object DataModule1: TDataModule1
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
       end>
-  end
-  object IdSMTP: TIdSMTP
-    IOHandler = SSL
-    Host = 'smtp.gmail.com'
-    Password = '_Zepadawan456'
-    Port = 465
-    SASLMechanisms = <>
-    UseTLS = utUseImplicitTLS
-    Username = 'jeanfrancois.petroff@gmail.com'
-    Left = 584
-    Top = 136
-  end
-  object IdMessage: TIdMessage
-    AttachmentEncoding = 'MIME'
-    Body.Strings = (
-      'La grille de l'#39#39'historique des prises de poids en PJ')
-    BccList = <>
-    CCList = <>
-    Encoding = meDefault
-    FromList = <
-      item
-        Address = 'jeanfrancois.petroff@gmail.com'
-        Name = 'JF PETROFF'
-        Text = 'JF PETROFF <jeanfrancois.petroff@gmail.com>'
-        Domain = 'gmail.com'
-        User = 'jeanfrancois.petroff'
-      end>
-    From.Address = 'jeanfrancois.petroff@gmail.com'
-    From.Name = 'JF PETROFF'
-    From.Text = 'JF PETROFF <jeanfrancois.petroff@gmail.com>'
-    From.Domain = 'gmail.com'
-    From.User = 'jeanfrancois.petroff'
-    Recipients = <
-      item
-        Address = 'jeanfrancois.petroff@gmail.com'
-        Name = 'Adresse_Item'
-        Text = 'Adresse_Item <jeanfrancois.petroff@gmail.com>'
-        Domain = 'gmail.com'
-        User = 'jeanfrancois.petroff'
-      end>
-    ReplyTo = <
-      item
-        Address = 'jeanfrancois.petroff@gmail.com'
-        Text = 'jeanfrancois.petroff@gmail.com'
-        Domain = 'gmail.com'
-        User = 'jeanfrancois.petroff'
-      end>
-    Subject = 'Envoi de la grille des poids'#13#10
-    ConvertPreamble = True
-    OnCreateAttachment = IdMessageCreateAttachment
-    Left = 640
-    Top = 136
-  end
-  object SSL: TIdSSLIOHandlerSocketOpenSSL
-    Destination = 'smtp.gmail.com'
-    Host = 'smtp.gmail.com'
-    MaxLineAction = maException
-    Port = 465
-    DefaultPort = 465
-    SSLOptions.Mode = sslmUnassigned
-    SSLOptions.VerifyMode = []
-    SSLOptions.VerifyDepth = 0
-    Left = 536
-    Top = 136
   end
 end

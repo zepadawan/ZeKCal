@@ -66,18 +66,7 @@ procedure TFSaisieFrame_POIDS.Btn_PartagerClick(Sender: TObject);
 begin
   inherited;
   PrinterLink_Grid.ExportToPDF('c:\Tmp\GrillePoids.pdf',False);
-  DataModule1.IdMessage.Date := Now;
-  try
-    try
-      DataModule1.IdSMTP.Connect;
-      DataModule1.IdSMTP.Authenticate;
-//      DataModule1.IdSMTP.Send(DataModule1.IdMessage);
-    finally
-      DataModule1.IdSMTP.Disconnect;
-    end;
-  except on E: Exception do
-    ShowMessage(e.Message);
-  end;
+
 end;
 
 procedure TFSaisieFrame_POIDS.Btn_PdfClick(Sender: TObject);
