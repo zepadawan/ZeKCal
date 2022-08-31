@@ -7,7 +7,8 @@ uses
   uComponentManager,
   cxStyles, cxClasses, System.ImageList, Vcl.ImgList,
   Vcl.Controls, cxImageList, cxGraphics, IdComponent, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase,
-  IdMessageClient, IdSMTPBase, IdSMTP, IdBaseComponent, IdMailBox, IdMessage, IdAttachment;
+  IdMessageClient, IdSMTPBase, IdSMTP, IdBaseComponent, IdMailBox, IdMessage, IdAttachment, IdIOHandler,
+  IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL;
 
 type
 
@@ -59,6 +60,7 @@ type
     T_PARAMSValue: TStringField;
     IdSMTP: TIdSMTP;
     IdMessage: TIdMessage;
+    SSL: TIdSSLIOHandlerSocketOpenSSL;
     procedure T_POIDSBeforePost(DataSet: TDataSet);
     procedure IdMessageCreateAttachment(const AMsg: TIdMessage; const AHeaders: TStrings;
       var AAttachment: TIdAttachment);

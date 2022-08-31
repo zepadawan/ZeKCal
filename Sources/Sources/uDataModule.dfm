@@ -121,7 +121,7 @@ object DataModule1: TDataModule1
   end
   object DS_DIABETE: TMyDataSource
     DataSet = T_DIABETE
-    Left = 328
+    Left = 336
     Top = 64
   end
   object cxStyleRepository: TcxStyleRepository
@@ -2705,7 +2705,13 @@ object DataModule1: TDataModule1
       end>
   end
   object IdSMTP: TIdSMTP
+    IOHandler = SSL
+    Host = 'smtp.gmail.com'
+    Password = '_Zepadawan456'
+    Port = 465
     SASLMechanisms = <>
+    UseTLS = utUseImplicitTLS
+    Username = 'jeanfrancois.petroff@gmail.com'
     Left = 584
     Top = 136
   end
@@ -2719,12 +2725,14 @@ object DataModule1: TDataModule1
     FromList = <
       item
         Address = 'jeanfrancois.petroff@gmail.com'
-        Text = 'jeanfrancois.petroff@gmail.com'
+        Name = 'JF PETROFF'
+        Text = 'JF PETROFF <jeanfrancois.petroff@gmail.com>'
         Domain = 'gmail.com'
         User = 'jeanfrancois.petroff'
       end>
     From.Address = 'jeanfrancois.petroff@gmail.com'
-    From.Text = 'jeanfrancois.petroff@gmail.com'
+    From.Name = 'JF PETROFF'
+    From.Text = 'JF PETROFF <jeanfrancois.petroff@gmail.com>'
     From.Domain = 'gmail.com'
     From.User = 'jeanfrancois.petroff'
     Recipients = <
@@ -2735,11 +2743,29 @@ object DataModule1: TDataModule1
         Domain = 'gmail.com'
         User = 'jeanfrancois.petroff'
       end>
-    ReplyTo = <>
+    ReplyTo = <
+      item
+        Address = 'jeanfrancois.petroff@gmail.com'
+        Text = 'jeanfrancois.petroff@gmail.com'
+        Domain = 'gmail.com'
+        User = 'jeanfrancois.petroff'
+      end>
     Subject = 'Envoi de la grille des poids'#13#10
     ConvertPreamble = True
     OnCreateAttachment = IdMessageCreateAttachment
     Left = 640
+    Top = 136
+  end
+  object SSL: TIdSSLIOHandlerSocketOpenSSL
+    Destination = 'smtp.gmail.com'
+    Host = 'smtp.gmail.com'
+    MaxLineAction = maException
+    Port = 465
+    DefaultPort = 465
+    SSLOptions.Mode = sslmUnassigned
+    SSLOptions.VerifyMode = []
+    SSLOptions.VerifyDepth = 0
+    Left = 536
     Top = 136
   end
 end
