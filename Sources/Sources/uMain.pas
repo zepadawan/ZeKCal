@@ -81,7 +81,6 @@ procedure TForm1.Btn_CumulPoidsClick(Sender: TObject);
 begin
   FTraitements.TraitementGolbal;
   ShowFrame(FSaisieFrame_POIDS);
-
 end;
 
 procedure TForm1.Btn_FermerClick(Sender: TObject);
@@ -142,10 +141,10 @@ begin
 end;
 
 procedure TForm1.TestClick(Sender: TObject);
-var
+//var
 //  aIMC : Double;
 //  aID : Integer;
- i: Integer;
+// i: Integer;
 begin
 //   calcul de l'IMC   : Poids / Talle au carré
 //  aIMC := TUtils.IMC(100.8);

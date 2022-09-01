@@ -18,7 +18,9 @@ uses
   uComponent_POIDS in 'Sources\Components\uComponent_POIDS.pas',
   uComponentManager in 'Sources\Components\uComponentManager.pas',
   uTraitements in 'Sources\Sources\uTraitements.pas',
-  uComponent_IMG in 'Sources\Components\uComponent_IMG.pas';
+  uComponent_IMG in 'Sources\Components\uComponent_IMG.pas',
+  uGraphicFrame_Custom in 'Sources\Sources\uGraphicFrame_Custom.pas' {FrameGraphic_Custom: TFrame},
+  uGraphicFrame_Diabete in 'Sources\Graphics\uGraphicFrame_Diabete.pas' {FrameGraphic_Custom1: TFrame};
 
 {$R *.res}
 

@@ -156,6 +156,16 @@
         <DCCReference Include="Sources\Components\uComponentManager.pas"/>
         <DCCReference Include="Sources\Sources\uTraitements.pas"/>
         <DCCReference Include="Sources\Components\uComponent_IMG.pas"/>
+        <DCCReference Include="Sources\Sources\uGraphicFrame_Custom.pas">
+            <Form>FrameGraphic_Custom</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Sources\Graphics\uGraphicFrame_Diabete.pas">
+            <Form>FrameGraphic_Custom1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
