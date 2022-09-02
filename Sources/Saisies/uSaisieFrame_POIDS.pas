@@ -14,7 +14,7 @@ uses
   dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport, cxDrawTextUtils, dxPSPrVwStd,
   dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxGridLnk, dxPScxGridLayoutViewLnk, dxPScxEditorProducers,
   dxPScxExtEditorProducers, dxPSCore, dxPScxCommon, cxContainer, cxButtonEdit, Vcl.Menus, Vcl.StdCtrls, cxButtons,
-  dxPgsDlg;
+  dxPgsDlg, cxCurrencyEdit;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
@@ -46,6 +46,9 @@ type
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure Btn_PdfClick(Sender: TObject);
     procedure Btn_PartagerClick(Sender: TObject);
+    procedure cxGridDBTableViewEditKeyDown(Sender: TcxCustomGridTableView; AItem: TcxCustomGridTableItem;
+      AEdit: TcxCustomEdit; var Key: Word; Shift: TShiftState);
+    procedure cxGridDBTableViewKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Déclarations privées }
     FCurrentPoids_ID: Integer;
@@ -137,6 +140,44 @@ begin
   end;
 end;
 
+procedure TFSaisieFrame_POIDS.cxGridDBTableViewEditKeyDown(Sender: TcxCustomGridTableView;
+  AItem: TcxCustomGridTableItem; AEdit: TcxCustomEdit; var Key: Word; Shift: TShiftState);
+var
+  I: Integer;
+begin
+  if Key = VK_TAB then
+  begin
+    I := 0;
+    repeat
+    begin
+      inc(I);
+      cxGridDBTableView.Controller.FocusNextCell(True);
+    end
+    until
+      (cxGridDBTableView.Controller.FocusedColumn.Options.Editing or (I > cxGridDBTableView.VisibleColumnCount));
+    Key := 0;
+  end;
+end;
+
+procedure TFSaisieFrame_POIDS.cxGridDBTableViewKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+var
+  I: Integer;
+begin
+    if Key = VK_TAB then
+    begin
+      I := 0;
+      repeat
+      begin
+        inc(I);
+        cxGridDBTableView.Controller.FocusNextCell(True);
+      end
+      until
+        (cxGridDBTableView.Controller.FocusedColumn.Options.Editing or (I > cxGridDBTableView.VisibleColumnCount));
+      Key := 0;
+    end;
+end;
+
+
 procedure TFSaisieFrame_POIDS.cxGridDBTableViewIMG_Graisse_BFCustomDrawCell(Sender: TcxCustomGridTableView;
   ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
@@ -144,6 +185,7 @@ begin
   if AViewInfo.Value <> null then
     ACanvas.Brush.Color := DataModule1.FComponentManager.getCompoIMG_ColorByID(AViewInfo.Value);
 end;
+
 
 procedure TFSaisieFrame_POIDS.cxGridDBTableViewIMG_Graisse_BFGetCellHint(Sender: TcxCustomGridTableItem;
   ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;
@@ -153,6 +195,7 @@ begin
   if (ACellViewInfo.Value<> Null) and (ACellViewInfo.Value <> 0) then
     AHintText := DataModule1.FComponentManager.getCompoIMG_LongHint(ACellViewInfo.Value);
 end;
+
 
 procedure TFSaisieFrame_POIDS.FrameResize(Sender: TObject);
 begin

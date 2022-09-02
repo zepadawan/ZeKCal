@@ -44,6 +44,7 @@ object DataModule1: TDataModule1
   object T_POIDS: TMyTable
     TableName = 't_poids'
     Connection = MyConnection1
+    Active = True
     BeforePost = T_POIDSBeforePost
     Options.FieldOrigins = foNone
     Left = 280

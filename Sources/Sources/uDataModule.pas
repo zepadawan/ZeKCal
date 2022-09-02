@@ -89,8 +89,9 @@ uses
 constructor TDataModule1.Create(AOwner: TComponent);
 begin
   inherited;
+  FormatSettings.DecimalSeparator := '.';
   InitializeTables(Self);
-  FComponentManager := TComponentManager.Create(Self);;
+  FComponentManager := TComponentManager.Create(Self);
 end;
 
 procedure TDataModule1.IdMessageCreateAttachment(const AMsg: TIdMessage; const AHeaders: TStrings;

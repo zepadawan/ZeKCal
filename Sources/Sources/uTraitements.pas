@@ -14,7 +14,7 @@ type
     FTraitementPoids : TTraitementPoids;
   public
     constructor Create;
-    destructor Destroy;
+    destructor Destroy; override;
     procedure TraitementGolbal;
     procedure Traite_Poids(aIDField: Integer);
   end;
@@ -87,12 +87,15 @@ var
   aResult : Boolean;
 begin
   aResult := DataModule1.T_POIDS.Locate('ID', FComponent_POIDS_ATraiter.POIDS_ID, [loPartialKey]);
-  DataModule1.T_POIDS.edit;
-  try
-    DataModule1.T_POIDSEcart_Poids.Value := FComponent_POIDS_ATraiter.POIDS_Ecart_Poids;
-    DataModule1.T_POIDSEcart_Cumul.Value := FComponent_POIDS_ATraiter.POIDS_Ecart_Cumul;
-  finally
-    DataModule1.T_POIDS.Post;
+  if aResult then
+  begin
+    DataModule1.T_POIDS.edit;
+    try
+      DataModule1.T_POIDSEcart_Poids.Value := FComponent_POIDS_ATraiter.POIDS_Ecart_Poids;
+      DataModule1.T_POIDSEcart_Cumul.Value := FComponent_POIDS_ATraiter.POIDS_Ecart_Cumul;
+    finally
+      DataModule1.T_POIDS.Post;
+    end;
   end;
 end;
 
@@ -102,12 +105,12 @@ end;
 constructor TTraitements.Create;
 begin
   FTraitementPoids := TTraitementPoids.Create;
-
 end;
 
 destructor TTraitements.Destroy;
 begin
   FTraitementPoids.Free;
+  inherited;
 end;
 
 procedure TTraitements.TraitementGolbal;

@@ -7,6 +7,8 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
     inherited Panel_Grid: TPanel
       inherited cxGrid: TcxGrid
         inherited cxGridDBTableView: TcxGridDBTableView
+          OnKeyDown = cxGridDBTableViewKeyDown
+          OnEditKeyDown = cxGridDBTableViewEditKeyDown
           DataController.DataSource = DataModule1.DS_POIDS
           DataController.Summary.FooterSummaryItems = <
             item
@@ -44,8 +46,7 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
           end
           object cxGridDBTableViewPoids: TcxGridDBColumn
             DataBinding.FieldName = 'Poids'
-            PropertiesClassName = 'TcxTextEditProperties'
-            Properties.Alignment.Horz = taCenter
+            PropertiesClassName = 'TcxCurrencyEditProperties'
             HeaderAlignmentHorz = taCenter
             Styles.Content = DataModule1.Gras
           end
