@@ -36,6 +36,7 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
             DataBinding.FieldName = 'Date'
             PropertiesClassName = 'TcxDateEditProperties'
             Properties.Alignment.Horz = taCenter
+            Properties.DateButtons = [btnClear, btnNow]
             Width = 214
           end
           object cxGridDBTableViewHeure: TcxGridDBColumn
@@ -83,7 +84,6 @@ inherited FSaisieFrame_DIABETE: TFSaisieFrame_DIABETE
   inherited Printer: TdxComponentPrinter
     PixelsPerInch = 96
     inherited PrinterLink_Grid: TdxGridReportLink
-      Active = True
       PrinterPage.CenterOnPageH = True
       PrinterPage.PageFooter.CenterTitle.Strings = (
         '')
