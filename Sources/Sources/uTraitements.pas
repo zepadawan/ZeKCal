@@ -4,7 +4,7 @@ unit uTraitements;
 interface
 
 uses
-  Data.DB,
+  Data.DB, System.SysUtils,
   uDataModule, uComponent_POIDS;
 
 type
@@ -49,6 +49,7 @@ var
   aResult : Boolean;
   aFirstID : Integer;
   aID : Integer;
+  aIDPrior : Integer;
 begin
   DataModule1.T_POIDS.open;
   DataModule1.T_POIDS.first;
@@ -63,9 +64,10 @@ begin
       FComponent_POIDS_ATraiter.POIDS_Poids_Prec := DataModule1.T_POIDSPoids.Value;
     end else
     begin
-      aID := aIDField - 1;
-      DataModule1.T_POIDS.Locate('ID', aIDField - 1, [loPartialKey]);
-      FComponent_POIDS_ATraiter.POIDS_ID_Prec:=  aID;
+      DataModule1.T_POIDS.Prior;
+      aIDPrior := DataModule1.T_POIDSID.Value;
+      DataModule1.T_POIDS.Locate('ID', aIDPrior, [loPartialKey]);
+      FComponent_POIDS_ATraiter.POIDS_ID_Prec:=  aIDPrior;
       FComponent_POIDS_ATraiter.POIDS_Poids_Prec := DataModule1.T_POIDSPoids.Value;
     end;
   end;

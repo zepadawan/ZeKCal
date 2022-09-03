@@ -49,7 +49,6 @@ type
     procedure Btn_Gene_SaisieDiabeteClick(Sender: TObject);
     procedure Bt_Gene_ParamsClick(Sender: TObject);
     procedure Btn_Gene_IMGClick(Sender: TObject);
-    procedure dxBarSubItem3Click(Sender: TObject);
     procedure TestClick(Sender: TObject);
     procedure Btn_Gene_Poids_MAJCumulClick(Sender: TObject);
     procedure Btn_CumulPoidsClick(Sender: TObject);
@@ -112,11 +111,6 @@ end;
 procedure TForm1.cxButton1Click(Sender: TObject);
 begin
    ShowFrame(FSaisieFrame_DIABETE);
-end;
-
-procedure TForm1.dxBarSubItem3Click(Sender: TObject);
-begin
-//  DataModule1.FComponentManager.
 end;
 
 procedure TForm1.Btn_Gene_IMGClick(Sender: TObject);

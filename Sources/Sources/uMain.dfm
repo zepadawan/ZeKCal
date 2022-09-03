@@ -230,7 +230,6 @@ object Form1: TForm1
       Caption = 'Tests'
       Category = 0
       Visible = ivAlways
-      OnClick = dxBarSubItem3Click
       ItemLinks = <
         item
           Visible = True

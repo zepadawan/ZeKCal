@@ -89,7 +89,7 @@ uses
 constructor TDataModule1.Create(AOwner: TComponent);
 begin
   inherited;
-  FormatSettings.DecimalSeparator := '.';
+//  FormatSettings.DecimalSeparator := '.';
   InitializeTables(Self);
   FComponentManager := TComponentManager.Create(Self);
 end;

@@ -14,7 +14,7 @@ uses
   dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport, cxDrawTextUtils, dxPSPrVwStd,
   dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxGridLnk, dxPScxGridLayoutViewLnk, dxPScxEditorProducers,
   dxPScxExtEditorProducers, dxPSCore, dxPScxCommon, cxContainer, cxButtonEdit, Vcl.Menus, Vcl.StdCtrls, cxButtons,
-  dxPgsDlg, cxCurrencyEdit;
+  dxPgsDlg, cxCurrencyEdit, ShellAPI;
 
 type
   TFSaisieFrame_POIDS = class(TFSaisieFrame)
@@ -66,10 +66,18 @@ uses
 {$R *.dfm}
 
 procedure TFSaisieFrame_POIDS.Btn_PartagerClick(Sender: TObject);
+var
+  aFileName: string;
+  aParameters : String;
+  aDefaultPath: string;
+  aExeName : string;
 begin
   inherited;
-  PrinterLink_Grid.ExportToPDF('c:\Tmp\GrillePoids.pdf',False);
-
+  aExeName := 'D:\Dev\Project\ZeKCal\Utils\ZeMail.exe';
+  aFileName := 'c:\Tmp\GrillePoids.pdf';
+  PrinterLink_Grid.ExportToPDF(aFileName,False);
+  aParameters := '"Transfert de la grille Poids" "c:\Tmp\GrillePoids.pdf"';
+  ShellExecute(Self.Handle,'open',PWideChar(aExeName),PWideChar(aParameters),nil,SW_SHOW);
 end;
 
 procedure TFSaisieFrame_POIDS.Btn_PdfClick(Sender: TObject);

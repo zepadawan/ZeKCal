@@ -4,7 +4,7 @@ interface
 uses
   System.SysUtils,  System.Math;
 
-  const TAILLE ='1.73';
+  const TAILLE ='1,73';
 
 type
 

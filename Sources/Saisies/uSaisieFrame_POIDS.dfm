@@ -131,14 +131,13 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
     end
     object Btn_Partager: TcxButton
       Left = 358
-      Top = 6
+      Top = 5
       Width = 161
       Height = 25
       Caption = 'Partager'
       OptionsImage.ImageIndex = 12
       OptionsImage.Images = DataModule1.ImageList_16
       TabOrder = 2
-      Visible = False
       OnClick = Btn_PartagerClick
     end
   end
