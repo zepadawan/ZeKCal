@@ -12,6 +12,11 @@ rem msbuild "SuiviPoids.dproj" /t:build /p:Configuration=Debug /p:platform=Win32
 msbuild "SuiviPoids.dproj" /t:build /p:Configuration=Debug /p:platform=Win32;DCC_ExeOutput=%OUTPUT_PATH% /maxcpucount:4
 
    
+<<<<<<< HEAD
   
 
+=======
+
+
+>>>>>>> KCal
   
