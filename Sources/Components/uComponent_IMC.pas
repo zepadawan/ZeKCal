@@ -125,6 +125,7 @@ function TComponentManager_IMC.getCompoIMC_ColorByID(aIMC_ID: Integer): TColor;
 var
   aCompoIMC: TComponent_IMC;
 begin
+  Result := 0;
   if aIMC_ID <> 0  then
   begin
     aCompoIMC := getCompoIMC_IDByValue(aIMC_ID);

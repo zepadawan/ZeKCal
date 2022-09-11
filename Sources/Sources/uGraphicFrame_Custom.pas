@@ -14,7 +14,7 @@ type
     Panel3: TPanel;
     Panel4: TPanel;
     DBChart: TDBChart;
-    Series1: TLineSeries;
+    Series1: TBarSeries;
   private
     { Déclarations privées }
   public

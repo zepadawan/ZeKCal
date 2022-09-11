@@ -13,7 +13,7 @@ uses
   dxBkgnd, dxWrap, dxPrnDev, dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport,
   cxDrawTextUtils, dxPSPrVwStd, dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxGridLnk,
   dxPScxGridLayoutViewLnk, dxPScxEditorProducers, dxPScxExtEditorProducers, dxPgsDlg, dxPSCore, dxPScxCommon,
-  Vcl.StdCtrls, cxButtons;
+  Vcl.StdCtrls, cxButtons, Winapi.ShellAPI;
 
 type
   TFSaisieFrame_DIABETE = class(TFSaisieFrame)
@@ -24,6 +24,7 @@ type
     cxGridDBTableViewApres_Repas: TcxGridDBColumn;
     procedure cxGridDBTableViewCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure Btn_PartagerClick(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -36,16 +37,19 @@ var
 implementation
 uses
   uDataModule;
-
 {$R *.dfm}
 
-
+procedure TFSaisieFrame_DIABETE.Btn_PartagerClick(Sender: TObject);
+begin
+  aFileName := 'c:\Tmp\GrilleDiabete.pdf';
+  aParameters := '"Transfert de la grille Glycémie" "c:\Tmp\GrilleDiabete.pdf"';
+  inherited;
+end;
 
 procedure TFSaisieFrame_DIABETE.cxGridDBTableViewCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
     if Odd(AViewInfo.GridRecord.Index) then
-//    ACanvas.Brush.Color := clNone
   else
     ACanvas.Brush.Color := clSkyBlue
 end;

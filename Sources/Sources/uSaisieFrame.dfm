@@ -92,6 +92,7 @@ inherited FSaisieFrame: TFSaisieFrame
     Height = 37
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 465
     object Btn_Print: TcxButton
       Left = 24
       Top = 6
@@ -102,6 +103,28 @@ inherited FSaisieFrame: TFSaisieFrame
       OptionsImage.Images = DataModule1.ImageList_16
       TabOrder = 0
       OnClick = Btn_PrintClick
+    end
+    object Btn_Partager: TcxButton
+      Left = 358
+      Top = 5
+      Width = 161
+      Height = 25
+      Caption = 'Partager'
+      OptionsImage.ImageIndex = 12
+      OptionsImage.Images = DataModule1.ImageList_16
+      TabOrder = 1
+      OnClick = Btn_PartagerClick
+    end
+    object Btn_Pdf: TcxButton
+      Left = 191
+      Top = 5
+      Width = 161
+      Height = 25
+      Caption = 'G'#233'n'#233'rer PDF'
+      OptionsImage.ImageIndex = 10
+      OptionsImage.Images = DataModule1.ImageList_16
+      TabOrder = 2
+      OnClick = Btn_PdfClick
     end
   end
   object Printer: TdxComponentPrinter

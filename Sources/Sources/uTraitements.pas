@@ -48,7 +48,6 @@ procedure TTraitementPoids.FillComponent_Poids(aIDField: Integer);
 var
   aResult : Boolean;
   aFirstID : Integer;
-  aID : Integer;
   aIDPrior : Integer;
 begin
   DataModule1.T_POIDS.open;

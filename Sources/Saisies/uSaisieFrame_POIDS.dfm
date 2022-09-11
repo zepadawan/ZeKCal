@@ -118,7 +118,8 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
     end
   end
   inherited PanelCBottom: TPanel
-    object Btn_Pdf: TcxButton
+    ExplicitTop = 464
+    object Btn_Pdf1: TcxButton [1]
       Left = 191
       Top = 6
       Width = 161
@@ -127,18 +128,19 @@ inherited FSaisieFrame_POIDS: TFSaisieFrame_POIDS
       OptionsImage.ImageIndex = 10
       OptionsImage.Images = DataModule1.ImageList_16
       TabOrder = 1
-      OnClick = Btn_PdfClick
     end
-    object Btn_Partager: TcxButton
-      Left = 358
-      Top = 5
-      Width = 161
-      Height = 25
-      Caption = 'Partager'
-      OptionsImage.ImageIndex = 12
-      OptionsImage.Images = DataModule1.ImageList_16
+    inherited Btn_Partager: TcxButton
+      Top = 6
       TabOrder = 2
-      OnClick = Btn_PartagerClick
+      ExplicitTop = 6
+    end
+    inherited Btn_Pdf: TcxButton
+      Left = 783
+      Top = 6
+      TabOrder = 3
+      Visible = False
+      ExplicitLeft = 783
+      ExplicitTop = 6
     end
   end
   inherited Printer: TdxComponentPrinter

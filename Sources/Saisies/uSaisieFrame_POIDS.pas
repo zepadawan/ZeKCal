@@ -28,8 +28,7 @@ type
     cxGridDBTableViewIMG_Graisse_BF: TcxGridDBColumn;
     cxGridDBTableViewIMG_Hydrat_BW: TcxGridDBColumn;
     cxGridDBTableViewIMG_Muscle_BM: TcxGridDBColumn;
-    Btn_Pdf: TcxButton;
-    Btn_Partager: TcxButton;
+    Btn_Pdf1: TcxButton;
     procedure cxGridDBTableView1IMC_IDGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint; var AHintText: TCaption; var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure cxGridDBTableView1IMC_IDCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
@@ -44,11 +43,10 @@ type
       var AIsHintMultiLine: Boolean; var AHintTextRect: TRect);
     procedure cxGridDBTableViewIMG_Graisse_BFCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
-    procedure Btn_PdfClick(Sender: TObject);
-    procedure Btn_PartagerClick(Sender: TObject);
     procedure cxGridDBTableViewEditKeyDown(Sender: TcxCustomGridTableView; AItem: TcxCustomGridTableItem;
       AEdit: TcxCustomEdit; var Key: Word; Shift: TShiftState);
     procedure cxGridDBTableViewKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Btn_PartagerClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrentPoids_ID: Integer;
@@ -65,25 +63,12 @@ uses
 
 {$R *.dfm}
 
-procedure TFSaisieFrame_POIDS.Btn_PartagerClick(Sender: TObject);
-var
-  aFileName: string;
-  aParameters : String;
-  aDefaultPath: string;
-  aExeName : string;
-begin
-  inherited;
-  aExeName := 'D:\Dev\Project\ZeKCal\Utils\ZeMail.exe';
-  aFileName := 'c:\Tmp\GrillePoids.pdf';
-  PrinterLink_Grid.ExportToPDF(aFileName,False);
-  aParameters := '"Transfert de la grille Poids" "c:\Tmp\GrillePoids.pdf"';
-  ShellExecute(Self.Handle,'open',PWideChar(aExeName),PWideChar(aParameters),nil,SW_SHOW);
-end;
 
-procedure TFSaisieFrame_POIDS.Btn_PdfClick(Sender: TObject);
+procedure TFSaisieFrame_POIDS.Btn_PartagerClick(Sender: TObject);
 begin
-  inherited;
-  Printer.ExportToPDF(PrinterLink_Grid);
+    aFileName := 'c:\Tmp\GrillePoids.pdf';
+    aParameters := '"Transfert de la grille Poids" "c:\Tmp\GrillePoids.pdf"';
+    inherited;
 end;
 
 procedure TFSaisieFrame_POIDS.cxGridDBTableView1CellClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);

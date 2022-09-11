@@ -13,7 +13,7 @@ uses
   dxWrap, dxPrnDev, dxPSCompsProvider, dxPSFillPatterns, dxPSEdgePatterns, dxPSPDFExportCore, dxPSPDFExport,
   cxDrawTextUtils, dxPSPrVwStd, dxPSPrVwAdv, dxPSPrVwRibbon, dxPScxPageControlProducer, dxPScxEditorProducers,
   dxPScxExtEditorProducers, Vcl.Menus, Vcl.StdCtrls, cxButtons, dxPgsDlg, dxPSCore, dxPScxGridLnk,
-  dxPScxGridLayoutViewLnk, dxPScxCommon;
+  dxPScxGridLayoutViewLnk, dxPScxCommon, Winapi.ShellAPI;
 
 type
   TFSaisieFrame = class(TFCustomFrame)
@@ -29,9 +29,17 @@ type
     Btn_Print: TcxButton;
     PrinterLink_Grid: TdxGridReportLink;
     PrinterStyleManagerStyle1: TdxPSPrintStyle;
+    Btn_Partager: TcxButton;
+    Btn_Pdf: TcxButton;
     procedure Btn_PrintClick(Sender: TObject);
+    procedure Btn_PdfClick(Sender: TObject);
+    procedure Btn_PartagerClick(Sender: TObject);
   private
     { Déclarations privées }
+  protected
+    aFileName: string;
+    aParameters : String;
+    aExeName : string;
   public
     { Déclarations publiques }
   end;
@@ -46,6 +54,19 @@ uses
 
 
 {$R *.dfm}
+
+procedure TFSaisieFrame.Btn_PartagerClick(Sender: TObject);
+begin
+  aExeName := 'D:\Dev\Project\ZeKCal\Utils\ZeMail.exe';
+  PrinterLink_Grid.ExportToPDF(aFileName,False);
+  ShellExecute(Self.Handle,'open',PWideChar(aExeName),PWideChar(aParameters),nil,SW_SHOW);
+end;
+
+procedure TFSaisieFrame.Btn_PdfClick(Sender: TObject);
+begin
+  inherited;
+  Printer.ExportToPDF(PrinterLink_Grid);
+end;
 
 procedure TFSaisieFrame.Btn_PrintClick(Sender: TObject);
 begin

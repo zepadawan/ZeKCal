@@ -1,42 +1,49 @@
 inherited FrameGraphic_Custom1: TFrameGraphic_Custom1
   inherited Panel4: TPanel
     inherited DBChart: TDBChart
+      Title.Font.Height = -19
+      Title.Font.Style = [fsBold]
+      Title.Text.Strings = (
+        'Historique Glyc'#233'mie')
+      Chart3DPercent = 3
       LeftAxis.Automatic = False
       LeftAxis.AutomaticMaximum = False
       LeftAxis.AutomaticMinimum = False
+      LeftAxis.Increment = 1.000000000000000000
       LeftAxis.Maximum = 180.000000000000000000
       LeftAxis.Minimum = 70.000000000000000000
+      Legend.LegendStyle = lsValues
+      Legend.TextStyle = ltsRightValue
+      TopAxis.Automatic = False
+      TopAxis.AutomaticMaximum = False
+      TopAxis.AutomaticMinimum = False
+      TopAxis.Maximum = 70.000000000000000000
+      View3D = True
+      View3DOptions.FontZoom = 80
+      View3DOptions.OrthoAngle = 0
+      View3DOptions.Perspective = 0
       PrintMargins = (
         15
         18
         15
         18)
-      inherited Series1: TLineSeries
-        Active = False
-        Brush.Color = clWhite
-        DrawStyle = dsAll
-        LinePen.Color = clDefault
-        Pointer.Dark3D = False
-        Stairs = True
-        XValues.ValueSource = 'Date'
-        YValues.ValueSource = 'Valeur'
-        object TSmoothingFunction
-          CalcByValue = False
-          Period = 1.000000000000000000
-          Factor = 8
-        end
-      end
-      object Series2: TBarSeries
+      inherited Series1: TBarSeries
+        ColorEachPoint = True
         DataSource = DataModule1.T_DIABETE
-        XLabelsSource = 'Valeur'
+        SeriesColor = 33023
+        ValueFormat = '0'
+        BarWidthPercent = 15
+        MultiBar = mbNone
         XValues.DateTime = True
-        XValues.Name = 'X'
-        XValues.Order = loAscending
         XValues.ValueSource = 'Date'
-        YValues.Name = 'Bar'
-        YValues.Order = loNone
         YValues.ValueSource = 'Valeur'
       end
     end
+  end
+  object TeeGDIPlus1: TTeeGDIPlus
+    Active = True
+    TeePanel = DBChart
+    Left = 64
+    Top = 8
   end
 end

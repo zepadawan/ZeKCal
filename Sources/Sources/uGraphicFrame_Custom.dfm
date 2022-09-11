@@ -13,9 +13,6 @@ object FrameGraphic_Custom: TFrameGraphic_Custom
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 112
-    ExplicitTop = 104
-    ExplicitWidth = 185
   end
   object Panel2: TPanel
     Left = 0
@@ -26,7 +23,6 @@ object FrameGraphic_Custom: TFrameGraphic_Custom
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 8
   end
   object Panel3: TPanel
     Left = 992
@@ -37,8 +33,6 @@ object FrameGraphic_Custom: TFrameGraphic_Custom
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 82
-    ExplicitHeight = 592
   end
   object Panel4: TPanel
     Left = 0
@@ -49,7 +43,6 @@ object FrameGraphic_Custom: TFrameGraphic_Custom
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
-    ExplicitTop = 35
     object DBChart: TDBChart
       Left = 1
       Top = 1
@@ -57,6 +50,8 @@ object FrameGraphic_Custom: TFrameGraphic_Custom
       Height = 631
       Title.Text.Strings = (
         'TDBChart')
+      Legend.Visible = False
+      View3D = False
       Align = alClient
       Color = clCream
       TabOrder = 0
@@ -69,13 +64,13 @@ object FrameGraphic_Custom: TFrameGraphic_Custom
         15
         18)
       ColorPaletteIndex = 13
-      object Series1: TLineSeries
-        Brush.BackColor = clDefault
-        Pointer.InflateMargins = True
-        Pointer.Style = psRectangle
+      object Series1: TBarSeries
+        BarBrush.BackColor = clDefault
+        Marks.Visible = False
+        Marks.Callout.Length = 8
         XValues.Name = 'X'
         XValues.Order = loAscending
-        YValues.Name = 'Y'
+        YValues.Name = 'Bar'
         YValues.Order = loNone
       end
     end

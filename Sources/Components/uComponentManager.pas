@@ -76,6 +76,7 @@ end;
 
 function TComponentManager.getCompoIMC_IDByValue(aValue: Double): Integer;
 begin
+  Result := 0;
 end;
 
 function TComponentManager.getCompoIMC_IMCIDByValue(aValue: Double): Integer;

@@ -149,6 +149,7 @@ function TComponentManager_IMG.getCompoIMG_ColorByID(aIMG_ID: Integer): TColor;
 var
   aCompoIMG: TComponent_IMG;
 begin
+  Result := 0;
   if aIMG_ID <> 0  then
   begin
     aCompoIMG := getCompoIMG_IDByValue(aIMG_ID);
@@ -174,7 +175,6 @@ end;
 
 function TComponentManager_IMG.getCompoIMG_LongHint(aIMG_Graisse: Double): string;
 var
-  i: integer;
   aID : Integer;
   aCompoIMG: TComponent_IMG;
 begin
@@ -186,7 +186,6 @@ end;
 
 function TComponentManager_IMG.getCompoIMC_ColorByID(aIMGValue: Double): TColor;
 var
-  i: integer;
   aID : Integer;
   aCompoIMG: TComponent_IMG;
 begin
