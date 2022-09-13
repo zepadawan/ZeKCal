@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'FormMain'
-  ClientHeight = 600
-  ClientWidth = 976
+  ClientHeight = 873
+  ClientWidth = 1208
   Color = clBtnFace
   DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
@@ -16,20 +16,22 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 14
   object Panel_Frame: TPanel
     Left = 0
-    Top = 25
-    Width = 976
-    Height = 519
+    Top = 26
+    Width = 1208
+    Height = 791
     Align = alClient
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 1116
+    ExplicitHeight = 551
     object Btn_CumulPoids: TcxButton
-      Left = 336
+      Left = 359
       Top = 17
-      Width = 281
+      Width = 320
       Height = 72
       Caption = 'Mal Cumul Poids'
       Colors.Default = clWhite
@@ -51,7 +53,7 @@ object Form1: TForm1
     object Btn_Gene_SaisiePoids: TcxButton
       Left = 33
       Top = 17
-      Width = 281
+      Width = 320
       Height = 72
       Caption = 'Saisie Poids'
       Colors.Default = clWhite
@@ -70,12 +72,12 @@ object Form1: TForm1
       ParentFont = False
       OnClick = Btn_Gene_SaisiePoidsClick
     end
-    object cxButton1: TcxButton
+    object Btn_Saisie_Diabete: TcxButton
       Left = 33
       Top = 105
-      Width = 281
+      Width = 320
       Height = 72
-      Caption = 'Saisie Diab'#232'te'
+      Caption = 'Saisie Glyc'#233'mie'
       Colors.Default = clWhite
       Colors.DefaultText = clHighlight
       LookAndFeel.NativeStyle = True
@@ -90,16 +92,40 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = cxButton1Click
+      OnClick = Btn_Saisie_DiabeteClick
+    end
+    object Btn_Graphic_Diabete: TcxButton
+      Left = 359
+      Top = 105
+      Width = 320
+      Height = 72
+      Caption = 'Graphique Glyc'#233'mie'
+      Colors.Default = clWhite
+      Colors.DefaultText = clHighlight
+      LookAndFeel.NativeStyle = True
+      OptionsImage.ImageIndex = 3
+      OptionsImage.Images = cxImageList_ext
+      OptionsImage.Margin = 10
+      OptionsImage.Spacing = 20
+      TabOrder = 3
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clHighlight
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = Btn_Graphic_DiabeteClick
     end
   end
   object Panel1: TPanel
     Left = 0
-    Top = 544
-    Width = 976
+    Top = 817
+    Width = 1208
     Height = 56
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 577
+    ExplicitWidth = 1116
     object Btn_Fermer: TcxButton
       Left = 832
       Top = 6
@@ -151,7 +177,7 @@ object Form1: TForm1
     DockControlHeights = (
       0
       0
-      25
+      26
       0)
     object dxBarManager1Bar1: TdxBar
       Caption = 'Custom 1'
@@ -309,7 +335,7 @@ object Form1: TForm1
   object ImageList_16: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    DesignInfo = 4195064
+    DesignInfo = 17825832
     ImageInfo = <
       item
         ImageClass = 'TdxPNGImage'
@@ -604,7 +630,7 @@ object Form1: TForm1
     Height = 64
     Width = 64
     FormatVersion = 1
-    DesignInfo = 7340784
+    DesignInfo = 18350216
     ImageInfo = <
       item
         Image.Data = {

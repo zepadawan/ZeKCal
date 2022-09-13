@@ -162,7 +162,7 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="Sources\Graphics\uGraphicFrame_Diabete.pas">
-            <Form>FrameGraphic_Custom1</Form>
+            <Form>FrameGraphic_DIABETE</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>

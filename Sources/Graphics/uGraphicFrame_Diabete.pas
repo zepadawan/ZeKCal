@@ -8,7 +8,7 @@ uses
   VCLTee.Series, VCLTee.TeeProcs, VCLTee.Chart, VCLTee.DBChart, Vcl.ExtCtrls, VCLTee.TeeSpline;
 
 type
-  TFrameGraphic_Custom1 = class(TFrameGraphic_Custom)
+  TFrameGraphic_DIABETE = class(TFrameGraphic_Custom)
     TeeGDIPlus1: TTeeGDIPlus;
   private
     { Déclarations privées }
@@ -17,7 +17,7 @@ type
   end;
 
 var
-  FrameGraphic_Custom1: TFrameGraphic_Custom1;
+  FrameGraphic_DIABETE: TFrameGraphic_DIABETE;
 
 implementation
 {$R *.dfm}

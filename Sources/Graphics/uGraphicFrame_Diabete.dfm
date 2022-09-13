@@ -1,4 +1,4 @@
-inherited FrameGraphic_Custom1: TFrameGraphic_Custom1
+inherited FrameGraphic_DIABETE: TFrameGraphic_DIABETE
   inherited Panel4: TPanel
     inherited DBChart: TDBChart
       Title.Font.Height = -19
@@ -17,7 +17,6 @@ inherited FrameGraphic_Custom1: TFrameGraphic_Custom1
       TopAxis.Automatic = False
       TopAxis.AutomaticMaximum = False
       TopAxis.AutomaticMinimum = False
-      TopAxis.Maximum = 70.000000000000000000
       View3D = True
       View3DOptions.FontZoom = 80
       View3DOptions.OrthoAngle = 0

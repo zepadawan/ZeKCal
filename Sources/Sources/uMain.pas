@@ -10,6 +10,7 @@ uses
   uFrame_Manager,
   uSaisieFrame_IMC, uSaisieFrame_IMG,
   uSaisieFrame_POIDS, uSaisieFrame_DIABETE, uSaisieFrame_PARAMS,
+  uGraphicFrame_Diabete,
   uTraitements,
   uFrameMenu, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxBar, cxClasses, cxButtons, dxStatusBar,
@@ -37,10 +38,11 @@ type
     Btn_Gene_Poids_MAJCumul: TdxBarButton;
     Btn_CumulPoids: TcxButton;
     Btn_Gene_SaisiePoids: TcxButton;
-    cxButton1: TcxButton;
+    Btn_Saisie_Diabete: TcxButton;
     Btn_Quitter: TcxButton;
     ImageList_16: TcxImageList;
     cxImageList_ext: TcxImageList;
+    Btn_Graphic_Diabete: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure Btn_IMCClick(Sender: TObject);
     procedure Btn_FermerClick(Sender: TObject);
@@ -53,8 +55,9 @@ type
     procedure Btn_Gene_Poids_MAJCumulClick(Sender: TObject);
     procedure Btn_CumulPoidsClick(Sender: TObject);
     procedure Btn_Gene_SaisiePoidsClick(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
+    procedure Btn_Saisie_DiabeteClick(Sender: TObject);
     procedure Btn_QuitterClick(Sender: TObject);
+    procedure Btn_Graphic_DiabeteClick(Sender: TObject);
   private
     { Déclarations privées }
     FCurrent_Frame : TFrame;
@@ -108,9 +111,14 @@ begin
   ShowFrame(FSaisieFrame_PARAMS);
 end;
 
-procedure TForm1.cxButton1Click(Sender: TObject);
+procedure TForm1.Btn_Saisie_DiabeteClick(Sender: TObject);
 begin
    ShowFrame(FSaisieFrame_DIABETE);
+end;
+
+procedure TForm1.Btn_Graphic_DiabeteClick(Sender: TObject);
+begin
+   ShowFrame(FrameGraphic_DIABETE);
 end;
 
 procedure TForm1.Btn_Gene_IMGClick(Sender: TObject);
@@ -164,6 +172,7 @@ begin
   FFrame_Manager.AddFrame(FSaisieFrame_POIDS);
   FFrame_Manager.AddFrame(FSaisieFrame_DIABETE);
   FFrame_Manager.AddFrame(FSaisieFrame_PARAMS);
+  FFrame_Manager.AddFrame(FrameGraphic_DIABETE);
 
 end;
 procedure TForm1.initializeComponents;
@@ -188,6 +197,7 @@ begin
   FSaisieFrame_IMG := TFSaisieFrame_IMG.Create(Form1);
   FSaisieFrame_POIDS := TFSaisieFrame_POIDS.Create(Form1);
   FSaisieFrame_DIABETE := TFSaisieFrame_DIABETE.Create(Form1);
+  FrameGraphic_DIABETE := TFrameGraphic_DIABETE.Create(Form1);
   FSaisieFrame_PARAMS := TFSaisieFrame_PARAMS.Create(Form1);
 
 end;
@@ -198,6 +208,7 @@ begin
   FSaisieFrame_IMG.Free;
   FSaisieFrame_POIDS.Free;
   FSaisieFrame_DIABETE.Free;
+  FrameGraphic_DIABETE.Free;
   FSaisieFrame_PARAMS.Free;
 end;
 
